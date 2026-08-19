@@ -1,0 +1,35 @@
+/* ============================================================
+   Site.css - Base overrides for Codelecta
+   The primary styles are in codelecta.css
+   ============================================================ */
+
+/* Remove default template body-content spacing */
+.body-content {
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Remove the default max-width restriction on form inputs
+   codelecta.css handles form input sizing */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: none;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .body-content {
+        padding: 0;
+    }
+}

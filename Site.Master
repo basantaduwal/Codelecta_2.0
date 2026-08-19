@@ -1,0 +1,124 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Codelecta_2._0.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Codelecta - A Web-Based Interactive Programming Learning Platform" />
+    <title><%: Page.Title %> - Codelecta</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/Content/codelecta.css") %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!-- ==================== CODELECTA NAVIGATION ==================== -->
+        <header class="codelecta-nav" id="mainNav">
+            <div class="nav-container">
+                <a class="nav-brand" runat="server" href="~/">
+                    <img src="<%= ResolveUrl("~/Logo.png") %>" alt="Codelecta Logo" class="brand-logo-img" />
+                    <span class="brand-text">CODELECTA</span>
+                </a>
+                
+                <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" onclick="return false;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-links">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/Courses">Courses</a></li>
+                        <li><a runat="server" href="~/About">About Us</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                    
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <div class="nav-auth">
+                                <a runat="server" href="~/Account/Login">Login</a>
+                                <a runat="server" href="~/Account/Register" class="btn-nav-primary">Sign Up</a>
+                            </div>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <div class="nav-auth">
+                                <a runat="server" href="~/" class="nav-link">Dashboard</a>
+                                <span class="nav-user-info">Welcome, <%: Context.User.Identity.GetUserName() %></span>
+                                <asp:LoginStatus runat="server" CssClass="btn-nav-primary" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </div>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== MAIN CONTENT PLACEHOLDER ==================== -->
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- ==================== CODELECTA FOOTER ==================== -->
+        <footer class="codelecta-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="footer-brand-title">
+                            <img src="<%= ResolveUrl("~/Logo.png") %>" alt="Codelecta Logo" class="footer-brand-logo-img" />
+                            <h3>CODELECTA</h3>
+                        </div>
+                        <p>Making programming education interactive, structured, and accessible for everyone.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a runat="server" href="~/">Home</a></li>
+                            <li><a runat="server" href="~/Courses">Courses</a></li>
+                            <li><a runat="server" href="~/About">About Us</a></li>
+                            <li><a runat="server" href="~/Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Account</h4>
+                        <ul>
+                            <li><a runat="server" href="~/Account/Login">Login</a></li>
+                            <li><a runat="server" href="~/Account/Register">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Codelecta. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+    <script src="<%= ResolveUrl("~/Scripts/codelecta.js") %>"></script>
+</body>
+</html>
