@@ -56,9 +56,36 @@
 
             <!-- ==================== MAIN FORM & SUPPORT CARD ==================== -->
             <div style="background: #FFFFFF; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 12px 36px rgba(108, 92, 231, 0.07); padding: 44px 40px; margin-bottom: 70px;">
-                <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 44px; align-items: start;">
+                <div style="display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 44px; align-items: start;">
                     
-                    <!-- Left: Form -->
+                    <!-- Left: Developer Support Card -->
+                    <div style="background: #F8F7FF; border: 1px solid #ECE7FF; border-radius: 18px; padding: 32px 28px;">
+                        <!-- Terminal Icon Badge -->
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E4DEFF; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(108, 92, 231, 0.08);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="M6 8h.01"></path>
+                                <path d="M10 8h.01"></path>
+                                <path d="M14 8h.01"></path>
+                                <path d="m8 13 2 2-2 2"></path>
+                                <path d="M12 17h4"></path>
+                            </svg>
+                        </div>
+
+                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin: 0 0 10px 0;">Developer Support</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; margin: 0 0 22px 0;">
+                            Our technical team is ready to help you debug issues, understand complex concepts, and guide you through our curriculum.
+                        </p>
+
+                        <!-- Code Snippet Box -->
+                        <div style="background: #FFFFFF; border: 1px solid #E5E0FB; border-radius: 10px; padding: 16px; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.85rem; color: #6C5CE7; line-height: 1.6;">
+                            <div><span style="color: #A855F7;">function</span> <span style="color: #4F46E5;">contactSupport</span>() {</div>
+                            <div style="padding-left: 14px;"><span style="color: #A855F7;">return</span> <span style="color: #059669;">"We reply fast!"</span>;</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
                     <div>
                         <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-primary); margin: 0 0 6px 0; letter-spacing: -0.02em;">Send Us a Message</h2>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 28px 0;">We'll get back to you as soon as possible.</p>
@@ -73,7 +100,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;">
                             <div>
                                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Full Name</label>
-                                <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-input" placeholder="" Width="100%"
+                                <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-input" placeholder="Enter your name" Width="100%"
                                     style="padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.92rem;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"
                                     ErrorMessage="Name is required." Display="Dynamic" ValidationGroup="ContactGroup"
@@ -81,7 +108,7 @@
                             </div>
                             <div>
                                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Email Address</label>
-                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-input" TextMode="Email" placeholder="" Width="100%"
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-input" TextMode="Email" placeholder="example@gmail.com" Width="100%"
                                     style="padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.92rem;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
                                     ErrorMessage="Email is required." Display="Dynamic" ValidationGroup="ContactGroup"
@@ -113,34 +140,7 @@
                         <div>
                             <asp:Button ID="btnSubmit" runat="server" Text="Send Message" CssClass="btn-primary"
                                 ValidationGroup="ContactGroup" OnClick="btnSubmit_Click"
-                                style="padding: 12px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; cursor: pointer;" />
-                        </div>
-                    </div>
-
-                    <!-- Right: Developer Support Card -->
-                    <div style="background: #F8F7FF; border: 1px solid #ECE7FF; border-radius: 18px; padding: 32px 28px;">
-                        <!-- Terminal Icon Badge -->
-                        <div style="width: 44px; height: 44px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E4DEFF; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(108, 92, 231, 0.08);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                                <path d="M6 8h.01"></path>
-                                <path d="M10 8h.01"></path>
-                                <path d="M14 8h.01"></path>
-                                <path d="m8 13 2 2-2 2"></path>
-                                <path d="M12 17h4"></path>
-                            </svg>
-                        </div>
-
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin: 0 0 10px 0;">Developer Support</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; margin: 0 0 22px 0;">
-                            Our technical team is ready to help you debug issues, understand complex concepts, and guide you through our curriculum.
-                        </p>
-
-                        <!-- Code Snippet Box -->
-                        <div style="background: #FFFFFF; border: 1px solid #E5E0FB; border-radius: 10px; padding: 16px; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.85rem; color: #6C5CE7; line-height: 1.6;">
-                            <div><span style="color: #A855F7;">function</span> <span style="color: #4F46E5;">contactSupport</span>() {</div>
-                            <div style="padding-left: 14px;"><span style="color: #A855F7;">return</span> <span style="color: #059669;">"We reply fast!"</span>;</div>
-                            <div>}</div>
+                                style="padding: 12px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; cursor: pointer; width: 100%; text-align: center" />
                         </div>
                     </div>
                 </div>

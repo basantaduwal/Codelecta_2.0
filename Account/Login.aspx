@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="form-label">Email Address</asp:Label>
-                        <asp:TextBox runat="server" ID="Email" CssClass="form-control form-input" TextMode="Email" placeholder="you@example.com" />
+                        <asp:TextBox runat="server" ID="Email" CssClass="form-control form-input" TextMode="Email" placeholder="example@gmail.com" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                             CssClass="text-danger field-validation-error" ErrorMessage="The email field is required." Display="Dynamic" />
                     </div>

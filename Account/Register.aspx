@@ -52,8 +52,15 @@
                     <asp:ValidationSummary runat="server" CssClass="text-danger validation-summary" />
 
                     <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="FullName" CssClass="form-label">Full Name</asp:Label>
+                        <asp:TextBox runat="server" ID="FullName" CssClass="form-control form-input" placeholder="Enter your name" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="FullName"
+                            CssClass="text-danger field-validation-error" ErrorMessage="Full Name is required." Display="Dynamic" />
+                    </div>
+
+                    <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="form-label">Email Address</asp:Label>
-                        <asp:TextBox runat="server" ID="Email" CssClass="form-control form-input" TextMode="Email" placeholder="you@example.com" />
+                        <asp:TextBox runat="server" ID="Email" CssClass="form-control form-input" TextMode="Email" placeholder="example@gmail.com" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                             CssClass="text-danger field-validation-error" ErrorMessage="The email field is required." Display="Dynamic" />
                     </div>

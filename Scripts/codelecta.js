@@ -101,4 +101,25 @@ document.addEventListener('DOMContentLoaded', () => {
             revealElements.forEach(el => el.classList.add('revealed'));
         }
     }
+
+    // 6. User Profile Dropdown Outside Click Closer
+    document.addEventListener('click', (e) => {
+        const dropdownWrapper = document.getElementById('userDropdownWrapper');
+        if (dropdownWrapper && !dropdownWrapper.contains(e.target)) {
+            dropdownWrapper.classList.remove('active');
+        }
+    });
 });
+
+// Global dropdown toggle function for the button onclick
+function toggleUserDropdown(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const wrapper = document.getElementById('userDropdownWrapper');
+    if (wrapper) {
+        wrapper.classList.toggle('active');
+    }
+}
+

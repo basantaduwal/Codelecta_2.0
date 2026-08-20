@@ -15,6 +15,8 @@ namespace Codelecta_2._0.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string FullName { get; set; }
+
         // Navigation properties linking to the new models
         public virtual ICollection<Course> InstructedCourses { get; set; }
         public virtual ICollection<UserCourse> EnrolledCourses { get; set; }
@@ -25,6 +27,10 @@ namespace Codelecta_2._0.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = manager.CreateIdentity(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+            if (!string.IsNullOrEmpty(FullName))
+            {
+                userIdentity.AddClaim(new Claim("FullName", FullName));
+            }
             return userIdentity;
         }
 

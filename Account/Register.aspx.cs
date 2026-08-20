@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +15,12 @@ namespace Codelecta_2._0.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+            var user = new ApplicationUser() 
+            { 
+                UserName = Email.Text, 
+                Email = Email.Text,
+                FullName = FullName.Text.Trim()
+            };
 
             // Prevent duplicate usernames/emails
             var existingUser = manager.FindByName(Email.Text);

@@ -49,16 +49,88 @@
                             </div>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
-                            <div class="nav-auth">
-                                <a runat="server" href="~/Admin/ManageCourses" class="nav-link">Admin Dashboard</a>
-                                <span class="nav-user-info">Welcome, <%: Context.User.Identity.GetUserName() %></span>
-                                <asp:LoginStatus runat="server" CssClass="btn-nav-primary" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            <div class="user-dropdown-wrapper" id="userDropdownWrapper">
+                                <button type="button" class="user-dropdown-btn" id="userDropdownTrigger" onclick="toggleUserDropdown(event);">
+                                    <div class="user-avatar-circle">
+                                        <%: GetUserInitial() %>
+                                    </div>
+                                    <span class="user-display-name"><%: GetUserDisplayName() %></span>
+                                    <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+
+                                <div class="user-dropdown-menu" id="userDropdownMenu">
+                                    <div class="dropdown-header">
+                                        <span class="signed-in-label">Signed in as</span>
+                                        <span class="signed-in-email"><%: Context.User.Identity.GetUserName() %></span>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <ul class="dropdown-items-list">
+                                        <li>
+                                            <a runat="server" href="~/Dashboard" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                </svg>
+                                                <span>My Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" href="~/Courses" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                                </svg>
+                                                <span>Course Catalog</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" href="~/Admin/ManageCourses" class="dropdown-item dropdown-item-admin">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                                </svg>
+                                                <span>Admin Panel</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-logout-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                            <polyline points="16 17 21 12 16 7"></polyline>
+                                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                                        </svg>
+                                        <asp:LoginStatus runat="server" CssClass="dropdown-logout-btn" LogoutAction="Redirect" LogoutText="Sign Out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </div>
+                                </div>
                             </div>
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
             </div>
         </header>
+
+        <script type="text/javascript">
+            function toggleUserDropdown(e) {
+                if (e) {
+                    if (e.stopPropagation) e.stopPropagation();
+                    if (e.preventDefault) e.preventDefault();
+                }
+                var wrapper = document.getElementById('userDropdownWrapper');
+                if (wrapper) {
+                    wrapper.classList.toggle('active');
+                }
+            }
+
+            document.addEventListener('click', function (e) {
+                var wrapper = document.getElementById('userDropdownWrapper');
+                if (wrapper && !wrapper.contains(e.target)) {
+                    wrapper.classList.remove('active');
+                }
+            });
+        </script>
 
         <!-- ==================== MAIN CONTENT PLACEHOLDER ==================== -->
         <div class="body-content">

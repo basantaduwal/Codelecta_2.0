@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -75,6 +75,32 @@ namespace Codelecta_2._0
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        public string GetUserDisplayName()
+        {
+            if (Context.User != null && Context.User.Identity.IsAuthenticated)
+            {
+                var claimsIdentity = Context.User.Identity as ClaimsIdentity;
+                var fullNameClaim = claimsIdentity?.FindFirst("FullName");
+                if (fullNameClaim != null && !string.IsNullOrWhiteSpace(fullNameClaim.Value))
+                {
+                    return fullNameClaim.Value;
+                }
+                string name = Context.User.Identity.GetUserName();
+                if (!string.IsNullOrEmpty(name) && name.Contains("@"))
+                {
+                    return name.Split('@')[0];
+                }
+                return name ?? "User";
+            }
+            return "User";
+        }
+
+        public string GetUserInitial()
+        {
+            string displayName = GetUserDisplayName();
+            return !string.IsNullOrEmpty(displayName) ? displayName.Substring(0, 1).ToUpper() : "U";
         }
     }
 
