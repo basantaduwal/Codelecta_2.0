@@ -1,4 +1,4 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="Codelecta_2._0.Account.OpenAuthProviders" %>
+c<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="Codelecta_2._0.Account.OpenAuthProviders" %>
 
 <div id="socialLoginList">
     <asp:ListView runat="server" ID="providerDetails" ItemType="System.String"

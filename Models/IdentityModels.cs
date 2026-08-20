@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,6 +15,11 @@ namespace Codelecta_2._0.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        // Navigation properties linking to the new models
+        public virtual ICollection<Course> InstructedCourses { get; set; }
+        public virtual ICollection<UserCourse> EnrolledCourses { get; set; }
+        public virtual ICollection<LessonProgress> LessonProgresses { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -33,6 +40,12 @@ namespace Codelecta_2._0.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        // Register the new tables in the database context
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<UserCourse> UserCourses { get; set; }
+        public DbSet<LessonProgress> LessonProgresses { get; set; }
 
         public static ApplicationDbContext Create()
         {

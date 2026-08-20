@@ -22,7 +22,6 @@
         <asp:ScriptManager runat="server">
             <Scripts>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
@@ -66,7 +65,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <div class="nav-auth">
-                                <a runat="server" href="~/" class="nav-link">Dashboard</a>
+                                <a runat="server" href="~/Instructor/ManageCourses" class="nav-link">Instructor Dashboard</a>
                                 <span class="nav-user-info">Welcome, <%: Context.User.Identity.GetUserName() %></span>
                                 <asp:LoginStatus runat="server" CssClass="btn-nav-primary" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                             </div>
@@ -117,7 +116,6 @@
         </footer>
     </form>
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
     <script src="<%= ResolveUrl("~/Scripts/codelecta.js") %>"></script>
 </body>
