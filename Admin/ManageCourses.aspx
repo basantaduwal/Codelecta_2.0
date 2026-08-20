@@ -1,9 +1,9 @@
-<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Instructor.ManageCourses" %>
+<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageCourses" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container section-padding">
         <div class="section-header" style="margin-bottom: 40px;">
-            <h2 class="section-title">Instructor Dashboard</h2>
+            <h2 class="section-title">Admin Dashboard</h2>
             <p class="section-subtitle">Create and manage your educational content.</p>
         </div>
         

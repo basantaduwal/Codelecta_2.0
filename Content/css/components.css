@@ -1,0 +1,134 @@
+/* ============================================================
+   BUTTONS, CARDS, BADGES & SHARED COMPONENTS
+   ============================================================ */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 30px;
+    background: var(--gradient-primary);
+    color: #FFFFFF !important;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    text-decoration: none !important;
+    line-height: 1.5;
+    box-shadow: 0 4px 18px rgba(108, 92, 231, 0.28);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    filter: brightness(1.12);
+    color: #FFFFFF !important;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: #FFFFFF;
+    color: var(--primary) !important;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
+    color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-lg {
+    padding: 15px 34px;
+    font-size: 1.025rem;
+    border-radius: var(--radius-md);
+}
+
+/* Features Bar */
+.features-bar-section {
+    padding: 20px 0 60px;
+}
+
+.features-bar-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    padding: 36px 44px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    transition: box-shadow 0.3s ease;
+}
+
+.features-bar-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-bar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.feature-bar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-badge);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.feature-bar-item:hover .feature-bar-icon {
+    transform: translateY(-2px);
+}
+
+.feature-bar-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary);
+}
+
+.feature-bar-text h4 {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.feature-bar-text p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Feature card utilities */
+.feature-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}

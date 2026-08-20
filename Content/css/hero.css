@@ -1,0 +1,184 @@
+/* ============================================================
+   HERO SECTION, MONITOR ILLUSTRATION & ANIMATIONS
+   ============================================================ */
+.hero-section {
+    background: var(--gradient-hero);
+    padding: 70px 0 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.12) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.85rem;
+    font-weight: 900;
+    line-height: 1.12;
+    color: var(--text-primary);
+    margin-bottom: 22px;
+    margin-top: 0;
+    letter-spacing: -0.035em;
+}
+
+.hero-title .purple-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-text {
+    font-size: 1.18rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 38px;
+    max-width: 520px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Hero Monitor / Desk Illustration */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monitor-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.monitor-badge {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 56px;
+    height: 56px;
+    background: var(--gradient-badge);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.monitor-screen {
+    background: #1E1B4B;
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 25px 50px -12px rgba(30, 27, 75, 0.3);
+    border: 3px solid #312E81;
+}
+
+.monitor-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3730A3;
+}
+
+.monitor-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.monitor-code {
+    padding: 18px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #A5B4FC;
+}
+
+.monitor-code .kw { color: #F472B6; font-weight: 600; }
+.monitor-code .type { color: #38BDF8; }
+.monitor-code .str { color: #34D399; }
+.monitor-code .fn { color: #FBBF24; }
+
+.monitor-stand {
+    width: 90px;
+    height: 35px;
+    background: #E2E8F0;
+    margin: 0 auto;
+    border-radius: 0 0 8px 8px;
+}
+
+.monitor-base {
+    width: 180px;
+    height: 10px;
+    background: #CBD5E1;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.desk-props {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: -30px;
+    padding: 0 20px;
+}
+
+.prop-plant {
+    width: 44px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 12px 12px 16px 16px;
+    position: relative;
+    opacity: 0.85;
+}
+
+.prop-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.book-1 { width: 70px; height: 12px; background: #6C5CE7; border-radius: 3px; }
+.book-2 { width: 80px; height: 14px; background: #A855F7; border-radius: 3px; }

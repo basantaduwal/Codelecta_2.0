@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNet.Identity;
 using Codelecta_2._0.Models;
 
-namespace Codelecta_2._0.Instructor
+namespace Codelecta_2._0.Admin
 {
     public partial class ManageLessons : System.Web.UI.Page
     {

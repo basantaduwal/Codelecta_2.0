@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Codelecta_2._0.Instructor {
+namespace Codelecta_2._0.Admin {
     
     
     public partial class ManageCourses {

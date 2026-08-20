@@ -73,7 +73,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;">
                             <div>
                                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Full Name</label>
-                                <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-input" placeholder="John Doe" Width="100%"
+                                <asp:TextBox ID="txtName" runat="server" CssClass="form-control form-input" placeholder="" Width="100%"
                                     style="padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.92rem;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"
                                     ErrorMessage="Name is required." Display="Dynamic" ValidationGroup="ContactGroup"
@@ -81,7 +81,7 @@
                             </div>
                             <div>
                                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Email Address</label>
-                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-input" TextMode="Email" placeholder="john@example.com" Width="100%"
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-input" TextMode="Email" placeholder="" Width="100%"
                                     style="padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.92rem;"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
                                     ErrorMessage="Email is required." Display="Dynamic" ValidationGroup="ContactGroup"

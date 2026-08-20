@@ -17,7 +17,7 @@
                     <asp:Label ID="lblLessonCount" runat="server"></asp:Label> Lessons
                 </span>
                 <span style="color: var(--text-muted); font-size: 0.9rem;">
-                    Instructor: <asp:Label ID="lblInstructor" runat="server"></asp:Label>
+                    Admin: <asp:Label ID="lblInstructor" runat="server"></asp:Label>
                 </span>
 
                 <asp:Panel ID="pnlEnroll" runat="server" Visible="false">

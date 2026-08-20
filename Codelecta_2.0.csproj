@@ -163,6 +163,15 @@
     <Content Include="ViewLesson.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\css\variables.css" />
+    <Content Include="Content\css\base.css" />
+    <Content Include="Content\css\components.css" />
+    <Content Include="Content\css\navbar.css" />
+    <Content Include="Content\css\hero.css" />
+    <Content Include="Content\css\courses.css" />
+    <Content Include="Content\css\auth.css" />
+    <Content Include="Content\css\footer.css" />
+    <Content Include="Content\css\responsive.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
@@ -324,22 +333,22 @@
     <Compile Include="Migrations\202608200315443_AddLmsTables.cs" />
     <Compile Include="Migrations\202608200315443_AddLmsTables.Designer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Instructor\ManageCourses.aspx.cs">
+    <Compile Include="Admin\ManageCourses.aspx.cs">
       <DependentUpon>ManageCourses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Instructor\ManageCourses.aspx.designer.cs">
+    <Compile Include="Admin\ManageCourses.aspx.designer.cs">
       <DependentUpon>ManageCourses.aspx</DependentUpon>
     </Compile>
-    <Content Include="Instructor\ManageCourses.aspx" />
-    <Content Include="Instructor\Web.config" />
+    <Content Include="Admin\ManageCourses.aspx" />
+    <Content Include="Admin\Web.config" />
     <EmbeddedResource Include="Migrations\202608200315443_AddLmsTables.resx" />
-    <Content Include="Instructor\ManageLessons.aspx" />
-    <Compile Include="Instructor\ManageLessons.aspx.cs">
+    <Content Include="Admin\ManageLessons.aspx" />
+    <Compile Include="Admin\ManageLessons.aspx.cs">
       <DependentUpon>ManageLessons.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Instructor\ManageLessons.aspx.designer.cs">
+    <Compile Include="Admin\ManageLessons.aspx.designer.cs">
       <DependentUpon>ManageLessons.aspx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202608201022420_AddVideoUrlToLesson.cs" />

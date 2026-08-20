@@ -50,7 +50,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <div class="nav-auth">
-                                <a runat="server" href="~/Instructor/ManageCourses" class="nav-link">Instructor Dashboard</a>
+                                <a runat="server" href="~/Admin/ManageCourses" class="nav-link">Admin Dashboard</a>
                                 <span class="nav-user-info">Welcome, <%: Context.User.Identity.GetUserName() %></span>
                                 <asp:LoginStatus runat="server" CssClass="btn-nav-primary" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                             </div>

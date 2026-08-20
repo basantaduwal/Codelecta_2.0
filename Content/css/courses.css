@@ -1,0 +1,196 @@
+/* ============================================================
+   COURSES, CATALOG, LESSONS & PROGRESS
+   ============================================================ */
+.courses-section {
+    padding: 40px 0 80px;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.course-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.course-card:hover::after {
+    opacity: 1;
+}
+
+.course-icon-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    box-shadow: var(--shadow-sm);
+}
+
+.python-badge { background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #D97706; }
+.react-badge { background: linear-gradient(135deg, #E0F2FE, #BAE6FD); color: #0284C7; }
+.java-badge { background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #DC2626; }
+.js-badge { background: linear-gradient(135deg, #FEF08A, #FDE047); color: #CA8A04; }
+
+.course-card-info h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.course-card-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Learning Journey & Audience */
+.journey-section {
+    background: var(--gradient-hero);
+    padding: 80px 0;
+    position: relative;
+}
+
+.journey-steps {
+    display: flex;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.journey-step {
+    flex: 1;
+    background: #FFFFFF;
+    padding: 36px 28px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.journey-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0 auto 20px;
+    box-shadow: var(--shadow-glow);
+}
+
+.journey-step h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.journey-step p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.audience-section {
+    padding: 80px 0;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.audience-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.audience-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.audience-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-badge);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+}
+
+.audience-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary);
+}
+
+.audience-card h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.audience-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
