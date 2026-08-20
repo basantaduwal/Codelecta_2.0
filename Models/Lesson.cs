@@ -15,6 +15,8 @@ namespace Codelecta_2._0.Models
 
         public string Content { get; set; } // Could be HTML, Text, or Video URL
 
+        public string VideoUrl { get; set; }
+
         public int OrderIndex { get; set; }
 
         // Connect to Course

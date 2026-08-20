@@ -7,13 +7,13 @@ namespace Codelecta_2._0.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddLmsTables : IMigrationMetadata
+    public sealed partial class AddVideoUrlToLesson : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager("Codelecta_2._0.Migrations.202608200315443_AddLmsTables", typeof(AddLmsTables).Assembly);
+        private readonly ResourceManager Resources = new ResourceManager("Codelecta_2._0.Migrations.202608201022420_AddVideoUrlToLesson", typeof(AddVideoUrlToLesson).Assembly);
         
         string IMigrationMetadata.Id
         {
-            get { return "202608200315443_AddLmsTables"; }
+            get { return "202608201022420_AddVideoUrlToLesson"; }
         }
         
         string IMigrationMetadata.Source
