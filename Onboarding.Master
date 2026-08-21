@@ -1,0 +1,16 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Onboarding.Master.cs" Inherits="Codelecta_2._0.OnboardingMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> — Codelecta</title>
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/codelecta.css") %>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/onboarding.css") %>" />
+</head>
+<body class="ob-body">
+    <form id="ObForm" runat="server">
+        <asp:ContentPlaceHolder ID="OnboardingContent" runat="server" />
+    </form>
+</body>
+</html>

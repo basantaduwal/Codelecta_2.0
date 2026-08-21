@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
@@ -38,7 +38,17 @@ namespace Codelecta_2._0.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        // Check if the user has completed the first-login onboarding experience
+                        var manager2 = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                        var loggedInUser = manager2.FindByName(Email.Text) as ApplicationUser;
+                        if (loggedInUser != null && !loggedInUser.OnboardingCompleted)
+                        {
+                            Response.Redirect("~/Onboarding");
+                        }
+                        else
+                        {
+                            IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        }
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

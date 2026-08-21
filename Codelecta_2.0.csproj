@@ -173,6 +173,9 @@
     <Content Include="Content\css\footer.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Onboarding.aspx" />
+    <Content Include="Onboarding.Master" />
+    <Content Include="Content\css\onboarding.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
@@ -276,6 +279,19 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Onboarding.aspx.cs">
+      <DependentUpon>Onboarding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Onboarding.aspx.designer.cs">
+      <DependentUpon>Onboarding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Onboarding.Master.cs">
+      <DependentUpon>Onboarding.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Onboarding.Master.designer.cs">
+      <DependentUpon>Onboarding.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202608210000001_AddOnboarding.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

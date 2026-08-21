@@ -17,6 +17,19 @@ namespace Codelecta_2._0.Models
     {
         public string FullName { get; set; }
 
+        /// <summary>
+        /// The user's self-reported programming experience level.
+        /// Possible values: "Beginner", "Intermediate", "Professional"
+        /// Null means the user has not yet selected a level.
+        /// </summary>
+        public string ExperienceLevel { get; set; }
+
+        /// <summary>
+        /// True once the user has completed (or skipped) the first-login onboarding flow.
+        /// False by default — triggers redirect to Onboarding.aspx.
+        /// </summary>
+        public bool OnboardingCompleted { get; set; }
+
         // Navigation properties linking to the new models
         public virtual ICollection<Course> InstructedCourses { get; set; }
         public virtual ICollection<UserCourse> EnrolledCourses { get; set; }
