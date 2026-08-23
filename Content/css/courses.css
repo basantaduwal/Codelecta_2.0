@@ -1,6 +1,10 @@
 /* ============================================================
    COURSES, CATALOG, LESSONS & PROGRESS
+   (Home Page Top Courses, Learning Journey & Audience Grids)
+   + CATALOG PAGE (Courses.aspx) & COURSE DETAIL (CourseDetail.aspx)
    ============================================================ */
+
+/* ── Home Page Top Courses Grid ──────────────────────────── */
 .courses-section {
     padding: 40px 0 80px;
 }
@@ -59,11 +63,6 @@
     box-shadow: var(--shadow-sm);
 }
 
-.python-badge { background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #D97706; }
-.react-badge { background: linear-gradient(135deg, #E0F2FE, #BAE6FD); color: #0284C7; }
-.java-badge { background: linear-gradient(135deg, #FEE2E2, #FECACA); color: #DC2626; }
-.js-badge { background: linear-gradient(135deg, #FEF08A, #FDE047); color: #CA8A04; }
-
 .course-card-info h3 {
     font-size: 1.05rem;
     font-weight: 800;
@@ -77,7 +76,7 @@
     margin: 0;
 }
 
-/* Learning Journey & Audience */
+/* ── Home Page Learning Journey & Audience ───────────────── */
 .journey-section {
     background: var(--gradient-hero);
     padding: 80px 0;
@@ -193,4 +192,699 @@
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin: 0;
+}
+
+/* ============================================================
+   COURSE CATALOG PAGE (Courses.aspx) & COURSE DETAIL (CourseDetail.aspx)
+   ============================================================ */
+
+/* ── Page ─────────────────────────────────────────────────── */
+.catalog-page {
+    background: var(--bg-page);
+    min-height: 100vh;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.catalog-hero {
+    background: var(--gradient-hero);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 0 48px;
+}
+
+.catalog-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.catalog-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--primary-subtle);
+    border: 1px solid var(--border);
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 16px;
+}
+
+.catalog-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+.catalog-title-accent {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.catalog-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.catalog-hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-shrink: 0;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat-num {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ── Filter Bar ─────────────────────────────────────────── */
+.catalog-filter-bar {
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-right: 6px;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 18px;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+}
+
+.filter-pill:hover {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-pill-active {
+    background: var(--gradient-primary) !important;
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 14px rgba(108, 92, 231, 0.3);
+}
+
+/* ── Recommendation Banner ──────────────────────────────── */
+.recommend-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--primary-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px 24px;
+    margin: 28px 0 12px;
+    flex-wrap: wrap;
+}
+
+.recommend-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.recommend-icon {
+    font-size: 1.5rem;
+}
+
+.recommend-banner-inner strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.recommend-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.recommend-show-all {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.recommend-show-all:hover {
+    text-decoration: underline;
+}
+
+/* ── Results Row ─────────────────────────────────────────── */
+.catalog-results-row {
+    padding-top: 28px;
+    margin-bottom: 20px;
+}
+
+.catalog-count {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.catalog-count-filter {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ── Catalog Grid ─────────────────────────────────────────── */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ── Catalog Card ─────────────────────────────────────────── */
+.catalog-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+}
+
+.catalog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.catalog-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.catalog-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+/* Badge colour variants */
+.python-badge   { background: linear-gradient(135deg,#FEF3C7,#FDE68A); color:#D97706; }
+.html-badge     { background: linear-gradient(135deg,#FFE4D6,#FFCBA4); color:#C2410C; }
+.js-badge       { background: linear-gradient(135deg,#FEF08A,#FDE047); color:#CA8A04; }
+.csharp-badge   { background: linear-gradient(135deg,#EDE9FE,#DDD6FE); color:#7C3AED; }
+.react-badge    { background: linear-gradient(135deg,#E0F2FE,#BAE6FD); color:#0284C7; }
+.java-badge     { background: linear-gradient(135deg,#FEE2E2,#FECACA); color:#DC2626; }
+.dsa-badge      { background: linear-gradient(135deg,#D1FAE5,#A7F3D0); color:#059669; }
+.sys-badge      { background: linear-gradient(135deg,#F1F5F9,#E2E8F0); color:#475569; }
+.default-badge  { background: var(--gradient-badge); color: var(--primary); }
+
+/* Level tags */
+.catalog-level-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.level-beginner     { background:#D1FAE5; color:#065F46; }
+.level-intermediate { background:#EDE9FE; color:#5B21B6; }
+.level-professional { background:#FEF3C7; color:#92400E; }
+
+.catalog-card-body {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.catalog-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.catalog-card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.catalog-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    flex-wrap: wrap;
+}
+
+.catalog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.catalog-card-meta svg {
+    stroke: var(--text-muted);
+}
+
+.catalog-empty {
+    display: block;
+    text-align: center;
+    color: var(--text-muted);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    font-size: 1.05rem;
+}
+
+/* ============================================================
+   COURSE DETAIL PAGE (CourseDetail.aspx)
+   ============================================================ */
+
+.detail-page {
+    background: var(--bg-page);
+    min-height: 100vh;
+}
+
+.detail-breadcrumb {
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+}
+
+.breadcrumb-link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none !important;
+    transition: opacity 0.2s;
+}
+
+.breadcrumb-link:hover { opacity: 0.7; }
+
+/* ── Detail Hero ─────────────────────────────────────────── */
+.detail-hero {
+    background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 60%, #FAF9FF 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 52px 0 48px;
+}
+
+.detail-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: start;
+}
+
+.detail-hero-content { }
+
+.detail-hero-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.detail-badge-large {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+.detail-level-pill {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+}
+
+.detail-course-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.detail-course-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+    max-width: 600px;
+}
+
+.detail-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.detail-enrolled-badge {
+    background: #D1FAE5;
+    color: #065F46;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+}
+
+/* ── Action Card ─────────────────────────────────────────── */
+.detail-action-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 32px 28px;
+    position: sticky;
+    top: 90px;
+}
+
+.detail-enroll-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: block;
+    text-decoration: none !important;
+}
+
+.detail-enroll-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.detail-login-prompt {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.detail-login-prompt p {
+    font-size: 0.95rem;
+    margin: 12px 0 16px 0;
+}
+
+.detail-login-prompt svg {
+    stroke: var(--text-muted);
+}
+
+/* Progress block */
+.detail-progress-block {
+    margin-bottom: 20px;
+}
+
+.detail-progress-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.detail-progress-bar-track {
+    background: var(--bg-surface);
+    border-radius: var(--radius-full);
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.detail-progress-bar-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    transition: width 0.6s ease;
+}
+
+.detail-progress-pct {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.detail-msg {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    background: #D1FAE5;
+    color: #065F46;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* ── Lessons Section ─────────────────────────────────────── */
+.detail-lessons-section {
+    margin-top: 48px;
+}
+
+.detail-lessons-heading {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.detail-lessons-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0 0 28px 0;
+}
+
+.detail-lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lesson-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lesson-row:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-hover);
+}
+
+.lesson-row-done {
+    border-color: #A7F3D0;
+    background: #F0FDF4;
+}
+
+.lesson-row-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.lesson-index {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.lesson-index-done {
+    background: #D1FAE5;
+    border-color: #6EE7B7;
+    color: #059669;
+}
+
+.lesson-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.lesson-status-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.lesson-row-right {
+    flex-shrink: 0;
+}
+
+.lesson-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none !important;
+    padding: 7px 16px;
+    border-radius: var(--radius-md);
+    background: var(--primary-subtle);
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.lesson-link:hover {
+    background: var(--primary);
+    color: #FFFFFF !important;
+    border-color: var(--primary);
+}
+
+.lesson-locked {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.detail-no-lessons {
+    display: block;
+    text-align: center;
+    padding: 48px 32px;
+    color: var(--text-muted);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-action-card {
+        position: static;
+    }
+}
+
+@media (max-width: 640px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-title {
+        font-size: 2rem;
+    }
+
+    .catalog-hero-stats {
+        gap: 20px;
+    }
+
+    .detail-course-title {
+        font-size: 1.8rem;
+    }
 }

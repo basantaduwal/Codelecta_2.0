@@ -17,7 +17,7 @@
                         Codelecta is a web-based interactive programming learning platform designed to make programming education more structured, practical, and accessible.
                     </p>
                     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                        <a href="Account/Register" class="btn-primary" style="padding: 12px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Start Learning</a>
+                        <a href="Contact" class="btn-primary" style="padding: 12px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Contact Us</a>
                         <a href="Courses" class="btn-secondary" style="padding: 12px 26px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">View Courses</a>
                     </div>
                 </div>
@@ -302,8 +302,16 @@
             <div style="text-align: center; padding: 20px 0;">
                 <h2 style="font-size: 2.1rem; font-weight: 800; color: var(--text-primary); margin: 0 0 20px 0; letter-spacing: -0.02em;">Ready to Start Learning?</h2>
                 <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-                    <a href="Account/Register" class="btn-primary" style="padding: 13px 32px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Create Your Account</a>
-                    <a href="Courses" class="btn-secondary" style="padding: 13px 30px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Explore Courses</a>
+                    <asp:LoginView runat="server">
+                        <AnonymousTemplate>
+                            <a href="Contact" class="btn-primary" style="padding: 13px 32px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Create Your Account</a>
+                            <a href="Courses" class="btn-secondary" style="padding: 13px 30px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Explore Courses</a>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <a href="Dashboard" class="btn-primary" style="padding: 13px 32px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Go to Dashboard</a>
+                            <a href="Courses" class="btn-secondary" style="padding: 13px 30px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; text-decoration: none;">Explore Courses</a>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
             </div>
 

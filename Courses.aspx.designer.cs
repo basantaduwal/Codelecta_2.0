@@ -2,7 +2,18 @@ namespace Codelecta_2._0
 {
     public partial class Courses
     {
-        protected global::System.Web.UI.WebControls.Repeater rptCourses;
-        protected global::System.Web.UI.WebControls.Label lblNoCourses;
+        protected global::System.Web.UI.WebControls.LinkButton  btnAll;
+        protected global::System.Web.UI.WebControls.LinkButton  btnBeginner;
+        protected global::System.Web.UI.WebControls.LinkButton  btnIntermediate;
+        protected global::System.Web.UI.WebControls.LinkButton  btnProfessional;
+        protected global::System.Web.UI.WebControls.HiddenField hfCurrentFilter;
+        protected global::System.Web.UI.WebControls.Panel       pnlRecommendBanner;
+        protected global::System.Web.UI.WebControls.Label       lblUserLevel;
+        protected global::System.Web.UI.WebControls.LinkButton  btnShowAll;
+        protected global::System.Web.UI.WebControls.Label       lblCount;
+        protected global::System.Web.UI.WebControls.Label       lblCountPlural;
+        protected global::System.Web.UI.WebControls.Label       lblFilterLabel;
+        protected global::System.Web.UI.WebControls.Repeater    rptCourses;
+        protected global::System.Web.UI.WebControls.Label       lblNoCourses;
     }
 }

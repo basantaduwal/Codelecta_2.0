@@ -1,66 +1,119 @@
 <%@ Page Title="Course Detail" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CourseDetail.aspx.cs" Inherits="Codelecta_2._0.CourseDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container section-padding">
-        <a href="Courses.aspx" style="color: var(--primary-light); text-decoration: none; font-size: 0.95rem;">&larr; Back to Courses</a>
+    <div class="detail-page">
 
-        <!-- Course Header -->
-        <div class="feature-card" style="margin-top: 20px; padding: 40px;">
-            <h2 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 12px;">
-                <asp:Label ID="lblTitle" runat="server"></asp:Label>
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
-                <asp:Label ID="lblDescription" runat="server"></asp:Label>
-            </p>
-            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                <span style="color: var(--text-muted); font-size: 0.9rem;">
-                    <asp:Label ID="lblLessonCount" runat="server"></asp:Label> Lessons
-                </span>
-                <span style="color: var(--text-muted); font-size: 0.9rem;">
-                    Admin: <asp:Label ID="lblInstructor" runat="server"></asp:Label>
-                </span>
-
-                <asp:Panel ID="pnlEnroll" runat="server" Visible="false">
-                    <asp:Button ID="btnEnroll" runat="server" Text="Enroll Now" CssClass="btn-primary" OnClick="btnEnroll_Click" />
-                </asp:Panel>
-                <asp:Label ID="lblEnrolled" runat="server" Visible="false"
-                    style="color: var(--success); font-weight: 600; font-size: 0.95rem;">&#10003; You are enrolled</asp:Label>
-                <asp:Label ID="lblLoginPrompt" runat="server" Visible="false"
-                    style="color: var(--text-muted); font-size: 0.9rem;">
-                    <a href="Account/Login.aspx" style="color: var(--primary-light);">Login</a> to enroll in this course.
-                </asp:Label>
+        <!-- ==================== BREADCRUMB ==================== -->
+        <div class="detail-breadcrumb">
+            <div class="container">
+                <a href="Courses" class="breadcrumb-link">&larr; Back to Courses</a>
             </div>
-            <asp:Label ID="lblMessage" runat="server" style="display: block; margin-top: 12px;" ForeColor="#10B981"></asp:Label>
         </div>
 
-        <!-- Lessons List -->
-        <div style="margin-top: 40px;">
-            <h3 style="color: var(--text-primary); margin-bottom: 20px;">Course Content</h3>
-            <asp:Repeater ID="rptLessons" runat="server">
-                <ItemTemplate>
-                    <div class="feature-card" style="margin-bottom: 12px; padding: 20px 25px;">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <span style="background: var(--gradient-primary); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; flex-shrink: 0;"><%# Eval("OrderIndex") %></span>
-                                <div>
-                                    <h4 style="color: white; margin: 0; font-size: 1.05rem;"><%# Eval("Title") %></h4>
-                                </div>
+        <!-- ==================== COURSE HERO ==================== -->
+        <div class="detail-hero">
+            <div class="container">
+                <div class="detail-hero-inner">
+                    <div class="detail-hero-content">
+                        <div class="detail-hero-top">
+                            <div class="detail-badge-large <asp:Literal ID="litBadgeClass" runat="server" />">
+                                <asp:Literal ID="litImageTag" runat="server" />
                             </div>
-                            <asp:HyperLink ID="lnkView" runat="server" 
-                                NavigateUrl='<%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled ? "ViewLesson.aspx?id=" + Eval("Id") : "#" %>'
-                                CssClass='<%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled ? "btn-primary" : "btn-secondary" %>'
-                                style="padding: 8px 18px; font-size: 0.85rem; text-decoration: none;"
-                                Enabled='<%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled %>'>
-                                <%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled ? "Start" : "Locked" %>
-                            </asp:HyperLink>
+                            <asp:Label ID="lblLevel" runat="server" CssClass="detail-level-pill" />
+                        </div>
+                        <h1 class="detail-course-title">
+                            <asp:Label ID="lblTitle" runat="server" />
+                        </h1>
+                        <p class="detail-course-desc">
+                            <asp:Label ID="lblDescription" runat="server" />
+                        </p>
+                        <div class="detail-meta-row">
+                            <span class="detail-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                <asp:Label ID="lblLessonCount" runat="server" /> lessons
+                            </span>
+                            <span class="detail-meta-item" id="enrolledBadge" runat="server" visible="false">
+                                <span class="detail-enrolled-badge">&#10003; Enrolled</span>
+                            </span>
                         </div>
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            <asp:Label ID="lblNoLessons" runat="server" Visible="false"
-                style="color: var(--text-muted); display: block; text-align: center; padding: 40px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border);">
-                No lessons available for this course yet.
-            </asp:Label>
+
+                    <!-- Enroll / Enrolled action card -->
+                    <div class="detail-action-card">
+                        <!-- Progress ring (only when enrolled) -->
+                        <asp:Panel ID="pnlProgress" runat="server" Visible="false" CssClass="detail-progress-block">
+                            <div class="detail-progress-label">Your Progress</div>
+                            <div class="detail-progress-bar-track">
+                                <div class="detail-progress-bar-fill" style="width: <%: Page.GetType() == typeof(Codelecta_2._0.CourseDetail) ? ((Codelecta_2._0.CourseDetail)Page).ProgressPct + "%" : "0%" %>"></div>
+                            </div>
+                            <div class="detail-progress-pct">
+                                <asp:Label ID="lblProgressPct" runat="server" Text="0%" />
+                                <span> completed</span>
+                            </div>
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlEnroll" runat="server" Visible="false">
+                            <asp:Button ID="btnEnroll" runat="server" Text="Enroll Now — It's Free"
+                                CssClass="btn-primary detail-enroll-btn" OnClick="btnEnroll_Click" />
+                            <p class="detail-enroll-note">Free access &middot; Self-paced &middot; No deadline</p>
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlContinue" runat="server" Visible="false">
+                            <a id="aStartLesson" runat="server" class="btn-primary detail-enroll-btn">
+                                Continue Learning &rarr;
+                            </a>
+                            <p class="detail-enroll-note">Pick up where you left off</p>
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlLoginPrompt" runat="server" Visible="false" CssClass="detail-login-prompt">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <p>Sign in to enroll in this course</p>
+                            <a href="Account/Login" class="btn-primary" style="width: 100%; text-align: center;">Log In</a>
+                            <a href="Account/Register" class="btn-secondary" style="width: 100%; text-align: center; margin-top: 10px;">Create Account</a>
+                        </asp:Panel>
+
+                        <asp:Label ID="lblMessage" runat="server" CssClass="detail-msg" Visible="false" />
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- ==================== LESSON LIST ==================== -->
+        <div class="container" style="padding-bottom: 80px;">
+            <div class="detail-lessons-section">
+                <h2 class="detail-lessons-heading">Course Content</h2>
+                <p class="detail-lessons-sub">
+                    <asp:Label ID="lblLessonCount2" runat="server" /> lessons &middot; complete at your own pace
+                </p>
+
+                <div class="detail-lessons-list">
+                    <asp:Repeater ID="rptLessons" runat="server">
+                        <ItemTemplate>
+                            <div class="lesson-row <%# (bool)Eval("IsCompleted") ? "lesson-row-done" : "" %>">
+                                <div class="lesson-row-left">
+                                    <div class="lesson-index <%# (bool)Eval("IsCompleted") ? "lesson-index-done" : "" %>">
+                                        <%# (bool)Eval("IsCompleted") ? "&#10003;" : Eval("OrderIndex") %>
+                                    </div>
+                                    <div>
+                                        <div class="lesson-title"><%# Eval("Title") %></div>
+                                        <div class="lesson-status-text"><%# (bool)Eval("IsCompleted") ? "Completed" : "Not started" %></div>
+                                    </div>
+                                </div>
+                                <div class="lesson-row-right">
+                                    <%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled
+                                        ? "<a href='ViewLesson.aspx?id=" + Eval("Id") + "' class='lesson-link'>" + ((bool)Eval("IsCompleted") ? "Review" : "Start") + " &rarr;</a>"
+                                        : "<span class='lesson-locked'>🔒 Enroll to unlock</span>" %>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                    <asp:Label ID="lblNoLessons" runat="server" Visible="false" CssClass="detail-no-lessons">
+                        No lessons have been added to this course yet. Check back soon.
+                    </asp:Label>
+                </div>
+            </div>
+        </div>
+
     </div>
 </asp:Content>

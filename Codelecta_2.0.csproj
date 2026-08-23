@@ -176,6 +176,9 @@
     <Content Include="Onboarding.aspx" />
     <Content Include="Onboarding.Master" />
     <Content Include="Content\css\onboarding.css" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Content\css\admin.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
@@ -281,17 +284,34 @@
     </Compile>
     <Compile Include="Onboarding.aspx.cs">
       <DependentUpon>Onboarding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Onboarding.aspx.designer.cs">
       <DependentUpon>Onboarding.aspx</DependentUpon>
     </Compile>
     <Compile Include="Onboarding.Master.cs">
       <DependentUpon>Onboarding.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Onboarding.Master.designer.cs">
       <DependentUpon>Onboarding.Master</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202608210000001_AddOnboarding.cs" />
+    <Compile Include="Migrations\202608210000002_AddCourseMetadata.cs" />
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

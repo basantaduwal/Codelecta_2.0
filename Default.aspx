@@ -15,8 +15,16 @@
                         Interactive lessons, real projects and endless possibilities.
                     </p>
                     <div class="hero-buttons">
-                        <a href="Account/Register" class="btn-primary btn-lg">Start Learning</a>
-                        <a href="Courses" class="btn-secondary btn-lg">Explore Courses</a>
+                        <asp:LoginView runat="server">
+                            <AnonymousTemplate>
+                                <a href="Account/Register" class="btn-primary btn-lg">Start Learning</a>
+                                <a href="Courses" class="btn-secondary btn-lg">Explore Courses</a>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <a href="Dashboard" class="btn-primary btn-lg">Go to Dashboard</a>
+                                <a href="Courses" class="btn-secondary btn-lg">Explore Courses</a>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </div>
                 </div>
 
@@ -224,7 +232,14 @@
             <div class="cta-content reveal">
                 <h2 id="ctaTitle">Ready to Start Coding?</h2>
                 <p>Build your programming foundation with structured, practical, and self-paced learning.</p>
-                <a href="Account/Register" class="btn-primary btn-lg">Create Your Free Account</a>
+                <asp:LoginView runat="server">
+                    <AnonymousTemplate>
+                        <a href="Account/Register" class="btn-primary btn-lg">Create Your Free Account</a>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <a href="Dashboard" class="btn-primary btn-lg">Continue Learning</a>
+                    </LoggedInTemplate>
+                </asp:LoginView>
             </div>
         </section>
     </main>

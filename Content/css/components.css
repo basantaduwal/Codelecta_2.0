@@ -131,4 +131,5 @@
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
     transition: all 0.3s ease;
+    padding: 20px;
 }

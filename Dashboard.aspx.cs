@@ -27,10 +27,19 @@ namespace Codelecta_2._0
         private void LoadDashboardData()
         {
             string userId = User.Identity.GetUserId();
-            lblUserName.Text = User.Identity.GetUserName();
 
             using (var db = new ApplicationDbContext())
             {
+                var currentUser = db.Users.Find(userId);
+                if (currentUser != null && !string.IsNullOrWhiteSpace(currentUser.FullName))
+                {
+                    lblUserName.Text = currentUser.FullName;
+                }
+                else
+                {
+                    string name = User.Identity.GetUserName();
+                    lblUserName.Text = (!string.IsNullOrEmpty(name) && name.Contains("@")) ? name.Split('@')[0] : (name ?? "Learner");
+                }
                 // Fetch enrolled courses for this student
                 var userCourses = db.UserCourses
                     .Where(uc => uc.UserId == userId)

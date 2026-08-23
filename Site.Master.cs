@@ -102,6 +102,11 @@ namespace Codelecta_2._0
             string displayName = GetUserDisplayName();
             return !string.IsNullOrEmpty(displayName) ? displayName.Substring(0, 1).ToUpper() : "U";
         }
+
+        public bool IsUserAdmin()
+        {
+            return Context.User != null && Context.User.IsInRole("Admin");
+        }
     }
 
 }
