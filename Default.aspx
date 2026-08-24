@@ -33,170 +33,54 @@
                     </div>
                 </div>
 
-                <!-- Right: 3D Isometric Laptop & Floating Tech Scene -->
+                <!-- Right: Workspace Photo with Floating Glassmorphism Cards -->
                 <div class="hero-visual">
-                    <div class="isometric-scene-container">
-                        <!-- Floating Tech Tags Around Scene -->
-                        <span class="floating-tag tag-php">PHP</span>
-                        <span class="floating-tag tag-xml">XML</span>
-                        <span class="floating-tag tag-css">CSS</span>
-                        <span class="floating-tag tag-sql">SQL</span>
-                        <span class="floating-tag tag-code-bracket">&lt;/&gt;</span>
-                        <span class="floating-tag tag-brackets">{ }</span>
-                        <span class="floating-tag tag-stars">*****</span>
+                    <div class="hero-photo-container">
+                        <!-- Main Workspace Photo Frame -->
+                        <div class="hero-image-wrapper">
+                            <img src="<%= ResolveUrl("~/Content/images/hero-desk.jpg") %>" alt="Codelecta Workspace" class="hero-main-photo" />
+                            <div class="hero-image-overlay"></div>
+                        </div>
 
-                        <!-- Isometric 3D Laptop SVG Artwork (Light Theme Edition) -->
-                        <svg class="isometric-art-svg" viewBox="0 0 600 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <!-- Ground Ambient Glow Filter & Gradient -->
-                                <radialGradient id="groundGlowLight" cx="50%" cy="50%" r="50%">
-                                    <stop offset="0%" stop-color="#C084FC" stop-opacity="0.3" />
-                                    <stop offset="60%" stop-color="#818CF8" stop-opacity="0.12" />
-                                    <stop offset="100%" stop-color="#FAF9FF" stop-opacity="0" />
-                                </radialGradient>
-
-                                <!-- Screen Glow Filters -->
-                                <filter id="screenSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feGaussianBlur stdDeviation="6" result="blur" />
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                </filter>
-
-                                <filter id="cyanGlow" x="-30%" y="-30%" width="160%" height="160%">
-                                    <feGaussianBlur stdDeviation="4" result="blur" />
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                </filter>
-
-                                <!-- Metallic Slate Deck Gradient -->
-                                <linearGradient id="deckGradLight" x1="190" y1="285" x2="565" y2="225" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#F1F5F9" />
-                                    <stop offset="50%" stop-color="#E2E8F0" />
-                                    <stop offset="100%" stop-color="#CBD5E1" />
-                                </linearGradient>
-
-                                <!-- Screen Outer Frame Gradient -->
-                                <linearGradient id="screenBackGradLight" x1="250" y1="75" x2="495" y2="185" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#312E81" />
-                                    <stop offset="100%" stop-color="#1E1B4B" />
-                                </linearGradient>
-
-                                <!-- Screen Display UI Gradient -->
-                                <linearGradient id="screenUiGradLight" x1="256" y1="82" x2="489" y2="178" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#1E1B4B" />
-                                    <stop offset="100%" stop-color="#0F172A" />
-                                </linearGradient>
-
-                                <!-- Flowchart Nodes Gradients -->
-                                <linearGradient id="nodeCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#38BDF8" />
-                                    <stop offset="100%" stop-color="#0284C7" />
-                                </linearGradient>
-
-                                <linearGradient id="nodePurple" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#C084FC" />
-                                    <stop offset="100%" stop-color="#7C3AED" />
-                                </linearGradient>
-
-                                <linearGradient id="nodeAmber" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#FDE047" />
-                                    <stop offset="100%" stop-color="#F59E0B" />
-                                </linearGradient>
-                            </defs>
-
-                            <!-- 1. Ambient Floor Glow -->
-                            <ellipse cx="370" cy="360" rx="190" ry="65" fill="url(#groundGlowLight)" />
-
-                            <!-- 2. Laptop Base: 3D Extruded Silver-Slate Chassis -->
-                            <!-- Base Top Deck -->
-                            <polygon points="190,285 435,160 565,225 320,350" fill="url(#deckGradLight)" stroke="#CBD5E1" stroke-width="1.5" />
-
-                            <!-- Base Front Left Edge -->
-                            <polygon points="190,285 320,350 320,362 190,297" fill="#94A3B8" />
-                            <!-- Base Front Right Edge -->
-                            <polygon points="320,350 565,225 565,237 320,362" fill="#64748B" />
-                            <!-- Front Rim Highlight Strip -->
-                            <line x1="320" y1="362" x2="565" y2="237" stroke="#A855F7" stroke-width="2" stroke-opacity="0.8" />
-
-                            <!-- Keyboard Well Depression -->
-                            <polygon points="250,260 425,170 515,215 340,305" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
-
-                            <!-- Keyboard Isometric Key Grid -->
-                            <!-- Row 1 -->
-                            <polygon points="270,252 410,180 420,185 280,257" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
-                            <!-- Row 2 -->
-                            <polygon points="282,260 422,188 432,193 292,265" fill="#334155" stroke="#475569" stroke-width="0.8" />
-                            <!-- Row 3 -->
-                            <polygon points="295,268 435,196 445,201 305,273" fill="#334155" stroke="#475569" stroke-width="0.8" />
-                            <!-- Row 4 -->
-                            <polygon points="307,276 447,204 457,209 317,281" fill="#334155" stroke="#475569" stroke-width="0.8" />
-                            <!-- Spacebar row -->
-                            <polygon points="325,286 425,235 435,240 335,291" fill="#475569" stroke="#64748B" stroke-width="0.8" />
-
-                            <!-- Trackpad -->
-                            <polygon points="320,308 375,280 405,295 350,323" fill="#E2E8F0" stroke="#818CF8" stroke-width="1.2" />
-
-                            <!-- 3. Laptop Screen: Upright Isometric Display -->
-                            <!-- Screen Back Aura / Border -->
-                            <polygon points="250,75 495,5 495,185 250,255" fill="url(#screenBackGradLight)" stroke="#818CF8" stroke-width="2.5" filter="url(#screenSoftGlow)" />
-
-                            <!-- Inner Display Frame -->
-                            <polygon points="256,82 489,12 489,178 256,248" fill="url(#screenUiGradLight)" stroke="#6366F1" stroke-width="1.5" />
-
-                            <!-- Display Top Header Bar -->
-                            <polygon points="256,82 489,12 489,28 256,98" fill="#0F172A" />
-                            <circle cx="270" cy="91" r="2.5" fill="#EF4444" />
-                            <circle cx="278" cy="89" r="2.5" fill="#F59E0B" />
-                            <circle cx="286" cy="87" r="2.5" fill="#10B981" />
-
-                            <!-- 4. On-Screen Interactive Flowchart Diagram -->
-                            <polyline points="290,135 340,118 370,140 430,120" stroke="#38BDF8" stroke-width="2.2" stroke-dasharray="4 2" stroke-opacity="0.9" />
-                            <polyline points="370,140 370,175 410,162" stroke="#F472B6" stroke-width="2" stroke-opacity="0.9" />
-
-                            <!-- Node 1: Cyan Step Box -->
-                            <polygon points="275,130 330,112 330,130 275,148" fill="url(#nodeCyan)" opacity="0.95" />
-
-                            <!-- Node 2: Central Flowchart Diamond Node with { / } -->
-                            <polygon points="360,115 390,128 360,148 330,135" fill="url(#nodeAmber)" filter="url(#cyanGlow)" />
-                            <text x="350" y="136" fill="#1E1B4B" font-family="'Fira Code', monospace" font-size="10" font-weight="900">{/}</text>
-
-                            <!-- Node 3: Purple Step Box -->
-                            <polygon points="340,165 395,148 395,166 340,183" fill="url(#nodePurple)" opacity="0.95" />
-
-                            <!-- Node 4: Cyan Step Box -->
-                            <polygon points="405,115 455,98 455,116 405,133" fill="url(#nodeCyan)" opacity="0.9" />
-
-                            <!-- 5. On-Screen Binary Matrix Stream -->
-                            <text x="430" y="70" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.9" letter-spacing="1">101010 1000</text>
-                            <text x="435" y="86" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.75" letter-spacing="1">10011 11010</text>
-                            <text x="440" y="102" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.6" letter-spacing="1">01 00 10</text>
-                            <text x="445" y="118" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.7" letter-spacing="1">10 1100</text>
-                        </svg>
-
-                        <!-- Floating Acrylic Code Snippet Card (Light Theme) -->
-                        <div class="hero-code-card-floating">
-                            <div class="acrylic-card-header">
-                                <span class="acrylic-dot" style="background: #EF4444;"></span>
-                                <span class="acrylic-dot" style="background: #F59E0B;"></span>
-                                <span class="acrylic-dot" style="background: #10B981;"></span>
-                                <span style="margin-left: auto; font-size: 0.68rem; color: #6C5CE7; font-family: monospace; font-weight: 800;">Codelecta.cs</span>
+                        <!-- Floating Code Editor Card (Top Left) -->
+                        <div class="hero-floating-code-card">
+                            <div class="floating-card-header">
+                                <div class="floating-card-dots">
+                                    <span class="f-dot red"></span>
+                                    <span class="f-dot yellow"></span>
+                                    <span class="f-dot green"></span>
+                                </div>
+                                <span class="floating-card-filename">Codelecta.cs</span>
                             </div>
-                            <div class="acrylic-code-body">
-                                <div><span class="c-purple">class</span> <span class="c-cyan">Codelecta</span> {</div>
+                            <div class="floating-card-code">
+                                <div><span class="c-purple">public class</span> <span class="c-cyan">Developer</span> {</div>
                                 <div>&nbsp;&nbsp;<span class="c-purple">void</span> <span class="c-yellow">Learn</span>() {</div>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-purple">var</span> p = <span class="c-green">"Success"</span>;</div>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-cyan">Console</span>.<span class="c-yellow">Write</span>(p);</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-purple">var</span> future = <span class="c-green">"Built at Codelecta"</span>;</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-cyan">Console</span>.<span class="c-yellow">WriteLine</span>(future);</div>
                                 <div>&nbsp;&nbsp;}</div>
                                 <div>}</div>
                             </div>
                         </div>
 
-                        <!-- Floating Language Capsule Pill Bar (Bottom Right of Laptop) -->
-                        <div class="hero-lang-capsule">
-                            <span class="capsule-arrow">&lt;</span>
-                            <span class="capsule-badge badge-csharp">C#</span>
-                            <span class="capsule-badge badge-js">JS</span>
-                            <span class="capsule-badge" style="background: #065F46; border-color: #34D399;">Py</span>
-                            <span class="capsule-badge badge-r">R</span>
-                            <span class="capsule-arrow">&gt;</span>
+                        <!-- Floating Student Success / Progress Badge (Bottom Right) -->
+                        <div class="hero-floating-badge">
+                            <div class="badge-icon-check">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="badge-text">
+                                <span class="badge-title">Interactive Lesson Completed</span>
+                                <span class="badge-subtitle">C# & Web Architecture &bull; 100% Score</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Language Badges (Bottom Left) -->
+                        <div class="hero-floating-languages">
+                            <span class="lang-pill pill-csharp">C#</span>
+                            <span class="lang-pill pill-py">Python</span>
+                            <span class="lang-pill pill-react">React</span>
+                            <span class="lang-pill pill-js">JS</span>
                         </div>
                     </div>
                 </div>
