@@ -23,6 +23,10 @@ body {
     padding-top: 76px;
 }
 
+body.home-page {
+    padding-top: 0 !important;
+}
+
 a {
     color: var(--primary);
     text-decoration: none;

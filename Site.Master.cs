@@ -107,6 +107,13 @@ namespace Codelecta_2._0
         {
             return Context.User != null && Context.User.IsInRole("Admin");
         }
+
+        public bool IsHomePage()
+        {
+            string path = Request.AppRelativeCurrentExecutionFilePath ?? "";
+            return path.Equals("~/Default.aspx", StringComparison.OrdinalIgnoreCase) ||
+                   path.Equals("~/", StringComparison.OrdinalIgnoreCase);
+        }
     }
 
 }

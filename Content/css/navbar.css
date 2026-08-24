@@ -1,24 +1,39 @@
 /* ============================================================
    NAVBAR, BRAND, MENU & HAMBURGER (CLEAN & MODERN LIGHT THEME)
    ============================================================ */
+/* Default (all inner pages): Frosted glass navbar */
 .codelecta-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid #EDE9FE;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(221, 214, 254, 0.7);
     height: 76px;
     box-shadow: 0 4px 20px rgba(108, 92, 231, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.codelecta-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.12);
+/* On Home Page: Start 100% transparent */
+body.home-page .codelecta-nav {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* When scrolling (on ANY page): apply medium glowing frosted blur */
+.codelecta-nav.scrolled,
+body.home-page .codelecta-nav.scrolled {
+    background: rgba(255, 255, 255, 0.72) !important;
+    backdrop-filter: blur(22px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(221, 214, 254, 0.8) !important;
+    box-shadow: 0 8px 32px rgba(108, 92, 231, 0.12) !important;
 }
 
 .nav-container {

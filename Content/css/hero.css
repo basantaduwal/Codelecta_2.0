@@ -4,10 +4,10 @@
 
 .hero-section {
     background: radial-gradient(circle at 75% 35%, #EDE9FE 0%, #F5F3FF 45%, #FAF9FF 100%);
-    padding: 60px 0 90px;
+    padding: 110px 0 90px;
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 76px);
+    min-height: 100vh;
     display: flex;
     align-items: center;
 }
