@@ -4,7 +4,7 @@
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 44px;
         text-align: center;
     }
 
@@ -16,13 +16,10 @@
         justify-content: center;
     }
 
-    .hero-photo-container {
-        max-width: 500px;
+    .isometric-scene-container {
+        max-width: 520px;
+        height: 420px;
         margin: 0 auto;
-    }
-
-    .hero-image-wrapper {
-        height: 340px;
     }
 
     .features-bar-card {
@@ -59,43 +56,35 @@
 
     .hero-title { font-size: 2.5rem; }
 
-    .hero-image-wrapper {
-        height: 280px;
+    .isometric-scene-container {
+        max-width: 100%;
+        height: 350px;
     }
 
-    .hero-floating-code-card {
-        left: -10px;
-        top: -16px;
-        padding: 10px 14px;
-        max-width: 230px;
+    .hero-code-card-floating {
+        width: 165px;
+        padding: 10px 12px;
+        left: 2%;
+        top: 15%;
     }
 
-    .floating-card-code {
+    .acrylic-code-body {
         font-size: 0.65rem;
     }
 
-    .hero-floating-badge {
-        right: -10px;
-        bottom: -16px;
-        padding: 10px 14px;
-        gap: 10px;
+    .hero-lang-capsule {
+        padding: 6px 14px;
+        right: 3%;
+        bottom: 18%;
     }
 
-    .badge-icon-check {
-        width: 32px;
-        height: 32px;
+    .capsule-badge {
+        font-size: 0.72rem;
+        padding: 2px 7px;
     }
 
-    .badge-title {
-        font-size: 0.8rem;
-    }
-
-    .badge-subtitle {
-        font-size: 0.7rem;
-    }
-
-    .hero-floating-languages {
-        display: none;
+    .floating-tag {
+        font-size: 1.1rem !important;
     }
 
     .features-bar-card { grid-template-columns: 1fr; }
@@ -111,18 +100,6 @@
     .hero-title { font-size: 2.1rem; }
     .hero-buttons { flex-direction: column; width: 100%; }
     .btn-pill-primary, .btn-pill-secondary { width: 100%; }
-
-    .hero-image-wrapper {
-        height: 220px;
-        border-radius: 20px;
-    }
-
-    .hero-floating-code-card {
-        display: none;
-    }
-
-    .hero-floating-badge {
-        right: 0;
-        bottom: -10px;
-    }
+    .hero-code-card-floating { display: none; }
+    .hero-lang-capsule { bottom: 10%; right: 2%; }
 }

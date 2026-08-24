@@ -180,7 +180,6 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Content\css\admin.css" />
     <Content Include="Content\images\hero-illustration.png" />
-    <Content Include="Content\images\hero-desk.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">

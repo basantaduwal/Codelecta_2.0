@@ -1,5 +1,5 @@
 /* ============================================================
-   HERO SECTION: MODERN LIGHT THEME WITH REALISTIC WORKSPACE
+   HERO SECTION: 3D ISOMETRIC MODERN LIGHT THEME
    ============================================================ */
 
 .hero-section {
@@ -46,8 +46,8 @@
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 40px;
     align-items: center;
     position: relative;
     z-index: 2;
@@ -120,7 +120,7 @@
     font-weight: 450;
 }
 
-/* Pill Buttons */
+/* Pill Buttons (Modern Light Theme) */
 .hero-buttons {
     display: flex;
     gap: 18px;
@@ -179,7 +179,7 @@
     box-shadow: 0 8px 24px rgba(108, 92, 231, 0.16);
 }
 
-/* ── Right Column: Photo Composition + Floating Cards ───── */
+/* ── Right Column: Isometric 3D Scene (Light Theme) ───────── */
 .hero-visual {
     position: relative;
     display: flex;
@@ -188,193 +188,242 @@
     width: 100%;
 }
 
-.hero-photo-container {
+.isometric-scene-container {
     position: relative;
     width: 100%;
-    max-width: 520px;
+    max-width: 620px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Main Workspace Image Card */
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 380px;
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 24px 60px rgba(108, 92, 231, 0.2), 0 4px 16px rgba(0, 0, 0, 0.06);
-    border: 2px solid rgba(221, 214, 254, 0.9);
-    background: #EDE9FE;
+/* Ambient Floating Tech Tags in 3D Space (Clean Pastel Badges) */
+.floating-tag {
+    position: absolute;
+    font-family: 'Fira Code', monospace;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 4;
 }
 
-.hero-main-photo {
+.tag-php {
+    top: 35px;
+    right: 50px;
+    font-size: 1.5rem;
+    color: #E11D48;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #FECDD3;
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.15);
+    animation: floatTag1 6s ease-in-out infinite;
+}
+
+.tag-xml {
+    top: 180px;
+    left: 15px;
+    font-size: 1.3rem;
+    color: #7C3AED;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #DDD6FE;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+    animation: floatTag2 7s ease-in-out infinite 0.5s;
+}
+
+.tag-css {
+    bottom: 120px;
+    right: 15px;
+    font-size: 1.35rem;
+    color: #0284C7;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3px 11px;
+    border-radius: 12px;
+    border: 1px solid #BAE6FD;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+    animation: floatTag3 6.5s ease-in-out infinite 1s;
+}
+
+.tag-sql {
+    bottom: 40px;
+    right: 70px;
+    font-size: 1.3rem;
+    color: #4F46E5;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #C7D2FE;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15);
+    animation: floatTag1 7.5s ease-in-out infinite 1.5s;
+}
+
+.tag-code-bracket {
+    top: 45px;
+    left: 160px;
+    font-size: 1.4rem;
+    color: #9333EA;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #E9D5FF;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.15);
+    animation: floatTag2 5.5s ease-in-out infinite;
+}
+
+.tag-brackets {
+    top: 95px;
+    left: 50px;
+    font-size: 1.5rem;
+    color: #6C5CE7;
+    animation: floatTag3 6s ease-in-out infinite 0.8s;
+}
+
+.tag-stars {
+    top: 80px;
+    left: 110px;
+    font-size: 1.1rem;
+    color: #D946EF;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+@keyframes floatTag1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatTag2 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(-1.5deg); }
+}
+
+@keyframes floatTag3 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+/* ── The 3D Isometric Illustration Artwork ───────────────── */
+.isometric-art-svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 480px;
+    overflow: visible;
 }
 
-.hero-photo-container:hover .hero-main-photo {
-    transform: scale(1.03);
-}
-
-.hero-image-overlay {
+/* Floating Acrylic Code Snippet Card (Light Theme Frosted Glass) */
+.hero-code-card-floating {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(108, 92, 231, 0.05) 0%, rgba(30, 27, 75, 0.15) 100%);
-    pointer-events: none;
-}
-
-/* Floating Card 1: Code Editor Window (Top-Left) */
-.hero-floating-code-card {
-    position: absolute;
-    top: -24px;
-    left: -28px;
-    background: rgba(255, 255, 255, 0.92);
+    left: 3%;
+    top: 20%;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1.5px solid #DDD6FE;
-    border-radius: 18px;
-    padding: 14px 18px;
-    box-shadow: 0 20px 45px rgba(108, 92, 231, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: 0 20px 45px rgba(108, 92, 231, 0.18), 0 4px 12px rgba(0, 0, 0, 0.05);
     z-index: 10;
-    max-width: 290px;
-    animation: floatCard1 6s ease-in-out infinite;
+    transform: perspective(600px) rotateY(18deg) rotateX(10deg);
+    animation: floatAcrylicCard 5.5s ease-in-out infinite;
 }
 
-.floating-card-header {
+@keyframes floatAcrylicCard {
+    0%, 100% {
+        transform: perspective(600px) rotateY(18deg) rotateX(10deg) translateY(0);
+    }
+    50% {
+        transform: perspective(600px) rotateY(18deg) rotateX(10deg) translateY(-12px);
+    }
+}
+
+.acrylic-card-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 5px;
     margin-bottom: 10px;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
     border-bottom: 1px solid #EDE9FE;
 }
 
-.floating-card-dots {
-    display: flex;
-    gap: 6px;
-}
-
-.f-dot {
-    width: 8px;
-    height: 8px;
+.acrylic-dot {
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
 }
 
-.f-dot.red { background: #EF4444; }
-.f-dot.yellow { background: #F59E0B; }
-.f-dot.green { background: #10B981; }
-
-.floating-card-filename {
-    font-size: 0.72rem;
-    color: #6C5CE7;
+.acrylic-code-body {
     font-family: 'Fira Code', monospace;
-    font-weight: 800;
-}
-
-.floating-card-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     line-height: 1.7;
     color: #1E1B4B;
 }
 
-.floating-card-code .c-purple { color: #7C3AED; font-weight: 700; }
-.floating-card-code .c-cyan { color: #0284C7; font-weight: 600; }
-.floating-card-code .c-yellow { color: #D97706; }
-.floating-card-code .c-green { color: #059669; }
+.acrylic-code-body .c-purple { color: #7C3AED; font-weight: 700; }
+.acrylic-code-body .c-cyan { color: #0284C7; font-weight: 600; }
+.acrylic-code-body .c-yellow { color: #D97706; }
+.acrylic-code-body .c-green { color: #059669; }
 
-/* Floating Card 2: Student Progress Badge (Bottom-Right) */
-.hero-floating-badge {
+/* Floating Language Capsule Pill Bar (Bottom Right of Laptop) */
+.hero-lang-capsule {
     position: absolute;
-    bottom: -22px;
-    right: -24px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1.5px solid #DDD6FE;
-    border-radius: 18px;
-    padding: 14px 20px;
-    box-shadow: 0 20px 45px rgba(108, 92, 231, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
-    z-index: 10;
-    display: flex;
+    right: 5%;
+    bottom: 22%;
+    display: inline-flex;
     align-items: center;
-    gap: 14px;
-    animation: floatCard2 7s ease-in-out infinite 0.6s;
-}
-
-.badge-icon-check {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
-    flex-shrink: 0;
-}
-
-.badge-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.badge-title {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: #1E1B4B;
-}
-
-.badge-subtitle {
-    font-size: 0.78rem;
-    color: #64748B;
-    font-weight: 500;
-}
-
-/* Floating Card 3: Programming Language Badges (Bottom-Left) */
-.hero-floating-languages {
-    position: absolute;
-    bottom: 24px;
-    left: -20px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1.5px solid #EDE9FE;
+    gap: 10px;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #0284C7 0%, #06B6D4 50%, #38BDF8 100%);
     border-radius: 50px;
-    padding: 6px 14px;
-    box-shadow: 0 14px 35px rgba(108, 92, 231, 0.18);
-    z-index: 11;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    animation: floatCard1 6.5s ease-in-out infinite 1s;
+    box-shadow: 0 14px 30px rgba(6, 182, 212, 0.38);
+    z-index: 12;
+    transform: perspective(600px) rotateY(-18deg) rotateX(12deg);
+    animation: floatCapsule 5s ease-in-out infinite 0.6s;
 }
 
-.lang-pill {
-    padding: 4px 10px;
+@keyframes floatCapsule {
+    0%, 100% {
+        transform: perspective(600px) rotateY(-18deg) rotateX(12deg) translateY(0);
+    }
+    50% {
+        transform: perspective(600px) rotateY(-18deg) rotateX(12deg) translateY(-10px);
+    }
+}
+
+.capsule-arrow {
+    color: #FEF08A;
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.capsule-badge {
+    padding: 3px 10px;
     border-radius: 20px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     font-weight: 800;
     color: #FFFFFF;
+    background: rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.lang-pill.pill-csharp { background: #6C5CE7; }
-.lang-pill.pill-py { background: #0284C7; }
-.lang-pill.pill-react { background: #0EA5E9; }
-.lang-pill.pill-js { background: #EAB308; color: #1E1B4B; }
-
-/* Floating Animations */
-@keyframes floatCard1 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.capsule-badge.badge-csharp {
+    background: #4C1D95;
+    border-color: #8B5CF6;
 }
 
-@keyframes floatCard2 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+.capsule-badge.badge-js {
+    background: #854D0E;
+    border-color: #FACC15;
+    color: #FEF08A;
+}
+
+.capsule-badge.badge-r {
+    background: #1E3A8A;
+    border-color: #60A5FA;
 }
