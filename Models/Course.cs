@@ -38,5 +38,6 @@ namespace Codelecta_2._0.Models
         // Navigation properties
         public virtual ICollection<Lesson> Lessons { get; set; }
         public virtual ICollection<UserCourse> Enrollments { get; set; }
+        public virtual ICollection<Quiz> Quizzes { get; set; }
     }
 }

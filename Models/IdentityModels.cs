@@ -34,6 +34,7 @@ namespace Codelecta_2._0.Models
         public virtual ICollection<Course> InstructedCourses { get; set; }
         public virtual ICollection<UserCourse> EnrolledCourses { get; set; }
         public virtual ICollection<LessonProgress> LessonProgresses { get; set; }
+        public virtual ICollection<QuizAttempt> QuizAttempts { get; set; }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
@@ -65,6 +66,9 @@ namespace Codelecta_2._0.Models
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
         public DbSet<LessonProgress> LessonProgresses { get; set; }
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<QuizQuestion> QuizQuestions { get; set; }
+        public DbSet<QuizAttempt> QuizAttempts { get; set; }
 
         public static ApplicationDbContext Create()
         {
