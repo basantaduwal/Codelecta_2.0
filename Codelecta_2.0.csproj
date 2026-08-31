@@ -412,6 +412,14 @@
     <Compile Include="Admin\ManageQuizzes.aspx.designer.cs">
       <DependentUpon>ManageQuizzes.aspx</DependentUpon>
     </Compile>
+    <Content Include="Admin\ManageEnrollments.aspx" />
+    <Compile Include="Admin\ManageEnrollments.aspx.cs">
+      <DependentUpon>ManageEnrollments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageEnrollments.aspx.designer.cs">
+      <DependentUpon>ManageEnrollments.aspx</DependentUpon>
+    </Compile>
     <Content Include="TakeQuiz.aspx" />
     <Compile Include="TakeQuiz.aspx.cs">
       <DependentUpon>TakeQuiz.aspx</DependentUpon>
