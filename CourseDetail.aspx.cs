@@ -143,6 +143,29 @@ namespace Codelecta_2._0
                     rptLessons.Visible   = false;
                     lblNoLessons.Visible = true;
                 }
+
+                // Load quizzes for this course
+                var quizzes = db.Quizzes
+                    .Where(q => q.CourseId == courseId)
+                    .Select(q => new
+                    {
+                        Id = q.Id,
+                        Title = q.Title,
+                        PassingScorePercent = q.PassingScorePercent,
+                        QuestionCount = q.Questions.Count()
+                    })
+                    .ToList();
+
+                if (quizzes.Count > 0)
+                {
+                    rptCourseQuizzes.DataSource = quizzes;
+                    rptCourseQuizzes.DataBind();
+                    pnlQuizzesSection.Visible = true;
+                }
+                else
+                {
+                    pnlQuizzesSection.Visible = false;
+                }
             }
         }
 

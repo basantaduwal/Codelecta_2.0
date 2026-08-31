@@ -129,6 +129,68 @@
                 </asp:Repeater>
             </div>
 
+            <!-- ==================== QUIZ & ASSESSMENT HISTORY ==================== -->
+            <asp:Panel ID="pnlQuizHistory" runat="server" Visible="false" style="margin-top: 48px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.6rem; font-weight: 800; color: #1E1B4B; margin: 0 0 4px 0; letter-spacing: -0.02em;">
+                            Quiz & Knowledge Assessments
+                        </h2>
+                        <p style="color: #64748B; font-size: 0.95rem; margin: 0;">Your recent test submissions and scores across all courses.</p>
+                    </div>
+                </div>
+
+                <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden;">
+                    <asp:Repeater ID="rptQuizHistory" runat="server">
+                        <HeaderTemplate>
+                            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                                <thead>
+                                    <tr style="background: #F8F7FF; border-bottom: 2px solid #EDE9FE;">
+                                        <th style="padding: 12px 20px; text-align: left; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Assessment</th>
+                                        <th style="padding: 12px 16px; text-align: left; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Course</th>
+                                        <th style="padding: 12px 16px; text-align: left; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Score</th>
+                                        <th style="padding: 12px 16px; text-align: left; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Status</th>
+                                        <th style="padding: 12px 16px; text-align: left; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Date</th>
+                                        <th style="padding: 12px 20px; text-align: right; font-weight: 700; color: #475569; font-size: 0.78rem; text-transform: uppercase;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr style='<%# Container.ItemIndex % 2 == 0 ? "background: #FFFFFF;" : "background: #FAFAFA;" %> border-bottom: 1px solid #F1F0FB;'>
+                                <td style="padding: 14px 20px; font-weight: 700; color: #1E1B4B;">
+                                    <%# Eval("QuizTitle") %>
+                                </td>
+                                <td style="padding: 14px 16px; color: #6C5CE7; font-weight: 600;">
+                                    <%# Eval("CourseTitle") %>
+                                </td>
+                                <td style="padding: 14px 16px; font-weight: 800; font-size: 0.95rem; color: <%# (bool)Eval("IsPassed") ? "#059669" : "#DC2626" %>;">
+                                    <%# Eval("ScorePercent") %>%
+                                    <span style="font-size: 0.78rem; font-weight: 500; color: #64748B;">(<%# Eval("CorrectAnswers") %>/<%# Eval("TotalQuestions") %>)</span>
+                                </td>
+                                <td style="padding: 14px 16px;">
+                                    <span style='<%# (bool)Eval("IsPassed") ? "background: #ECFDF5; color: #065F46; border: 1px solid #6EE7B7;" : "background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA;" %> padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700;'>
+                                        <%# (bool)Eval("IsPassed") ? "✓ Passed" : "✗ Needs Review" %>
+                                    </span>
+                                </td>
+                                <td style="padding: 14px 16px; color: #64748B; font-size: 0.85rem;">
+                                    <%# Eval("AttemptDate", "{0:MMM dd, yyyy}") %>
+                                </td>
+                                <td style="padding: 14px 20px; text-align: right;">
+                                    <a href='<%# "TakeQuiz.aspx?quizId=" + Eval("QuizId") %>' style="padding: 5px 14px; background: #F3F0FF; color: #6C5CE7; border: 1px solid #DDD6FE; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+                                        Retake &rarr;
+                                    </a>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                                </tbody>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                </div>
+            </asp:Panel>
+
             <!-- Empty State when user has no enrolled courses -->
             <asp:Panel ID="pnlNoCourses" runat="server" Visible="false"
                 style="background: #FFFFFF; border-radius: 20px; border: 1px dashed #DDD6FE; padding: 60px 40px; text-align: center; margin-top: 20px; box-shadow: var(--shadow-sm);">

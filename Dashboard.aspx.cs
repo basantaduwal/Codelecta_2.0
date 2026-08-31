@@ -128,6 +128,37 @@ namespace Codelecta_2._0
                     rptEnrolledCourses.Visible = false;
                     pnlNoCourses.Visible = true;
                 }
+
+                // Load Quiz Assessment History
+                var userAttempts = db.QuizAttempts
+                    .Where(qa => qa.UserId == userId)
+                    .Include(qa => qa.Quiz)
+                    .Include(qa => qa.Quiz.Course)
+                    .OrderByDescending(qa => qa.AttemptDate)
+                    .ToList()
+                    .Select(qa => new
+                    {
+                        QuizId = qa.QuizId,
+                        QuizTitle = qa.Quiz != null ? qa.Quiz.Title : "Assessment",
+                        CourseTitle = (qa.Quiz != null && qa.Quiz.Course != null) ? qa.Quiz.Course.Title : "General",
+                        ScorePercent = qa.ScorePercent,
+                        CorrectAnswers = qa.CorrectAnswers,
+                        TotalQuestions = qa.TotalQuestions,
+                        IsPassed = qa.IsPassed,
+                        AttemptDate = qa.AttemptDate
+                    })
+                    .ToList();
+
+                if (userAttempts.Count > 0)
+                {
+                    rptQuizHistory.DataSource = userAttempts;
+                    rptQuizHistory.DataBind();
+                    pnlQuizHistory.Visible = true;
+                }
+                else
+                {
+                    pnlQuizHistory.Visible = false;
+                }
             }
         }
     }

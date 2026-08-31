@@ -20,5 +20,7 @@ namespace Codelecta_2._0
         protected global::System.Web.UI.WebControls.Label     lblMessage;
         protected global::System.Web.UI.WebControls.Repeater  rptLessons;
         protected global::System.Web.UI.WebControls.Label     lblNoLessons;
+        protected global::System.Web.UI.WebControls.Panel     pnlQuizzesSection;
+        protected global::System.Web.UI.WebControls.Repeater  rptCourseQuizzes;
     }
 }

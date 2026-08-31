@@ -8,5 +8,7 @@ namespace Codelecta_2._0
         protected global::System.Web.UI.WebControls.Label lblCompletionRate;
         protected global::System.Web.UI.WebControls.Repeater rptEnrolledCourses;
         protected global::System.Web.UI.WebControls.Panel pnlNoCourses;
+        protected global::System.Web.UI.WebControls.Panel pnlQuizHistory;
+        protected global::System.Web.UI.WebControls.Repeater rptQuizHistory;
     }
 }

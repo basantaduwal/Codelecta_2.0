@@ -113,6 +113,35 @@
                     </asp:Label>
                 </div>
             </div>
+
+            <!-- ==================== COURSE QUIZZES & ASSESSMENTS ==================== -->
+            <asp:Panel ID="pnlQuizzesSection" runat="server" Visible="false" style="margin-top: 40px;" CssClass="detail-lessons-section">
+                <h2 class="detail-lessons-heading">Knowledge Assessments & Quizzes</h2>
+                <p class="detail-lessons-sub">Test what you've learned and validate your programming proficiency.</p>
+
+                <div class="detail-lessons-list">
+                    <asp:Repeater ID="rptCourseQuizzes" runat="server">
+                        <ItemTemplate>
+                            <div class="lesson-row" style="border-left: 4px solid #6C5CE7;">
+                                <div class="lesson-row-left">
+                                    <div class="lesson-index" style="background: #F3F0FF; color: #6C5CE7; border-color: #DDD6FE;">
+                                        🎯
+                                    </div>
+                                    <div>
+                                        <div class="lesson-title"><%# Eval("Title") %></div>
+                                        <div class="lesson-status-text"><%# Eval("QuestionCount") %> questions &middot; Passing Score: <%# Eval("PassingScorePercent") %>%</div>
+                                    </div>
+                                </div>
+                                <div class="lesson-row-right">
+                                    <%# ((Codelecta_2._0.CourseDetail)Page).IsEnrolled
+                                        ? "<a href='TakeQuiz.aspx?quizId=" + Eval("Id") + "' class='btn-primary' style='padding: 8px 20px; font-size: 0.85rem; font-weight: 700; border-radius: 8px; text-decoration: none;'>Take Quiz &rarr;</a>"
+                                        : "<span class='lesson-locked'>🔒 Enroll to take quiz</span>" %>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </asp:Panel>
         </div>
 
     </div>

@@ -404,6 +404,23 @@
     <Compile Include="Admin\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
+    <Content Include="Admin\ManageQuizzes.aspx" />
+    <Compile Include="Admin\ManageQuizzes.aspx.cs">
+      <DependentUpon>ManageQuizzes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageQuizzes.aspx.designer.cs">
+      <DependentUpon>ManageQuizzes.aspx</DependentUpon>
+    </Compile>
+    <Content Include="TakeQuiz.aspx" />
+    <Compile Include="TakeQuiz.aspx.cs">
+      <DependentUpon>TakeQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TakeQuiz.aspx.designer.cs">
+      <DependentUpon>TakeQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuizModels.cs" />
     <Compile Include="Migrations\202608201022420_AddVideoUrlToLesson.cs" />
     <Compile Include="Migrations\202608201022420_AddVideoUrlToLesson.Designer.cs">
       <DependentUpon>202608201022420_AddVideoUrlToLesson.cs</DependentUpon>
