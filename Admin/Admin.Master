@@ -110,14 +110,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);" class="admin-nav-link nav-link-disabled" title="Coming in future release">
+                            <a runat="server" href="~/Admin/ManageEnrollments" class="admin-nav-link" id="navEnrollments">
                                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                                     <path d="M9 14l2 2 4-4"></path>
                                 </svg>
                                 <span>Enrollments</span>
-                                <span class="nav-pill-soon">Soon</span>
                             </a>
                         </li>
                     </ul>
