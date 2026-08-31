@@ -420,6 +420,14 @@
     <Compile Include="TakeQuiz.aspx.designer.cs">
       <DependentUpon>TakeQuiz.aspx</DependentUpon>
     </Compile>
+    <Content Include="Certificate.aspx" />
+    <Compile Include="Certificate.aspx.cs">
+      <DependentUpon>Certificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificate.aspx.designer.cs">
+      <DependentUpon>Certificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\QuizModels.cs" />
     <Compile Include="Migrations\202608201022420_AddVideoUrlToLesson.cs" />
     <Compile Include="Migrations\202608201022420_AddVideoUrlToLesson.Designer.cs">
