@@ -116,12 +116,15 @@
                                     </div>
                                 </div>
 
-                                <!-- Continue Button -->
-                                <div>
+                                <!-- Continue / Certificate Buttons -->
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
                                     <a href='<%# "ViewLesson.aspx?id=" + Eval("NextLessonId") %>' class="btn-primary" 
-                                       style='width: 100%; padding: 11px 20px; font-size: 0.92rem; font-weight: 700; border-radius: 8px; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 6px; <%# (int)Eval("TotalLessons") == 0 ? "pointer-events: none; opacity: 0.5;" : "" %>'>
-                                        <%# (int)Eval("ProgressPercent") == 100 ? "Review Course &#10003;" : "Continue Learning &rarr;" %>
+                                       style='width: 100%; padding: 11px 20px; font-size: 0.92rem; font-weight: 700; border-radius: 8px; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 6px; box-sizing: border-box; <%# (int)Eval("TotalLessons") == 0 ? "pointer-events: none; opacity: 0.5;" : "" %>'>
+                                        <%# (int)Eval("ProgressPercent") == 100 ? "Review Lessons &#10003;" : "Continue Learning &rarr;" %>
                                     </a>
+                                    <%# (int)Eval("ProgressPercent") == 100 
+                                        ? "<a href='Certificate.aspx?courseId=" + Eval("CourseId") + "' style='width: 100%; padding: 10px 20px; background: #ECFDF5; color: #059669; border: 1.5px solid #6EE7B7; font-size: 0.88rem; font-weight: 800; border-radius: 8px; text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 6px; box-sizing: border-box;'>🎓 View Certificate</a>" 
+                                        : "" %>
                                 </div>
                             </div>
                         </div>
