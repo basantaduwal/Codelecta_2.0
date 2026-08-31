@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using Microsoft.AspNet.Identity;
 using Codelecta_2._0.Models;
 
@@ -8,6 +10,8 @@ namespace Codelecta_2._0
 {
     public partial class ViewLesson : Page
     {
+        public int CurrentLessonId { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!User.Identity.IsAuthenticated)
@@ -15,6 +19,8 @@ namespace Codelecta_2._0
                 Response.Redirect("Account/Login.aspx");
                 return;
             }
+
+            CurrentLessonId = GetLessonId();
 
             if (!IsPostBack)
             {
@@ -63,6 +69,7 @@ namespace Codelecta_2._0
 
                 // Display lesson info
                 lblOrder.Text = lesson.OrderIndex.ToString();
+                lblOrderSubtitle.Text = lesson.OrderIndex.ToString();
                 lblTitle.Text = lesson.Title;
                 litContent.Text = lesson.Content.Replace("\n", "<br />");
 
@@ -73,18 +80,69 @@ namespace Codelecta_2._0
                     string embedUrl = ConvertToEmbedUrl(lesson.VideoUrl);
                     videoFrame.Attributes["src"] = embedUrl;
                 }
+                else
+                {
+                    pnlVideo.Visible = false;
+                }
 
                 // Check if already completed
                 bool isCompleted = db.LessonProgresses.Any(lp => lp.UserId == userId && lp.LessonId == lessonId && lp.IsCompleted);
                 if (isCompleted)
                 {
-                    lblCompleted.Visible = true;
+                    pnlBadgeCompleted.Visible = true;
+                    pnlBadgeIncomplete.Visible = false;
                     btnMarkComplete.Visible = false;
+                    btnMarkIncomplete.Visible = true;
+                }
+                else
+                {
+                    pnlBadgeCompleted.Visible = false;
+                    pnlBadgeIncomplete.Visible = true;
+                    btnMarkComplete.Visible = true;
+                    btnMarkIncomplete.Visible = false;
                 }
 
-                // Find next lesson
-                var nextLesson = db.Lessons
-                    .Where(l => l.CourseId == lesson.CourseId && l.OrderIndex > lesson.OrderIndex)
+                // All course lessons for progress and quick list
+                var allLessons = db.Lessons
+                    .Where(l => l.CourseId == lesson.CourseId)
+                    .OrderBy(l => l.OrderIndex)
+                    .ToList();
+
+                var completedLessonIds = new HashSet<int>(
+                    db.LessonProgresses
+                        .Where(lp => lp.UserId == userId && lp.IsCompleted)
+                        .Select(lp => lp.LessonId)
+                        .ToList()
+                );
+
+                int totalLessons = allLessons.Count;
+                int completedCount = allLessons.Count(l => completedLessonIds.Contains(l.Id));
+                int progressPercent = totalLessons > 0
+                    ? (int)Math.Round(((double)completedCount / totalLessons) * 100)
+                    : 0;
+
+                lblCourseProgressPct.Text = progressPercent + "%";
+                divProgressFill.Style["width"] = progressPercent + "%";
+
+                // Previous lesson button
+                var prevLesson = allLessons
+                    .Where(l => l.OrderIndex < lesson.OrderIndex)
+                    .OrderByDescending(l => l.OrderIndex)
+                    .FirstOrDefault();
+
+                if (prevLesson != null)
+                {
+                    lnkPrevLesson.NavigateUrl = "ViewLesson.aspx?id=" + prevLesson.Id;
+                    lnkPrevLesson.Visible = true;
+                }
+                else
+                {
+                    lnkPrevLesson.Visible = false;
+                }
+
+                // Next lesson button
+                var nextLesson = allLessons
+                    .Where(l => l.OrderIndex > lesson.OrderIndex)
                     .OrderBy(l => l.OrderIndex)
                     .FirstOrDefault();
 
@@ -92,11 +150,26 @@ namespace Codelecta_2._0
                 {
                     lnkNextLesson.NavigateUrl = "ViewLesson.aspx?id=" + nextLesson.Id;
                     lnkNextLesson.Visible = true;
+                    lnkFinishCourse.Visible = false;
                 }
                 else
                 {
                     lnkNextLesson.Visible = false;
+                    lnkFinishCourse.NavigateUrl = "Dashboard.aspx";
+                    lnkFinishCourse.Visible = true;
                 }
+
+                // Bind other lessons list at the bottom
+                var lessonViewModels = allLessons.Select(l => new
+                {
+                    Id = l.Id,
+                    OrderIndex = l.OrderIndex,
+                    Title = l.Title,
+                    IsCompleted = completedLessonIds.Contains(l.Id)
+                }).ToList();
+
+                rptOtherLessons.DataSource = lessonViewModels;
+                rptOtherLessons.DataBind();
             }
         }
 
@@ -127,12 +200,34 @@ namespace Codelecta_2._0
                 db.SaveChanges();
             }
 
-            // Reload
+            // Reload page to reflect new state
+            Response.Redirect("ViewLesson.aspx?id=" + lessonId);
+        }
+
+        protected void btnMarkIncomplete_Click(object sender, EventArgs e)
+        {
+            int lessonId = GetLessonId();
+            string userId = User.Identity.GetUserId();
+
+            using (var db = new ApplicationDbContext())
+            {
+                var existing = db.LessonProgresses.FirstOrDefault(lp => lp.UserId == userId && lp.LessonId == lessonId);
+                if (existing != null)
+                {
+                    existing.IsCompleted = false;
+                    existing.CompletedDate = null;
+                    db.SaveChanges();
+                }
+            }
+
+            // Reload page to reflect new state
             Response.Redirect("ViewLesson.aspx?id=" + lessonId);
         }
 
         private string ConvertToEmbedUrl(string url)
         {
+            if (string.IsNullOrWhiteSpace(url)) return url;
+
             // Convert YouTube watch URL to embed URL
             if (url.Contains("youtube.com/watch"))
             {
