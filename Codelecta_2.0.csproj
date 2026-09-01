@@ -428,6 +428,14 @@
     <Compile Include="TakeQuiz.aspx.designer.cs">
       <DependentUpon>TakeQuiz.aspx</DependentUpon>
     </Compile>
+    <Content Include="Account\Manage.aspx" />
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
     <Content Include="Certificate.aspx" />
     <Compile Include="Certificate.aspx.cs">
       <DependentUpon>Certificate.aspx</DependentUpon>
