@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -27,11 +28,10 @@ namespace Codelecta_2._0
                             SetActiveFilterPill(user.ExperienceLevel);
                             pnlRecommendBanner.Visible = true;
                             lblUserLevel.Text = user.ExperienceLevel;
-                            // Show the "View all" banner since we are pre-filtering
                         }
                     }
                 }
-                LoadCourses(hfCurrentFilter.Value);
+                LoadCourses();
             }
         }
 
@@ -42,7 +42,7 @@ namespace Codelecta_2._0
             hfCurrentFilter.Value = level;
             SetActiveFilterPill(level);
             pnlRecommendBanner.Visible = false;
-            LoadCourses(level);
+            LoadCourses();
         }
 
         protected void ShowAll_Click(object sender, EventArgs e)
@@ -50,13 +50,36 @@ namespace Codelecta_2._0
             hfCurrentFilter.Value = "All";
             SetActiveFilterPill("All");
             pnlRecommendBanner.Visible = false;
-            LoadCourses("All");
+            LoadCourses();
         }
 
-        // ─── Helpers ─────────────────────────────────────────────────────────
-
-        private void LoadCourses(string levelFilter)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadCourses();
+        }
+
+        protected void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            txtCourseSearch.Text = "";
+            ddlSort.SelectedValue = "popular";
+            hfCurrentFilter.Value = "All";
+            SetActiveFilterPill("All");
+            pnlRecommendBanner.Visible = false;
+            LoadCourses();
+        }
+
+        protected void ddlSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCourses();
+        }
+
+        // ─── Main Course Loader ───────────────────────────────────────────────
+
+        private void LoadCourses()
+        {
+            string levelFilter = hfCurrentFilter.Value;
+            string searchTerm = txtCourseSearch.Text.Trim().ToLower();
+            string sortOption = ddlSort.SelectedValue;
             string userId = User.Identity.IsAuthenticated ? User.Identity.GetUserId() : null;
 
             using (var db = new ApplicationDbContext())
@@ -70,53 +93,78 @@ namespace Codelecta_2._0
                     );
                 }
 
-                var query = db.Courses.AsQueryable();
+                // Update Hero Summary Stats dynamically
+                int allCoursesCount = db.Courses.Count();
+                int allLessonsCount = db.Lessons.Count();
+                lblTotalCoursesStat.Text = allCoursesCount.ToString();
+                lblTotalLessonsStat.Text = allLessonsCount > 0 ? allLessonsCount.ToString() : "0";
+
+                var query = db.Courses.Include(c => c.Lessons).Include(c => c.Enrollments).AsQueryable();
+
+                // Apply Level Filter
                 if (levelFilter != "All" && !string.IsNullOrEmpty(levelFilter))
+                {
                     query = query.Where(c => c.Level == levelFilter);
+                }
 
-                var courses = query
-                    .Select(c => new
-                    {
-                        c.Id,
-                        c.Title,
-                        c.Description,
-                        c.Level,
-                        c.ImageTag,
-                        c.BadgeClass,
-                        LessonCount = c.Lessons.Count()
-                    })
-                    .OrderBy(c => c.Id)
-                    .ToList()
-                    .Select(c => new CourseViewModel
-                    {
-                        Id          = c.Id,
-                        Title       = c.Title,
-                        Description = c.Description,
-                        Level       = c.Level ?? "Beginner",
-                        ImageTag    = c.ImageTag ?? "📚",
-                        BadgeClass  = c.BadgeClass ?? "default-badge",
-                        LessonCount = c.LessonCount,
-                        IsEnrolled  = enrolledIds.Contains(c.Id)
-                    })
-                    .ToList();
+                // Apply Keyword Search Filter
+                if (!string.IsNullOrEmpty(searchTerm))
+                {
+                    query = query.Where(c => c.Title.ToLower().Contains(searchTerm) || 
+                                             c.Description.ToLower().Contains(searchTerm) ||
+                                             c.Level.ToLower().Contains(searchTerm));
+                }
 
-                // Update results label
-                lblCount.Text = courses.Count.ToString();
-                lblCountPlural.Text = courses.Count == 1 ? "" : "s";
+                var list = query.ToList();
+
+                // Apply Sorting
+                IEnumerable<Course> sortedList;
+                switch (sortOption)
+                {
+                    case "alpha":
+                        sortedList = list.OrderBy(c => c.Title);
+                        break;
+                    case "newest":
+                        sortedList = list.OrderByDescending(c => c.CreatedDate);
+                        break;
+                    case "lessons":
+                        sortedList = list.OrderByDescending(c => c.Lessons != null ? c.Lessons.Count : 0);
+                        break;
+                    case "popular":
+                    default:
+                        sortedList = list.OrderByDescending(c => c.Enrollments != null ? c.Enrollments.Count : 0);
+                        break;
+                }
+
+                var viewModels = sortedList.Select(c => new CourseViewModel
+                {
+                    Id          = c.Id,
+                    Title       = c.Title,
+                    Description = c.Description,
+                    Level       = c.Level ?? "Beginner",
+                    ImageTag    = c.ImageTag ?? "📚",
+                    BadgeClass  = c.BadgeClass ?? "default-badge",
+                    LessonCount = c.Lessons != null ? c.Lessons.Count : 0,
+                    IsEnrolled  = enrolledIds.Contains(c.Id)
+                }).ToList();
+
+                // Update results count label
+                lblCount.Text = viewModels.Count.ToString();
+                lblCountPlural.Text = viewModels.Count == 1 ? "" : "s";
                 lblFilterLabel.Text = (levelFilter == "All" || string.IsNullOrEmpty(levelFilter))
                     ? "" : $" — {levelFilter} level";
 
-                if (courses.Count > 0)
+                if (viewModels.Count > 0)
                 {
-                    rptCourses.DataSource = courses;
+                    rptCourses.DataSource = viewModels;
                     rptCourses.DataBind();
                     rptCourses.Visible = true;
-                    lblNoCourses.Visible = false;
+                    pnlEmptyState.Visible = false;
                 }
                 else
                 {
                     rptCourses.Visible = false;
-                    lblNoCourses.Visible = true;
+                    pnlEmptyState.Visible = true;
                 }
             }
         }
