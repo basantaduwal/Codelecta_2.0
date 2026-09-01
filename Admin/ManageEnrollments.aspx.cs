@@ -100,7 +100,7 @@ namespace Codelecta_2._0.Admin
                     .Select(lp => new { lp.UserId, lp.LessonId })
                     .ToList();
 
-                var enrollmentViewModels = new List<EnrollmentViewModel>();
+                var enrollmentViewModels = new List<ManageEnrollmentItemViewModel>();
 
                 foreach (var uc in enrollments)
                 {
@@ -129,7 +129,7 @@ namespace Codelecta_2._0.Admin
                     if (filterStatus == "completed" && progressPct < 100) continue;
                     if (filterStatus == "inprogress" && progressPct == 100) continue;
 
-                    enrollmentViewModels.Add(new EnrollmentViewModel
+                    enrollmentViewModels.Add(new ManageEnrollmentItemViewModel
                     {
                         EnrollmentId = uc.Id,
                         StudentName = studentName,
@@ -235,7 +235,7 @@ namespace Codelecta_2._0.Admin
         }
     }
 
-    public class EnrollmentViewModel
+    public class ManageEnrollmentItemViewModel
     {
         public int EnrollmentId { get; set; }
         public string StudentName { get; set; }

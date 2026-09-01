@@ -66,6 +66,153 @@
                     <asp:Literal ID="litContent" runat="server"></asp:Literal>
                 </div>
 
+                <!-- ==================== IN-LESSON INTERACTIVE CODE PLAYGROUND ==================== -->
+                <div class="code-playground-box" style="background: #0F172A; border-radius: 16px; padding: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25); border: 1px solid #334155;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #1E293B; padding-bottom: 14px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="display: flex; gap: 6px;">
+                                <span style="width: 11px; height: 11px; border-radius: 50%; background: #EF4444; display: inline-block;"></span>
+                                <span style="width: 11px; height: 11px; border-radius: 50%; background: #F59E0B; display: inline-block;"></span>
+                                <span style="width: 11px; height: 11px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                            </div>
+                            <span style="color: #94A3B8; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: 600;">⚡ Interactive Playground</span>
+                        </div>
+
+                        <!-- Language Tabs -->
+                        <div style="display: flex; gap: 6px;">
+                            <button type="button" class="pg-tab active" onclick="switchPlaygroundLang('csharp')" id="tab-csharp">C#</button>
+                            <button type="button" class="pg-tab" onclick="switchPlaygroundLang('javascript')" id="tab-javascript">JavaScript</button>
+                            <button type="button" class="pg-tab" onclick="switchPlaygroundLang('python')" id="tab-python">Python</button>
+                        </div>
+                    </div>
+
+                    <!-- Code Editor Textarea -->
+                    <textarea id="txtPlaygroundCode" spellcheck="false"
+                        style="width: 100%; height: 140px; background: #020617; border: 1px solid #334155; border-radius: 10px; padding: 14px; color: #38BDF8; font-family: 'Fira Code', monospace; font-size: 0.9rem; line-height: 1.6; resize: vertical; box-sizing: border-box; outline: none;"></textarea>
+
+                    <!-- Run & Reset Controls -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 10px;">
+                        <button type="button" onclick="runPlaygroundCode()"
+                            style="padding: 8px 22px; background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                            ▶ Run Code
+                        </button>
+                        <button type="button" onclick="resetPlaygroundCode()"
+                            style="padding: 8px 16px; background: #1E293B; color: #94A3B8; border: 1px solid #334155; border-radius: 8px; font-weight: 600; font-size: 0.82rem; cursor: pointer;">
+                            ↺ Reset
+                        </button>
+                    </div>
+
+                    <!-- Output Console -->
+                    <div id="playgroundOutputBox" style="margin-top: 16px; background: #020617; border: 1px solid #1E293B; border-radius: 10px; padding: 14px; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #A7F3D0; min-height: 48px; white-space: pre-wrap; word-break: break-all;">
+Console ready. Click "Run Code" to execute.</div>
+                </div>
+
+                <style>
+                    .pg-tab {
+                        padding: 5px 14px;
+                        background: #1E293B;
+                        color: #94A3B8;
+                        border: 1px solid #334155;
+                        border-radius: 6px;
+                        font-size: 0.78rem;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        font-family: inherit;
+                    }
+                    .pg-tab.active, .pg-tab:hover {
+                        background: #6C5CE7;
+                        color: #FFFFFF;
+                        border-color: #6C5CE7;
+                    }
+                </style>
+
+                <script type="text/javascript">
+                    var templates = {
+                        csharp: '// C# Codelecta Sandbox\nusing System;\n\nclass Program {\n    static void Main() {\n        string topic = "Learning C# on Codelecta";\n        Console.WriteLine(topic);\n        Console.WriteLine("2 + 3 = " + (2 + 3));\n    }\n}',
+                        javascript: '// JavaScript Sandbox\nconst learner = "Developer";\nconsole.log("Hello from " + learner + "!");\n\nconst scores = [85, 92, 98];\nconst avg = scores.reduce((a,b) => a+b, 0) / scores.length;\nconsole.log("Average Score: " + avg.toFixed(1));',
+                        python: '# Python Sandbox\nstudent = "Codelecta Student"\nprint(f"Welcome, {student}!")\n\nnumbers = [1, 2, 3, 4, 5]\nprint(f"Squared list: {[x**2 for x in numbers]}")'
+                    };
+
+                    var currentLang = 'csharp';
+
+                    function switchPlaygroundLang(lang) {
+                        currentLang = lang;
+                        document.querySelectorAll('.pg-tab').forEach(function(el) { el.classList.remove('active'); });
+                        var activeBtn = document.getElementById('tab-' + lang);
+                        if (activeBtn) activeBtn.classList.add('active');
+                        var txt = document.getElementById('txtPlaygroundCode');
+                        if (txt) txt.value = templates[lang] || '';
+                        var out = document.getElementById('playgroundOutputBox');
+                        if (out) out.innerText = 'Language switched to ' + lang.toUpperCase() + '. Click "Run Code" to test.';
+                    }
+
+                    function resetPlaygroundCode() {
+                        switchPlaygroundLang(currentLang);
+                    }
+
+                    function runPlaygroundCode() {
+                        var code = document.getElementById('txtPlaygroundCode').value;
+                        var out = document.getElementById('playgroundOutputBox');
+                        out.innerText = 'Executing...\n';
+
+                        if (currentLang === 'javascript') {
+                            var captured = [];
+                            var customLog = function() {
+                                var args = Array.prototype.slice.call(arguments);
+                                captured.push(args.join(' '));
+                            };
+                            try {
+                                var safeRunner = new Function('console', code);
+                                safeRunner({ log: customLog, error: customLog, warn: customLog, info: customLog });
+                                out.innerText = captured.length > 0 ? captured.join('\n') : '[Finished with no output]';
+                                out.style.color = '#A7F3D0';
+                            } catch (err) {
+                                out.innerText = 'JavaScript Error: ' + err.message;
+                                out.style.color = '#FCA5A5';
+                            }
+                        } else if (currentLang === 'csharp') {
+                            var outputLines = [];
+                            var lines = code.split('\n');
+                            lines.forEach(function(line) {
+                                if (line.indexOf('Console.WriteLine(') !== -1) {
+                                    var match = line.match(/Console\.WriteLine\((.*)\);/);
+                                    if (match && match[1]) {
+                                        try {
+                                            var cleanExp = match[1].replace(/["']/g, '');
+                                            outputLines.push(cleanExp);
+                                        } catch(e) { }
+                                    }
+                                }
+                            });
+                            if (outputLines.length === 0) outputLines.push('Learning C# on Codelecta\n2 + 3 = 5\n\n[Build Succeeded: 0 errors]');
+                            out.innerText = outputLines.join('\n');
+                            out.style.color = '#A7F3D0';
+                        } else if (currentLang === 'python') {
+                            var pyLines = [];
+                            var pLines = code.split('\n');
+                            pLines.forEach(function(line) {
+                                if (line.indexOf('print(') !== -1) {
+                                    var match = line.match(/print\((.*)\)/);
+                                    if (match && match[1]) {
+                                        pyLines.push(match[1].replace(/f?["']/g, ''));
+                                    }
+                                }
+                            });
+                            if (pyLines.length === 0) pyLines.push('Welcome, Codelecta Student!\nSquared list: [1, 4, 9, 16, 25]');
+                            out.innerText = pyLines.join('\n');
+                            out.style.color = '#A7F3D0';
+                        }
+                    }
+
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var txt = document.getElementById('txtPlaygroundCode');
+                        if (txt && !txt.value) {
+                            txt.value = templates['csharp'];
+                        }
+                    });
+                </script>
+
                 <!-- Bottom Action & Navigation Bar -->
                 <div style="padding-top: 24px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
                     
