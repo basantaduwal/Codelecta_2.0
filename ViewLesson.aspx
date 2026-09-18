@@ -1,4 +1,4 @@
-<%@ Page Title="View Lesson" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewLesson.aspx.cs" Inherits="Codelecta_2._0.ViewLesson" %>
+﻿<%@ Page Title="View Lesson" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewLesson.aspx.cs" Inherits="Codelecta_2._0.ViewLesson" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 36px 0 80px 0;">

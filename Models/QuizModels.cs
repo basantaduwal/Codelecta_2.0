@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Codelecta_2._0.Models
 {
+    [Table("Quizzes")]
     public class Quiz
     {
         [Key]

@@ -452,5 +452,6 @@
     <EmbeddedResource Include="Migrations\202608201022420_AddVideoUrlToLesson.resx">
       <DependentUpon>202608201022420_AddVideoUrlToLesson.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Migrations\202608220000001_AddQuizTables.cs" />
   </ItemGroup>
 </Project>

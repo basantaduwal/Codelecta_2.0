@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Onboarding.Master.cs" Inherits="Codelecta_2._0.OnboardingMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Onboarding.Master.cs" Inherits="Codelecta_2._0.OnboardingMaster" %>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">

@@ -1,4 +1,4 @@
-<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageCourses" %>
+﻿<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageCourses" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Courses
