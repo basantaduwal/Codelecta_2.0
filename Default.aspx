@@ -33,143 +33,183 @@
                     </div>
                 </div>
 
-                <!-- Right: One Cohesive Programming Visual -->
+                <!-- Right: Refined Cohesive 3D Programming Illustration -->
                 <div class="hero-visual">
-                    <div class="hero-visual-wrapper">
-                        <!-- Subtle Geometric Accent (Echoing the official 3D Cube Logo) -->
-                        <div class="hero-geo-backdrop" aria-hidden="true">
-                            <svg class="geo-cube-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M200 40 L340 120 V280 L200 360 L60 280 V120 Z" stroke="url(#geoHexGrad)" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.45" />
-                                <path d="M200 200 L340 120 M200 200 V360 M200 200 L60 120" stroke="url(#geoHexGrad)" stroke-width="1.5" opacity="0.35" />
-                                <circle cx="200" cy="200" r="145" stroke="url(#geoCircleGrad)" stroke-width="1" stroke-dasharray="4 8" opacity="0.3" />
-                                <defs>
-                                    <linearGradient id="geoHexGrad" x1="60" y1="40" x2="340" y2="360" gradientUnits="userSpaceOnUse">
-                                        <stop offset="0%" stop-color="#8B5CF6" />
-                                        <stop offset="100%" stop-color="#6C5CE7" />
-                                    </linearGradient>
-                                    <linearGradient id="geoCircleGrad" x1="60" y1="60" x2="340" y2="340" gradientUnits="userSpaceOnUse">
-                                        <stop offset="0%" stop-color="#C084FC" stop-opacity="0.6" />
-                                        <stop offset="100%" stop-color="#6366F1" stop-opacity="0" />
-                                    </linearGradient>
-                                </defs>
+                    <div class="hero-composition-wrapper">
+                        <!-- Subtle Background Depth Accent -->
+                        <div class="hero-depth-backdrop" aria-hidden="true">
+                            <div class="depth-glow"></div>
+                            <svg class="depth-geo-ring" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="210" cy="210" r="160" stroke="#DDD6FE" stroke-width="1.2" stroke-dasharray="4 8" opacity="0.4" />
+                                <ellipse cx="210" cy="240" rx="190" ry="110" stroke="#C084FC" stroke-width="1" stroke-dasharray="6 6" opacity="0.25" />
                             </svg>
-                            <div class="geo-ambient-glow"></div>
                         </div>
 
-                        <!-- Central Programming Interface: Codelecta Studio Workspace -->
-                        <div class="code-workspace-window">
-                            <!-- Window Titlebar -->
-                            <div class="workspace-titlebar">
-                                <div class="window-controls">
-                                    <span class="control-dot dot-close"></span>
-                                    <span class="control-dot dot-minimize"></span>
-                                    <span class="control-dot dot-maximize"></span>
-                                </div>
-
-                                <!-- Integrated File Tabs -->
-                                <div class="workspace-tabs">
-                                    <div class="workspace-tab active-tab">
-                                        <span class="tab-icon-badge badge-cs">C#</span>
-                                        <span class="tab-name">Lesson_04.cs</span>
-                                    </div>
-                                    <div class="workspace-tab">
-                                        <span class="tab-icon-badge badge-py">Py</span>
-                                        <span class="tab-name">exercise.py</span>
-                                    </div>
-                                    <div class="workspace-tab">
-                                        <span class="tab-icon-badge badge-js">JS</span>
-                                        <span class="tab-name">quiz.js</span>
-                                    </div>
-                                </div>
-
-                                <!-- Workspace Status Badge -->
-                                <div class="workspace-status">
-                                    <span class="status-live-dot"></span>
-                                    <span class="status-text">Interactive</span>
-                                </div>
+                        <!-- Top Floating Code Card (Subtle Overlap on Upper Screen) -->
+                        <div class="floating-code-card">
+                            <div class="code-card-header">
+                                <span class="card-dot dot-red"></span>
+                                <span class="card-dot dot-yellow"></span>
+                                <span class="card-dot dot-green"></span>
+                                <span class="card-file-name">learn.js</span>
                             </div>
-
-                            <!-- Code Editor Body -->
-                            <div class="workspace-editor-body">
-                                <div class="editor-sidebar-strip" aria-hidden="true">
-                                    <span class="strip-icon active" title="Explorer">📁</span>
-                                    <span class="strip-icon" title="Progress">🎯</span>
-                                    <span class="strip-icon" title="Quiz">⚡</span>
-                                </div>
-
-                                <div class="code-pane">
-                                    <div class="code-line">
-                                        <span class="line-num">01</span>
-                                        <span class="code-text"><span class="token-comment">// Codelecta: Interactive Lesson & Quiz</span></span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">02</span>
-                                        <span class="code-text"><span class="token-keyword">using</span> <span class="token-namespace">Codelecta</span>.<span class="token-namespace">Learning</span>;</span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">03</span>
-                                        <span class="code-text">&nbsp;</span>
-                                    </div>
-                                    <div class="code-line active-code-line">
-                                        <span class="line-num">04</span>
-                                        <span class="code-text"><span class="token-keyword">var</span> learner = <span class="token-keyword">await</span> <span class="token-class">CodelectaUser</span>.<span class="token-method">GetProfileAsync</span>();</span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">05</span>
-                                        <span class="code-text"><span class="token-keyword">var</span> track = learner.<span class="token-method">RecommendTrack</span>(<span class="token-class">Level</span>.<span class="token-property">Beginner</span>);</span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">06</span>
-                                        <span class="code-text">&nbsp;</span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">07</span>
-                                        <span class="code-text"><span class="token-keyword">await</span> track.<span class="token-method">CompleteLessonAsync</span>(<span class="token-number">4</span>);</span>
-                                    </div>
-                                    <div class="code-line">
-                                        <span class="line-num">08</span>
-                                        <span class="code-text"><span class="token-class">Console</span>.<span class="token-method">WriteLine</span>(<span class="token-string">"Progress updated! Take quiz &rarr;"</span>);<span class="code-cursor"></span></span>
-                                    </div>
-                                </div>
+                            <div class="code-card-snippet">
+                                <div><span class="tok-kw">function</span> <span class="tok-fn">learn</span>() {</div>
+                                <div>&nbsp;&nbsp;<span class="tok-kw">return</span> <span class="tok-str">"Codelecta"</span>;</div>
+                                <div>}</div>
                             </div>
+                        </div>
 
-                            <!-- Integrated Terminal / Output Console -->
-                            <div class="workspace-terminal">
-                                <div class="terminal-header">
-                                    <div class="terminal-title">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="4 17 10 11 4 5"></polyline>
-                                            <line x1="12" y1="19" x2="20" y2="19"></line>
-                                        </svg>
-                                        <span>Interactive Output</span>
-                                    </div>
-                                    <span class="terminal-pill">Exit Code: 0</span>
-                                </div>
-                                <div class="terminal-content">
-                                    <div class="terminal-row success-row">
-                                        <span class="term-check">&#10003;</span>
-                                        <span class="term-msg">Lesson 04 completed &bull; <strong>+50 XP earned</strong></span>
-                                    </div>
-                                    <div class="terminal-row info-row">
-                                        <span class="term-arrow">&gt;</span>
-                                        <span class="term-msg">Course Progress: <span class="term-highlight">80%</span> &bull; 1 Lesson remaining</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- 3D Modern Laptop Artwork (Perspective Angled Illustration) -->
+                        <div class="laptop-3d-scene">
+                            <svg class="laptop-svg-artwork" viewBox="0 0 600 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <!-- Ambient Ground Shadow & Glow -->
+                                    <radialGradient id="laptopFloorGlow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#C084FC" stop-opacity="0.32" />
+                                        <stop offset="55%" stop-color="#818CF8" stop-opacity="0.1" />
+                                        <stop offset="100%" stop-color="#FAF9FF" stop-opacity="0" />
+                                    </radialGradient>
 
-                            <!-- Anchored Progress Badge -->
-                            <div class="workspace-docked-badge">
-                                <div class="docked-badge-icon">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    <!-- Screen Display Gradient -->
+                                    <linearGradient id="screenDisplayGrad" x1="230" y1="84" x2="475" y2="176" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#1E1B4B" />
+                                        <stop offset="100%" stop-color="#0F172A" />
+                                    </linearGradient>
+
+                                    <!-- Laptop Silver-Slate Metallic Chassis Gradients -->
+                                    <linearGradient id="laptopBaseDeckGrad" x1="160" y1="285" x2="550" y2="225" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#F8FAFC" />
+                                        <stop offset="40%" stop-color="#E2E8F0" />
+                                        <stop offset="85%" stop-color="#CBD5E1" />
+                                        <stop offset="100%" stop-color="#94A3B8" />
+                                    </linearGradient>
+
+                                    <linearGradient id="screenBezelGrad" x1="220" y1="72" x2="485" y2="188" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#312E81" />
+                                        <stop offset="100%" stop-color="#0F172A" />
+                                    </linearGradient>
+
+                                    <!-- Neon Accent Gradient -->
+                                    <linearGradient id="neonAccentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#8B5CF6" />
+                                        <stop offset="60%" stop-color="#A855F7" />
+                                        <stop offset="100%" stop-color="#06B6D4" />
+                                    </linearGradient>
+
+                                    <!-- Screen Glass Sheen Overlay -->
+                                    <linearGradient id="glassReflectionGrad" x1="240" y1="20" x2="440" y2="240" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12" />
+                                        <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.03" />
+                                        <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0" />
+                                    </linearGradient>
+
+                                    <!-- Soft Shadow Filter -->
+                                    <filter id="softScreenGlow" x="-15%" y="-15%" width="130%" height="130%">
+                                        <feGaussianBlur stdDeviation="5" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+
+                                <!-- 1. Ground Shadow & Soft Floor Glow -->
+                                <ellipse cx="360" cy="370" rx="195" ry="58" fill="url(#laptopFloorGlow)" />
+                                <ellipse cx="355" cy="372" rx="145" ry="30" fill="#0F172A" opacity="0.08" />
+
+                                <!-- 2. 3D Laptop Base Chassis (Angled Isometric Extrusion) -->
+                                <!-- Base Top Deck Surface -->
+                                <polygon points="160,285 415,155 550,225 295,355" fill="url(#laptopBaseDeckGrad)" stroke="#CBD5E1" stroke-width="1.2" />
+
+                                <!-- Base Front-Left Edge -->
+                                <polygon points="160,285 295,355 295,368 160,298" fill="#94A3B8" />
+
+                                <!-- Base Front-Right Edge -->
+                                <polygon points="295,355 550,225 550,238 295,368" fill="#64748B" />
+
+                                <!-- Front Rim Glow Highlight Line -->
+                                <line x1="295" y1="368" x2="550" y2="238" stroke="url(#neonAccentGrad)" stroke-width="2.2" stroke-linecap="round" />
+
+                                <!-- Keyboard Recessed Well -->
+                                <polygon points="220,260 398,168 495,217 318,309" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
+
+                                <!-- Isometric Keyboard Key Rows with Sleek Backlighting -->
+                                <polygon points="238,252 384,178 394,183 248,257" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
+                                <polygon points="252,260 398,186 408,191 262,265" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
+                                <polygon points="266,268 412,194 422,199 276,273" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
+                                <polygon points="280,276 426,202 436,207 290,281" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
+
+                                <!-- Spacebar -->
+                                <polygon points="305,288 395,242 405,247 315,293" fill="#334155" stroke="#475569" stroke-width="0.8" />
+
+                                <!-- Precision Trackpad -->
+                                <polygon points="296,316 354,286 386,302 328,332" fill="#E2E8F0" stroke="#818CF8" stroke-width="1.2" />
+
+                                <!-- 3. Upright 3D Laptop Display Screen -->
+                                <!-- Screen Outer Lid Frame with Subtle Shadow -->
+                                <polygon points="224,72 485,2 485,188 224,258" fill="url(#screenBezelGrad)" stroke="#6366F1" stroke-width="2" filter="url(#softScreenGlow)" />
+
+                                <!-- Inner Screen Bezel Rim -->
+                                <polygon points="230,78 479,10 479,182 230,250" fill="#0F172A" />
+
+                                <!-- Active High-Contrast Glass Display Surface -->
+                                <polygon points="235,84 474,16 474,176 235,244" fill="url(#screenDisplayGrad)" />
+
+                                <!-- Integrated Webcam Dot -->
+                                <circle cx="358" cy="46" r="2" fill="#334155" />
+                                <circle cx="358" cy="46" r="0.8" fill="#10B981" />
+
+                                <!-- Display Header Bar: Window Controls & Lesson Pill -->
+                                <polygon points="235,84 474,16 474,36 235,104" fill="#1E293B" />
+                                <circle cx="248" cy="97" r="2.5" fill="#EF4444" />
+                                <circle cx="256" cy="94" r="2.5" fill="#F59E0B" />
+                                <circle cx="264" cy="91" r="2.5" fill="#10B981" />
+                                <text x="278" y="94" fill="#C084FC" font-family="'Inter', -apple-system, sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.5">Lesson 03 &bull; Functions &amp; Logic</text>
+
+                                <!-- Sleek Course Progress Indicator Line -->
+                                <line x1="245" y1="112" x2="455" y2="52" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+                                <line x1="245" y1="112" x2="413" y2="64" stroke="url(#neonAccentGrad)" stroke-width="2.5" stroke-linecap="round" />
+
+                                <!-- Clean Syntax-Highlighted Code Editor Lines -->
+                                <text x="246" y="132" fill="#64748B" font-family="'Fira Code', monospace" font-size="8" font-weight="600">// Interactive Lesson</text>
+                                <text x="248" y="148" fill="#93C5FD" font-family="'Fira Code', monospace" font-size="8.5" font-weight="600"><tspan fill="#C084FC">var</tspan> dev = <tspan fill="#FDE047">Codelecta</tspan>.<tspan fill="#38BDF8">Init</tspan>();</text>
+                                <text x="250" y="164" fill="#93C5FD" font-family="'Fira Code', monospace" font-size="8.5" font-weight="600"><tspan fill="#C084FC">await</tspan> dev.<tspan fill="#38BDF8">Learn</tspan>();</text>
+
+                                <!-- Small Interactive Elements on Screen -->
+                                <!-- Interactive "RUN >" Action Button -->
+                                <polygon points="380,88 440,71 440,87 380,104" fill="url(#neonAccentGrad)" />
+                                <text x="395" y="96" fill="#FFFFFF" font-family="'Inter', -apple-system, sans-serif" font-size="7.2" font-weight="800">RUN &gt;</text>
+
+                                <!-- Verified Output Toast Badge -->
+                                <polygon points="365,116 455,90 455,106 365,132" fill="#065F46" fill-opacity="0.6" stroke="#10B981" stroke-width="0.8" />
+                                <text x="374" y="123" fill="#34D399" font-family="'Inter', -apple-system, sans-serif" font-size="6.8" font-weight="700">&#10003; Output: OK (80%)</text>
+
+                                <!-- Diagonal Glass Screen Sheen Reflection -->
+                                <polygon points="260,80 340,56 410,194 330,218" fill="url(#glassReflectionGrad)" pointer-events="none" />
+                            </svg>
+                        </div>
+
+                        <!-- Bottom Floating Quiz Card (Subtle Overlap on Lower Chassis) -->
+                        <div class="floating-quiz-card">
+                            <div class="quiz-card-content">
+                                <div class="quiz-badge-icon">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </div>
-                                <div class="docked-badge-text">
-                                    <span class="docked-badge-label">Quiz Ready</span>
-                                    <span class="docked-badge-val">Passing Score: 70%+</span>
+                                <div class="quiz-card-info">
+                                    <span class="quiz-title">Quiz Completed</span>
+                                    <span class="quiz-sub">Progress: <strong>80%</strong></span>
                                 </div>
                             </div>
+                            <div class="quiz-progress-track">
+                                <div class="quiz-progress-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Carefully Positioned Programming Indicators (Trio Capsule) -->
+                        <div class="hero-tech-capsule">
+                            <span class="tech-indicator ind-cs">C#</span>
+                            <span class="tech-indicator ind-py">Python</span>
+                            <span class="tech-indicator ind-js">JS</span>
                         </div>
                     </div>
                 </div>
