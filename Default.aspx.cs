@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +11,19 @@ namespace Codelecta_2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                DataBind();
+            }
+        }
 
+        public string GetDashboardUrl()
+        {
+            if (User != null && User.IsInRole("Admin"))
+            {
+                return ResolveUrl("~/Admin/Dashboard");
+            }
+            return ResolveUrl("~/Dashboard");
         }
     }
 }
