@@ -1,4 +1,4 @@
-<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Admin.Dashboard" %>
+﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Admin.Dashboard" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Dashboard

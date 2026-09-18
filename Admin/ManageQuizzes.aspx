@@ -1,4 +1,4 @@
-<%@ Page Title="Manage Quizzes" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageQuizzes.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageQuizzes" %>
+﻿<%@ Page Title="Manage Quizzes" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageQuizzes.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageQuizzes" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Quizzes
