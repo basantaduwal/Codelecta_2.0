@@ -3,27 +3,28 @@
    ============================================================ */
 @media (max-width: 1024px) {
     .hero-section {
-        padding-top: 100px;
-        padding-bottom: 60px;
+        padding-top: 88px;
+        padding-bottom: 44px;
         min-height: auto;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
         text-align: center;
     }
 
     .hero-text {
-        margin: 0 auto 30px;
+        margin: 0 auto 28px;
     }
 
     .hero-buttons {
         justify-content: center;
     }
 
-    .hero-visual-wrapper {
-        max-width: 540px;
+    .hero-composition-wrapper {
+        max-width: 500px;
+        height: 400px;
         margin: 0 auto;
     }
 
@@ -61,28 +62,39 @@
 
     .hero-title { font-size: 2.6rem; }
 
-    .hero-visual-wrapper {
-        max-width: 100%;
+    .hero-composition-wrapper {
+        max-width: 440px;
+        height: 350px;
+        margin: 0 auto;
     }
 
-    .workspace-editor-body {
-        min-height: auto;
+    .floating-code-card {
+        width: 175px;
+        padding: 10px 12px;
+        top: 8px;
+        left: 4px;
     }
 
-    .editor-sidebar-strip {
-        display: none;
+    .floating-code-card .code-card-snippet {
+        font-size: 0.68rem;
     }
 
-    .code-pane {
-        font-size: 0.78rem;
-        padding: 12px 14px;
-        line-height: 1.65;
+    .floating-quiz-card {
+        width: 175px;
+        padding: 10px 12px;
+        bottom: 12px;
+        right: 6px;
     }
 
-    .workspace-docked-badge {
-        right: 12px;
-        bottom: -14px;
-        padding: 6px 10px;
+    .floating-quiz-card .quiz-badge-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .hero-tech-capsule {
+        bottom: 14px;
+        left: 20px;
+        padding: 4px 9px;
     }
 
     .features-bar-card { grid-template-columns: 1fr; }
@@ -96,54 +108,128 @@
 
 @media (max-width: 480px) {
     .hero-section {
-        padding-top: 86px;
-        padding-bottom: 40px;
+        padding-top: 80px;
+        padding-bottom: 30px;
     }
 
-    .hero-title { font-size: 2.15rem; }
+    .hero-container {
+        padding: 0 16px;
+    }
+
+    .hero-title {
+        font-size: 1.95rem;
+        line-height: 1.15;
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
 
     .hero-badge-tag {
         font-size: 0.72rem;
-        padding: 5px 12px;
+        padding: 4px 12px;
+        margin-bottom: 16px;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
-        gap: 12px;
+        gap: 10px;
     }
 
+    .hero-buttons a,
     .btn-pill-primary,
     .btn-pill-secondary {
         width: 100%;
         justify-content: center;
-        padding: 12px 20px;
+        padding: 12px 18px;
+        box-sizing: border-box;
     }
 
-    .workspace-tabs .workspace-tab:nth-child(3) {
-        display: none; /* keep 2 tabs on narrow mobile */
+    .hero-composition-wrapper {
+        width: 100%;
+        max-width: 320px;
+        height: 250px;
+        margin: 10px auto 0;
+        position: relative;
     }
 
-    .code-pane {
-        font-size: 0.7rem;
-        line-height: 1.6;
-        padding: 10px 12px;
-    }
-
-    .line-num {
-        width: 18px;
-        margin-right: 8px;
-        font-size: 0.65rem;
-    }
-
-    .workspace-docked-badge {
-        position: static;
-        margin-top: 10px;
-        display: inline-flex;
+    .floating-code-card {
+        width: 125px;
+        padding: 6px 8px;
+        top: 2px;
+        left: 4px;
         border-radius: 10px;
+        transform: none !important;
+        animation: floatMobileCard1 5s ease-in-out infinite;
     }
 
-    .geo-cube-svg {
+    .floating-code-card .code-card-snippet {
+        font-size: 0.58rem;
+        line-height: 1.4;
+    }
+
+    .card-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .card-file-name {
+        font-size: 0.62rem;
+    }
+
+    .floating-quiz-card {
+        width: 130px;
+        padding: 6px 8px;
+        bottom: 4px;
+        right: 4px;
+        border-radius: 10px;
+        transform: none !important;
+        animation: floatMobileCard2 5s ease-in-out infinite 0.6s;
+    }
+
+    .quiz-title {
+        font-size: 0.64rem;
+    }
+
+    .quiz-sub {
+        font-size: 0.56rem;
+    }
+
+    .quiz-badge-icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .quiz-badge-icon svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero-tech-capsule {
+        bottom: 6px;
+        left: 10px;
+        padding: 2px 6px;
+        gap: 4px;
+    }
+
+    .tech-indicator {
+        font-size: 0.60rem;
+        padding: 2px 5px;
+    }
+
+    .depth-geo-ring {
         display: none;
     }
+}
+
+@keyframes floatMobileCard1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes floatMobileCard2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
