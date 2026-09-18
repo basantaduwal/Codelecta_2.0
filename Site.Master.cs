@@ -72,6 +72,21 @@ namespace Codelecta_2._0
 
         }
 
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if (masterBody != null)
+            {
+                if (IsHomePage())
+                {
+                    masterBody.Attributes["class"] = "home-page";
+                }
+                else
+                {
+                    masterBody.Attributes.Remove("class");
+                }
+            }
+        }
+
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
