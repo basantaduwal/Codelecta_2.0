@@ -111,8 +111,14 @@ namespace Codelecta_2._0
         public bool IsHomePage()
         {
             string path = Request.AppRelativeCurrentExecutionFilePath ?? "";
+            string rawUrl = Request.RawUrl != null ? Request.RawUrl.Split('?')[0].ToLowerInvariant() : "";
+            
             return path.Equals("~/Default.aspx", StringComparison.OrdinalIgnoreCase) ||
-                   path.Equals("~/", StringComparison.OrdinalIgnoreCase);
+                   path.Equals("~/", StringComparison.OrdinalIgnoreCase) ||
+                   path.Equals("~/Default", StringComparison.OrdinalIgnoreCase) ||
+                   rawUrl == "/" ||
+                   rawUrl == "/default" ||
+                   rawUrl == "/default.aspx";
         }
     }
 
