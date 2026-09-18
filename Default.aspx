@@ -22,12 +22,12 @@
                     <div class="hero-buttons">
                         <asp:LoginView runat="server">
                             <AnonymousTemplate>
-                                <a href="Account/Register" class="btn-pill-primary">Start Learning</a>
-                                <a href="Courses" class="btn-pill-secondary">Explore Courses</a>
+                                <a href="<%= ResolveUrl("~/Account/Register") %>" class="btn-pill-primary">Start Learning</a>
+                                <a href="<%= ResolveUrl("~/Courses") %>" class="btn-pill-secondary">Explore Courses</a>
                             </AnonymousTemplate>
                             <LoggedInTemplate>
-                                <a href="Dashboard" class="btn-pill-primary">Go to Dashboard</a>
-                                <a href="Courses" class="btn-pill-secondary">Explore Courses</a>
+                                <a href="<%# GetDashboardUrl() %>" class="btn-pill-primary">Go to Dashboard</a>
+                                <a href="<%# ResolveUrl("~/Courses") %>" class="btn-pill-secondary">Explore Courses</a>
                             </LoggedInTemplate>
                         </asp:LoginView>
                     </div>
