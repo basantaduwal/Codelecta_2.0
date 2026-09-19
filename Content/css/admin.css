@@ -253,7 +253,7 @@
 
 /* thin gradient strip along the very top of the sidebar */
 .admin-sidebar {
-    border-top: 3px solid transparent;
+    border-top: 1px solid transparent;
     border-image: linear-gradient(90deg, var(--accent-main), var(--accent-content), var(--accent-users), var(--accent-system)) 1;
 }
 
