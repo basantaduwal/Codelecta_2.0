@@ -207,7 +207,7 @@
         <section class="features-bar-section">
             <div class="container">
                 <div class="features-bar-card reveal">
-                    <!-- Item 1 -->
+                    <!-- Item 1: Interactive Lessons -->
                     <div class="feature-bar-item">
                         <div class="feature-bar-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -218,45 +218,48 @@
                         </div>
                         <div class="feature-bar-text">
                             <h4>Interactive Lessons</h4>
-                            <p>Engage with bite-sized lessons.</p>
+                            <p>Learn through structured, bite-sized lessons.</p>
                         </div>
                     </div>
-                    <!-- Item 2 -->
+                    <!-- Item 2: Personalized Learning -->
                     <div class="feature-bar-item">
                         <div class="feature-bar-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
                             </svg>
                         </div>
                         <div class="feature-bar-text">
-                            <h4>Real Projects</h4>
-                            <p>Build real-world projects.</p>
+                            <h4>Personalized Learning</h4>
+                            <p>Get course recommendations based on experience level.</p>
                         </div>
                     </div>
-                    <!-- Item 3 -->
+                    <!-- Item 3: Interactive Quizzes -->
                     <div class="feature-bar-item">
                         <div class="feature-bar-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="7"></circle>
-                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
                             </svg>
                         </div>
                         <div class="feature-bar-text">
-                            <h4>Certificates</h4>
-                            <p>Earn certificates and get recognized.</p>
+                            <h4>Interactive Quizzes</h4>
+                            <p>Test your understanding while learning.</p>
                         </div>
                     </div>
-                    <!-- Item 4 -->
+                    <!-- Item 4: Progress Tracking -->
                     <div class="feature-bar-item">
                         <div class="feature-bar-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
                             </svg>
                         </div>
                         <div class="feature-bar-text">
-                            <h4>Flexible Learning</h4>
-                            <p>Learn anytime, anywhere.</p>
+                            <h4>Progress Tracking</h4>
+                            <p>Track learning progress across courses.</p>
                         </div>
                     </div>
                 </div>
@@ -270,43 +273,57 @@
                     <h2 id="coursesTitle" class="section-title">Top Courses</h2>
                     <a href="Courses" class="view-all-link">View all &rarr;</a>
                 </div>
-                <div class="courses-grid">
-                    <!-- Course 1: Python -->
-                    <a href="Courses" class="course-card reveal">
-                        <div class="course-icon-badge python-badge">Py</div>
-                        <div class="course-card-info">
-                            <h3>Python</h3>
-                            <p>Beginner to Advanced</p>
+                
+                <asp:Repeater ID="rptTopCourses" runat="server">
+                    <HeaderTemplate>
+                        <div class="courses-grid">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <a href='CourseDetail.aspx?id=<%# Eval("Id") %>' class="course-card reveal">
+                            <div class="course-icon-badge <%# Eval("BadgeClass") %>"><%# Eval("ImageTag") %></div>
+                            <div class="course-card-info">
+                                <h3><%# Eval("Title") %></h3>
+                                <p><%# Eval("Level") %> &bull; <%# Eval("LessonCount") %> lessons</p>
+                            </div>
+                        </a>
+                    </ItemTemplate>
+                    <FooterTemplate>
                         </div>
-                    </a>
+                    </FooterTemplate>
+                </asp:Repeater>
 
-                    <!-- Course 2: React -->
-                    <a href="Courses" class="course-card reveal">
-                        <div class="course-icon-badge react-badge">&#9883;</div>
-                        <div class="course-card-info">
-                            <h3>React</h3>
-                            <p>Build Web Apps</p>
-                        </div>
-                    </a>
-
-                    <!-- Course 3: Java -->
-                    <a href="Courses" class="course-card reveal">
-                        <div class="course-icon-badge java-badge">&#9749;</div>
-                        <div class="course-card-info">
-                            <h3>Java</h3>
-                            <p>Object Oriented</p>
-                        </div>
-                    </a>
-
-                    <!-- Course 4: JavaScript -->
-                    <a href="Courses" class="course-card reveal">
-                        <div class="course-icon-badge js-badge">JS</div>
-                        <div class="course-card-info">
-                            <h3>JavaScript</h3>
-                            <p>Web Development</p>
-                        </div>
-                    </a>
-                </div>
+                <asp:Panel ID="pnlFallbackCourses" runat="server" Visible="false">
+                    <div class="courses-grid">
+                        <a href="Courses" class="course-card reveal">
+                            <div class="course-icon-badge python-badge">Py</div>
+                            <div class="course-card-info">
+                                <h3>Python Programming</h3>
+                                <p>Beginner &bull; 5 lessons</p>
+                            </div>
+                        </a>
+                        <a href="Courses" class="course-card reveal">
+                            <div class="course-icon-badge js-badge">JS</div>
+                            <div class="course-card-info">
+                                <h3>JavaScript Essentials</h3>
+                                <p>Beginner &bull; 5 lessons</p>
+                            </div>
+                        </a>
+                        <a href="Courses" class="course-card reveal">
+                            <div class="course-icon-badge csharp-badge">C#</div>
+                            <div class="course-card-info">
+                                <h3>C# Fundamentals</h3>
+                                <p>Beginner &bull; 5 lessons</p>
+                            </div>
+                        </a>
+                        <a href="Courses" class="course-card reveal">
+                            <div class="course-icon-badge react-badge">&#9883;</div>
+                            <div class="course-card-info">
+                                <h3>React for Web Apps</h3>
+                                <p>Intermediate &bull; 5 lessons</p>
+                            </div>
+                        </a>
+                    </div>
+                </asp:Panel>
             </div>
         </section>
 
@@ -320,18 +337,18 @@
                 <div class="journey-steps">
                     <div class="journey-step reveal">
                         <div class="step-number">01</div>
-                        <h3>Choose a Course</h3>
-                        <p>Find a programming course suitable for your current level and goals.</p>
+                        <h3>Choose Your Level</h3>
+                        <p>Select courses matched to your experience level, from beginner to advanced.</p>
                     </div>
                     <div class="journey-step reveal">
                         <div class="step-number">02</div>
-                        <h3>Learn at Your Pace</h3>
-                        <p>Study structured lessons with examples, videos, and quizzes.</p>
+                        <h3>Learn & Practice</h3>
+                        <p>Study structured lessons, run code examples, and test knowledge with quizzes.</p>
                     </div>
                     <div class="journey-step reveal">
                         <div class="step-number">03</div>
                         <h3>Track Your Progress</h3>
-                        <p>Complete lessons and monitor your learning activity.</p>
+                        <p>Monitor completed lessons, quiz scores, and achievements on your dashboard.</p>
                     </div>
                 </div>
             </div>
