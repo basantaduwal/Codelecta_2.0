@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 160" width="300" height="160">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7"/>
+      <stop offset="100%" style="stop-color:#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="160" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="260" cy="20" r="40" fill="#FDE047" opacity="0.4"/>
+  <circle cx="30" cy="140" r="30" fill="#FBBF24" opacity="0.3"/>
+  <!-- Python logo simplified -->
+  <g transform="translate(100, 28)">
+    <!-- Top snake body -->
+    <path d="M50,0 C30,0 20,10 20,28 L20,40 L80,40 L80,48 L10,48 C10,48 0,55 0,72 C0,89 10,96 26,96 L46,96 L46,84 L26,84 C20,84 16,80 16,74 L16,68 L90,68 L90,28 C90,10 80,0 60,0 Z" fill="#3B77A8"/>
+    <!-- Bottom snake body -->
+    <path d="M50,96 C70,96 80,86 80,68 L80,56 L20,56 L20,48 L90,48 C90,48 100,41 100,24 C100,7 90,0 74,0 L54,0 L54,12 L74,12 C80,12 84,16 84,22 L84,28 L10,28 L10,68 C10,86 20,96 40,96 Z" fill="#FFD840"/>
+    <!-- Eyes -->
+    <circle cx="38" cy="18" r="5" fill="white"/>
+    <circle cx="62" cy="78" r="5" fill="white"/>
+  </g>
+  <!-- Label -->
+  <text x="150" y="148" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle" opacity="0.7">PYTHON</text>
+</svg>
