@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 160" width="300" height="160">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EDE9FE"/>
+      <stop offset="100%" style="stop-color:#C7D2FE"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="160" fill="url(#bg)"/>
+  <circle cx="268" cy="18" r="48" fill="#A5B4FC" opacity="0.35"/>
+  <circle cx="22" cy="148" r="32" fill="#818CF8" opacity="0.25"/>
+  <!-- Code brackets icon -->
+  <g transform="translate(150,72)" fill="none" stroke="#6366F1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-30,-30 -50,0 -30,30"/>
+    <polyline points="30,-30 50,0 30,30"/>
+    <line x1="-15" y1="-18" x2="15" y2="18"/>
+  </g>
+  <!-- Label -->
+  <text x="150" y="148" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="700" fill="#3730A3" text-anchor="middle" opacity="0.7">PROGRAMMING</text>
+</svg>
