@@ -89,8 +89,10 @@
 
     .features-bar-card { grid-template-columns: 1fr; }
     .courses-grid { grid-template-columns: 1fr; }
+    .course-card-thumb { height: 120px; }
     .journey-steps { flex-direction: column; }
     .audience-grid { grid-template-columns: 1fr; }
+
 
     .auth-brand-panel { display: none; }
     .auth-form-panel { padding: 40px 24px; }
