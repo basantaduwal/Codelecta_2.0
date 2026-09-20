@@ -17,8 +17,9 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* On Home Page: Start 100% transparent */
-body.home-page .codelecta-nav {
+/* On Home & About Pages: Start 100% transparent */
+body.home-page .codelecta-nav,
+body.about-page .codelecta-nav {
     background: transparent !important;
     border-bottom: 1px solid transparent !important;
     box-shadow: none !important;

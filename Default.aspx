@@ -280,10 +280,14 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <a href='CourseDetail.aspx?id=<%# Eval("Id") %>' class="course-card reveal">
-                            <div class="course-icon-badge <%# Eval("BadgeClass") %>"><%# Eval("ImageTag") %></div>
-                            <div class="course-card-info">
+                            <div class="course-card-thumb">
+                                <img src='<%# Eval("ThumbnailUrl") %>' alt='<%# Eval("Title") %>' loading="lazy" />
+                                <span class="course-level-badge"><%# Eval("Level") %></span>
+                            </div>
+                            <div class="course-card-body">
+                                <div class="course-icon-badge <%# Eval("BadgeClass") %>"><%# Eval("ImageTag") %></div>
                                 <h3><%# Eval("Title") %></h3>
-                                <p><%# Eval("Level") %> &bull; <%# Eval("LessonCount") %> lessons</p>
+                                <p><%# Eval("LessonCount") %> lessons</p>
                             </div>
                         </a>
                     </ItemTemplate>
@@ -295,31 +299,47 @@
                 <asp:Panel ID="pnlFallbackCourses" runat="server" Visible="false">
                     <div class="courses-grid">
                         <a href="Courses" class="course-card reveal">
-                            <div class="course-icon-badge python-badge">Py</div>
-                            <div class="course-card-info">
+                            <div class="course-card-thumb">
+                                <img src="Content/images/courses/python.svg" alt="Python Programming" loading="lazy" />
+                                <span class="course-level-badge">Beginner</span>
+                            </div>
+                            <div class="course-card-body">
+                                <div class="course-icon-badge python-badge">Py</div>
                                 <h3>Python Programming</h3>
-                                <p>Beginner &bull; 5 lessons</p>
+                                <p>5 lessons</p>
                             </div>
                         </a>
                         <a href="Courses" class="course-card reveal">
-                            <div class="course-icon-badge js-badge">JS</div>
-                            <div class="course-card-info">
+                            <div class="course-card-thumb">
+                                <img src="Content/images/courses/javascript.svg" alt="JavaScript Essentials" loading="lazy" />
+                                <span class="course-level-badge">Beginner</span>
+                            </div>
+                            <div class="course-card-body">
+                                <div class="course-icon-badge js-badge">JS</div>
                                 <h3>JavaScript Essentials</h3>
-                                <p>Beginner &bull; 5 lessons</p>
+                                <p>5 lessons</p>
                             </div>
                         </a>
                         <a href="Courses" class="course-card reveal">
-                            <div class="course-icon-badge csharp-badge">C#</div>
-                            <div class="course-card-info">
+                            <div class="course-card-thumb">
+                                <img src="Content/images/courses/csharp.svg" alt="C# Fundamentals" loading="lazy" />
+                                <span class="course-level-badge">Beginner</span>
+                            </div>
+                            <div class="course-card-body">
+                                <div class="course-icon-badge csharp-badge">C#</div>
                                 <h3>C# Fundamentals</h3>
-                                <p>Beginner &bull; 5 lessons</p>
+                                <p>5 lessons</p>
                             </div>
                         </a>
                         <a href="Courses" class="course-card reveal">
-                            <div class="course-icon-badge react-badge">&#9883;</div>
-                            <div class="course-card-info">
+                            <div class="course-card-thumb">
+                                <img src="Content/images/courses/react.svg" alt="React for Web Apps" loading="lazy" />
+                                <span class="course-level-badge">Intermediate</span>
+                            </div>
+                            <div class="course-card-body">
+                                <div class="course-icon-badge react-badge">&#9883;</div>
                                 <h3>React for Web Apps</h3>
-                                <p>Intermediate &bull; 5 lessons</p>
+                                <p>5 lessons</p>
                             </div>
                         </a>
                     </div>

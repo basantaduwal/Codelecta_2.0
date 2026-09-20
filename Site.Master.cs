@@ -80,6 +80,10 @@ namespace Codelecta_2._0
                 {
                     masterBody.Attributes["class"] = "home-page";
                 }
+                else if (IsAboutPage())
+                {
+                    masterBody.Attributes["class"] = "about-page";
+                }
                 else
                 {
                     masterBody.Attributes.Remove("class");
@@ -134,6 +138,17 @@ namespace Codelecta_2._0
                    rawUrl == "/" ||
                    rawUrl == "/default" ||
                    rawUrl == "/default.aspx";
+        }
+
+        public bool IsAboutPage()
+        {
+            string path = Request.AppRelativeCurrentExecutionFilePath ?? "";
+            string rawUrl = Request.RawUrl != null ? Request.RawUrl.Split('?')[0].ToLowerInvariant() : "";
+
+            return path.Equals("~/About", StringComparison.OrdinalIgnoreCase) ||
+                   path.Equals("~/About.aspx", StringComparison.OrdinalIgnoreCase) ||
+                   rawUrl == "/about" ||
+                   rawUrl == "/about.aspx";
         }
     }
 

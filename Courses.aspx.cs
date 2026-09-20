@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -190,13 +190,14 @@ namespace Codelecta_2._0
 
     public class CourseViewModel
     {
-        public int    Id          { get; set; }
-        public string Title       { get; set; }
-        public string Description { get; set; }
-        public string Level       { get; set; }
-        public string ImageTag    { get; set; }
-        public string BadgeClass  { get; set; }
-        public int    LessonCount { get; set; }
-        public bool   IsEnrolled  { get; set; }
+        public int    Id           { get; set; }
+        public string Title        { get; set; }
+        public string Description  { get; set; }
+        public string Level        { get; set; }
+        public string ImageTag     { get; set; }
+        public string BadgeClass   { get; set; }
+        public int    LessonCount  { get; set; }
+        public bool   IsEnrolled   { get; set; }
+        public string ThumbnailUrl { get; set; }
     }
 }

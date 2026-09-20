@@ -47,13 +47,14 @@ namespace Codelecta_2._0
                     {
                         var viewModels = courses.Select(c => new CourseViewModel
                         {
-                            Id          = c.Id,
-                            Title       = c.Title,
-                            Description = c.Description,
-                            Level       = c.Level ?? "Beginner",
-                            ImageTag    = c.ImageTag ?? "📚",
-                            BadgeClass  = c.BadgeClass ?? "default-badge",
-                            LessonCount = c.Lessons != null ? c.Lessons.Count : 0
+                            Id           = c.Id,
+                            Title        = c.Title,
+                            Description  = c.Description,
+                            Level        = c.Level ?? "Beginner",
+                            ImageTag     = c.ImageTag ?? "📚",
+                            BadgeClass   = c.BadgeClass ?? "default-badge",
+                            LessonCount  = c.Lessons != null ? c.Lessons.Count : 0,
+                            ThumbnailUrl = GetThumbnailUrl(c.BadgeClass)
                         }).ToList();
 
                         rptTopCourses.DataSource = viewModels;
@@ -71,6 +72,22 @@ namespace Codelecta_2._0
 
             rptTopCourses.Visible = false;
             pnlFallbackCourses.Visible = true;
+        }
+
+        private string GetThumbnailUrl(string badgeClass)
+        {
+            switch (badgeClass)
+            {
+                case "python-badge":  return ResolveUrl("~/Content/images/courses/python.svg");
+                case "js-badge":      return ResolveUrl("~/Content/images/courses/javascript.svg");
+                case "csharp-badge":  return ResolveUrl("~/Content/images/courses/csharp.svg");
+                case "react-badge":   return ResolveUrl("~/Content/images/courses/react.svg");
+                case "java-badge":    return ResolveUrl("~/Content/images/courses/java.svg");
+                case "dsa-badge":     return ResolveUrl("~/Content/images/courses/dsa.svg");
+                case "html-badge":    return ResolveUrl("~/Content/images/courses/html.svg");
+                case "sys-badge":     return ResolveUrl("~/Content/images/courses/sys.svg");
+                default:              return ResolveUrl("~/Content/images/courses/default.svg");
+            }
         }
     }
 }
