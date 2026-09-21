@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Quizzes" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageQuizzes.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageQuizzes" %>
+<%@ Page Title="Manage Quizzes" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageQuizzes.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageQuizzes" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Quizzes
@@ -81,6 +81,9 @@
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Quiz Title</label>
                 <asp:TextBox ID="txtQuizTitle" runat="server" placeholder="e.g. Python Basics Mastery Quiz"
                     style="width: 100%; padding: 10px 14px; border: 1px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+                <asp:RequiredFieldValidator ID="rfvQuizTitle" runat="server" ControlToValidate="txtQuizTitle"
+                    ErrorMessage="Quiz title is required." Display="Dynamic" ValidationGroup="QuizForm"
+                    style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
             </div>
         </div>
 
@@ -94,10 +97,14 @@
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Passing Score (%)</label>
                 <asp:TextBox ID="txtPassingScore" runat="server" Text="70" TextMode="Number"
                     style="width: 100%; padding: 10px 14px; border: 1px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+                <asp:RangeValidator ID="rvPassingScore" runat="server" ControlToValidate="txtPassingScore"
+                    Type="Integer" MinimumValue="1" MaximumValue="100"
+                    ErrorMessage="Passing score must be between 1 and 100." Display="Dynamic" ValidationGroup="QuizForm"
+                    style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
             </div>
         </div>
 
-        <asp:Button ID="btnCreateQuiz" runat="server" Text="Create Quiz" OnClick="btnCreateQuiz_Click"
+        <asp:Button ID="btnCreateQuiz" runat="server" Text="Create Quiz" OnClick="btnCreateQuiz_Click" ValidationGroup="QuizForm"
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 
