@@ -124,7 +124,7 @@
 
                         <!-- Video Pill -->
                         <td style="padding: 14px 16px;">
-                            <%# !string.IsNullOrWhiteSpace(Eval("VideoUrl").ToString()) 
+                            <%# !string.IsNullOrWhiteSpace(Convert.ToString(Eval("VideoUrl"))) 
                                 ? "<span style='padding: 3px 10px; background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; border-radius: 20px; font-size: 0.75rem; font-weight: 700;'>🎬 Video Attached</span>"
                                 : "<span style='color: #94A3B8; font-size: 0.78rem;'>—</span>" %>
                         </td>
