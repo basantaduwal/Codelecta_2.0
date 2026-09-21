@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Take Quiz" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TakeQuiz.aspx.cs" Inherits="Codelecta_2._0.TakeQuiz" %>
+<%@ Page Title="Take Quiz" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TakeQuiz.aspx.cs" Inherits="Codelecta_2._0.TakeQuiz" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
@@ -35,9 +35,10 @@
                 </div>
                 <h2 id="hResultHeading" runat="server" style="font-size: 1.8rem; font-weight: 800; margin: 0 0 8px 0;"></h2>
                 <p id="pResultSub" runat="server" style="font-size: 1.05rem; margin: 0 0 20px 0;"></p>
-                <div style="display: inline-flex; gap: 14px;">
+                <div style="display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
                     <a id="lnkRetake" runat="server" class="btn-primary" style="padding: 10px 24px; border-radius: 8px; text-decoration: none; font-size: 0.9rem;">Try Again</a>
                     <a href="Dashboard.aspx" class="btn-secondary" style="padding: 10px 24px; border-radius: 8px; text-decoration: none; font-size: 0.9rem;">View Dashboard</a>
+                    <a href="Leaderboard.aspx" style="padding: 10px 24px; background: #FFFBEB; color: #D97706; border: 1.5px solid #FDE68A; border-radius: 8px; font-size: 0.9rem; font-weight: 700; text-decoration: none;">🏆 Leaderboard</a>
                 </div>
             </asp:Panel>
 

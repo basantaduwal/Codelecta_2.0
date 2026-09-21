@@ -1,4 +1,4 @@
-﻿<%@ Page Title="My Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Dashboard" %>
+<%@ Page Title="My Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Dashboard" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main style="padding: 40px 0 80px 0; background: var(--bg-page);">
@@ -56,6 +56,61 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ==================== 30-DAY ACTIVITY HEATMAP ==================== -->
+            <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 28px 32px; margin-bottom: 36px;">
+                <!-- Header row -->
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 22px;">
+                    <div>
+                        <h2 style="font-size: 1.25rem; font-weight: 800; color: #1E1B4B; margin: 0 0 4px 0;">30-Day Learning Activity</h2>
+                        <p style="font-size: 0.85rem; color: #64748B; margin: 0;">Each cell = one calendar day. Darker = more lessons completed.</p>
+                    </div>
+                    <!-- Streak & active days summary -->
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <div style="text-align: center; background: #F3F0FF; border: 1px solid #DDD6FE; border-radius: 12px; padding: 10px 20px;">
+                            <div style="font-size: 1.6rem; font-weight: 900; color: #6C5CE7; line-height: 1;">
+                                <asp:Label ID="lblCurrentStreak" runat="server" Text="0"></asp:Label>
+                            </div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;">🔥 Day Streak</div>
+                        </div>
+                        <div style="text-align: center; background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: 12px; padding: 10px 20px;">
+                            <div style="font-size: 1.6rem; font-weight: 900; color: #059669; line-height: 1;">
+                                <asp:Label ID="lblActivityDaysCount" runat="server" Text="0"></asp:Label>
+                            </div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;">Active Days</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heatmap cell grid -->
+                <div style="display: flex; gap: 5px; flex-wrap: wrap; align-items: center;">
+                    <asp:Repeater ID="rptDayActivity" runat="server">
+                        <ItemTemplate>
+                            <div title='<%# Eval("Tooltip") %>'
+                                 style='width: 28px; height: 28px; border-radius: 6px;
+                                        background: <%# Eval("CellBg") %>;
+                                        opacity: <%# Eval("CellOpacity") %>;
+                                        cursor: default;
+                                        box-shadow: <%# (bool)Eval("IsToday") ? "0 0 0 2px #6C5CE7" : "none" %>;
+                                        transition: transform 0.15s ease;'
+                                 onmouseover="this.style.transform='scale(1.25)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+
+                <!-- Legend -->
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.75rem; color: #94A3B8; font-weight: 600;">
+                    <span>Less</span>
+                    <div style="width: 20px; height: 20px; border-radius: 4px; background: #EDE9FE; opacity: 0.35;"></div>
+                    <div style="width: 20px; height: 20px; border-radius: 4px; background: #A78BFA;"></div>
+                    <div style="width: 20px; height: 20px; border-radius: 4px; background: #7C3AED;"></div>
+                    <div style="width: 20px; height: 20px; border-radius: 4px; background: #4C1D95;"></div>
+                    <span>More</span>
+                    <span style="margin-left: 12px; color: #6C5CE7; font-weight: 700;">■ Today's outline</span>
                 </div>
             </div>
 

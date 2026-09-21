@@ -180,6 +180,7 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Content\css\admin.css" />
     <Content Include="Content\images\hero-illustration.png" />
+    <Content Include="Leaderboard.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
@@ -375,6 +376,7 @@
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\LessonProgress.cs" />
     <Compile Include="Models\UserCourse.cs" />
+    <Compile Include="Models\EnrollmentRules.cs" />
     <Compile Include="Migrations\202608200315443_AddLmsTables.cs" />
     <Compile Include="Migrations\202608200315443_AddLmsTables.Designer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
