@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageCourses" %>
+<%@ Page Title="Manage Courses" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageCourses.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageCourses" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Courses
@@ -73,6 +73,9 @@
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Course Title</label>
                 <asp:TextBox ID="txtCourseTitle" runat="server" placeholder="e.g. Advanced C# Architecture"
                     style="width: 100%; padding: 10px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+                <asp:RequiredFieldValidator ID="rfvCourseTitle" runat="server" ControlToValidate="txtCourseTitle"
+                    ErrorMessage="Course title is required." Display="Dynamic" ValidationGroup="CourseForm"
+                    style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
             </div>
             <div>
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Difficulty Level</label>
@@ -89,6 +92,9 @@
             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Description</label>
             <asp:TextBox ID="txtCourseDescription" runat="server" TextMode="MultiLine" Rows="3" placeholder="What key concepts and skills will students learn?"
                 style="width: 100%; padding: 10px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+            <asp:RequiredFieldValidator ID="rfvCourseDescription" runat="server" ControlToValidate="txtCourseDescription"
+                ErrorMessage="Course description is required." Display="Dynamic" ValidationGroup="CourseForm"
+                style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
@@ -109,7 +115,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnSaveCourse" runat="server" Text="Create Course" OnClick="btnSaveCourse_Click"
+        <asp:Button ID="btnSaveCourse" runat="server" Text="Create Course" OnClick="btnSaveCourse_Click" ValidationGroup="CourseForm"
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 

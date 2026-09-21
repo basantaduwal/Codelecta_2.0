@@ -1,4 +1,4 @@
-﻿<%@ Page Title="View Lesson" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewLesson.aspx.cs" Inherits="Codelecta_2._0.ViewLesson" %>
+<%@ Page Title="View Lesson" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewLesson.aspx.cs" Inherits="Codelecta_2._0.ViewLesson" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 36px 0 80px 0;">
@@ -54,12 +54,209 @@
                     </div>
                 </div>
 
-                <!-- Video Embed (if available) -->
-                <asp:Panel ID="pnlVideo" runat="server" Visible="false" style="margin-bottom: 32px;">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid var(--border);">
-                        <iframe id="videoFrame" runat="server" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="true"></iframe>
+                <!-- Video Embed with Interactive Chapters -->
+                <asp:Panel ID="pnlVideo" runat="server" Visible="false" style="margin-bottom: 36px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 24px rgba(33, 9, 78, 0.12); border: 1px solid var(--border); background: #000000;">
+                        <iframe id="videoFrame" runat="server" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     </div>
+
+                    <!-- Video Chapters & Interactive Timeline Component -->
+                    <asp:Panel ID="pnlChapters" runat="server" style="margin-top: 18px; background: #FFFFFF; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 22px 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #F1F0FB;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 34px; height: 34px; border-radius: 8px; background: #F3F0FF; color: #6C5CE7; display: flex; align-items: center; justify-content: center; font-size: 1.05rem;">
+                                    📑
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 800; color: #1E1B4B; margin: 0; display: inline-flex; align-items: center; gap: 8px;">
+                                        Video Chapters & Milestones
+                                        <span style="font-size: 0.72rem; font-weight: 700; background: #EDE9FE; color: #6C5CE7; padding: 2px 10px; border-radius: 999px;">
+                                            <asp:Label ID="lblTotalChapters" runat="server" Text="0 Chapters"></asp:Label>
+                                        </span>
+                                    </h3>
+                                    <p style="font-size: 0.8rem; color: #64748B; margin: 2px 0 0 0;">Jump directly to labelled topics and key video moments.</p>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.78rem; color: #6C5CE7; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; background: #FAF9FF; border: 1px solid #EDE9FE; padding: 4px 12px; border-radius: 20px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Click chapter to seek video
+                            </div>
+                        </div>
+
+                        <!-- Chapters List -->
+                        <div class="video-chapters-grid">
+                            <asp:Repeater ID="rptVideoChapters" runat="server">
+                                <ItemTemplate>
+                                    <div class="chapter-card <%# (int)Eval("Index") == 1 ? "chapter-active" : "" %>" 
+                                         onclick='seekToChapter(<%# Eval("Seconds") %>, this);'
+                                         data-seconds='<%# Eval("Seconds") %>'
+                                         data-index='<%# Eval("Index") %>'>
+                                        <div class="chapter-badge">
+                                            CH <%# Eval("Index") %>
+                                        </div>
+                                        <div class="chapter-info">
+                                            <div class="chapter-header">
+                                                <span class="chapter-time">▶ <%# Eval("Timestamp") %></span>
+                                                <span class="chapter-title"><%# Eval("Title") %></span>
+                                            </div>
+                                            <div class="chapter-desc"><%# Eval("Description") %></div>
+                                        </div>
+                                        <div class="chapter-action">
+                                            <span class="jump-pill">Jump &rarr;</span>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </asp:Panel>
                 </asp:Panel>
+
+                <style>
+                    .video-chapters-grid {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    .chapter-card {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        padding: 12px 18px;
+                        background: #FAF9FF;
+                        border: 1.5px solid #EDE9FE;
+                        border-radius: 12px;
+                        cursor: pointer;
+                        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                        user-select: none;
+                    }
+                    .chapter-card:hover {
+                        background: #F5F3FF;
+                        border-color: #C4B5FD;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(108, 92, 231, 0.08);
+                    }
+                    .chapter-card.chapter-active {
+                        background: #F3F0FF;
+                        border-color: #7C3AED;
+                        box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+                    }
+                    .chapter-badge {
+                        font-size: 0.72rem;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                        color: #6C5CE7;
+                        background: #EDE9FE;
+                        padding: 4px 8px;
+                        border-radius: 6px;
+                        flex-shrink: 0;
+                    }
+                    .chapter-card.chapter-active .chapter-badge {
+                        background: #7C3AED;
+                        color: #FFFFFF;
+                    }
+                    .chapter-info {
+                        flex: 1;
+                        min-width: 0;
+                    }
+                    .chapter-header {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 3px;
+                        flex-wrap: wrap;
+                    }
+                    .chapter-time {
+                        font-family: 'Fira Code', monospace;
+                        font-size: 0.78rem;
+                        font-weight: 700;
+                        color: #059669;
+                        background: #ECFDF5;
+                        border: 1px solid #A7F3D0;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        flex-shrink: 0;
+                    }
+                    .chapter-title {
+                        font-size: 0.92rem;
+                        font-weight: 700;
+                        color: #1E1B4B;
+                    }
+                    .chapter-card.chapter-active .chapter-title {
+                        color: #5B21B6;
+                    }
+                    .chapter-desc {
+                        font-size: 0.8rem;
+                        color: #64748B;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .chapter-action {
+                        flex-shrink: 0;
+                    }
+                    .jump-pill {
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        color: #6C5CE7;
+                        background: #FFFFFF;
+                        border: 1px solid #DDD6FE;
+                        padding: 4px 12px;
+                        border-radius: 20px;
+                        transition: all 0.2s;
+                    }
+                    .chapter-card:hover .jump-pill,
+                    .chapter-card.chapter-active .jump-pill {
+                        background: #6C5CE7;
+                        color: #FFFFFF;
+                        border-color: #6C5CE7;
+                    }
+                </style>
+
+                <script type="text/javascript">
+                    function seekToChapter(seconds, cardElem) {
+                        var iframe = document.getElementById('<%= videoFrame.ClientID %>');
+                        if (iframe && iframe.contentWindow) {
+                            // 1. Send postMessage to YouTube API
+                            try {
+                                iframe.contentWindow.postMessage(JSON.stringify({
+                                    event: 'command',
+                                    func: 'seekTo',
+                                    args: [seconds, true]
+                                }), '*');
+                                iframe.contentWindow.postMessage(JSON.stringify({
+                                    event: 'command',
+                                    func: 'playVideo',
+                                    args: []
+                                }), '*');
+                            } catch (e) {}
+
+                            // 2. Direct start param update as reliable fallback
+                            try {
+                                var currentSrc = iframe.src;
+                                if (currentSrc && currentSrc.indexOf('youtube.com/embed/') !== -1) {
+                                    var base = currentSrc.split('&start=')[0].split('?start=')[0];
+                                    var sep = base.indexOf('?') === -1 ? '?' : '&';
+                                    iframe.src = base + sep + 'start=' + seconds + '&autoplay=1';
+                                }
+                            } catch (e) {}
+                        }
+
+                        // Highlight active chapter card
+                        var cards = document.querySelectorAll('.chapter-card');
+                        cards.forEach(function(c) { c.classList.remove('chapter-active'); });
+                        if (cardElem) {
+                            cardElem.classList.add('chapter-active');
+                        }
+
+                        // Smooth scroll to video if user scrolled down
+                        if (iframe) {
+                            var rect = iframe.getBoundingClientRect();
+                            if (rect.top < -80 || rect.top > window.innerHeight) {
+                                iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }
+                    }
+                </script>
 
                 <!-- Lesson Body Text / Content -->
                 <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.85; margin-bottom: 40px;">

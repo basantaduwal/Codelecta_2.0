@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Lessons" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageLessons.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageLessons" %>
+<%@ Page Title="Manage Lessons" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageLessons.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageLessons" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Lessons
@@ -59,6 +59,9 @@
             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Video Tutorial URL (YouTube or direct embed URL — optional)</label>
             <asp:TextBox ID="txtVideoUrl" runat="server" placeholder="e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 style="width: 100%; padding: 10px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+            <span style="display: block; font-size: 0.76rem; color: #6C5CE7; margin-top: 4px; font-weight: 600;">
+                💡 Interactive Chapters: You can list custom chapter timestamps in the content box (e.g., 00:00 - Overview, 02:30 - Concepts), or structured chapters will be automatically generated.
+            </span>
         </div>
 
         <div style="margin-bottom: 24px;">
