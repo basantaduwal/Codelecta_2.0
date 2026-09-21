@@ -23,4 +23,5 @@ namespace Codelecta_2._0.Models
         [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
     }
+
 }

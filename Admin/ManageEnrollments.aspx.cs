@@ -188,6 +188,16 @@ namespace Codelecta_2._0.Admin
                     return;
                 }
 
+                var user = db.Users.Find(userId) as ApplicationUser;
+                var course = db.Courses.Find(courseId);
+                if (user == null || course == null || !EnrollmentRules.CanEnroll(user.ExperienceLevel, course.Level))
+                {
+                    ShowMessage(EnrollmentRules.GetRestrictionMessage(
+                        user != null ? user.ExperienceLevel : null,
+                        course != null ? course.Level : null), false);
+                    return;
+                }
+
                 var enrollment = new UserCourse
                 {
                     UserId = userId,
