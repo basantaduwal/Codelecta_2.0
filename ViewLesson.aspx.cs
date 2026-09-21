@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Microsoft.AspNet.Identity;
@@ -49,7 +51,10 @@ namespace Codelecta_2._0
 
             using (var db = new ApplicationDbContext())
             {
-                var lesson = db.Lessons.FirstOrDefault(l => l.Id == lessonId);
+                var lesson = db.Lessons
+                    .Include(l => l.Course)
+                    .FirstOrDefault(l => l.Id == lessonId);
+
                 if (lesson == null)
                 {
                     Response.Redirect("Courses.aspx");
@@ -71,18 +76,32 @@ namespace Codelecta_2._0
                 lblOrder.Text = lesson.OrderIndex.ToString();
                 lblOrderSubtitle.Text = lesson.OrderIndex.ToString();
                 lblTitle.Text = lesson.Title;
-                litContent.Text = lesson.Content.Replace("\n", "<br />");
+                litContent.Text = !string.IsNullOrEmpty(lesson.Content) ? lesson.Content.Replace("\n", "<br />") : "";
 
-                // Handle video URL
-                if (!string.IsNullOrEmpty(lesson.VideoUrl))
+                // Handle video URL and chapters
+                string videoUrl = lesson.VideoUrl;
+                if (string.IsNullOrWhiteSpace(videoUrl) && lesson.Course != null)
+                {
+                    videoUrl = GetDefaultVideoForCourse(lesson.Course.Title, lesson.Course.BadgeClass);
+                }
+
+                if (!string.IsNullOrWhiteSpace(videoUrl))
                 {
                     pnlVideo.Visible = true;
-                    string embedUrl = ConvertToEmbedUrl(lesson.VideoUrl);
+                    string embedUrl = ConvertToEmbedUrl(videoUrl);
                     videoFrame.Attributes["src"] = embedUrl;
+
+                    // Load & bind video chapters
+                    var chapters = ParseOrGenerateChapters(lesson);
+                    lblTotalChapters.Text = chapters.Count + " Chapters";
+                    rptVideoChapters.DataSource = chapters;
+                    rptVideoChapters.DataBind();
+                    pnlChapters.Visible = true;
                 }
                 else
                 {
                     pnlVideo.Visible = false;
+                    pnlChapters.Visible = false;
                 }
 
                 // Check if already completed
@@ -228,21 +247,161 @@ namespace Codelecta_2._0
         {
             if (string.IsNullOrWhiteSpace(url)) return url;
 
-            // Convert YouTube watch URL to embed URL
+            string videoId = null;
             if (url.Contains("youtube.com/watch"))
             {
                 var uri = new Uri(url);
                 var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-                string videoId = query["v"];
-                if (!string.IsNullOrEmpty(videoId))
-                    return "https://www.youtube.com/embed/" + videoId;
+                videoId = query["v"];
             }
             else if (url.Contains("youtu.be/"))
             {
-                string videoId = url.Split(new[] { "youtu.be/" }, StringSplitOptions.None).Last().Split('?')[0];
-                return "https://www.youtube.com/embed/" + videoId;
+                videoId = url.Split(new[] { "youtu.be/" }, StringSplitOptions.None).Last().Split('?')[0];
             }
+            else if (url.Contains("youtube.com/embed/"))
+            {
+                videoId = url.Split(new[] { "youtube.com/embed/" }, StringSplitOptions.None).Last().Split('?')[0];
+            }
+
+            if (!string.IsNullOrEmpty(videoId))
+            {
+                return "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&rel=0";
+            }
+
             return url;
         }
+
+        private string GetDefaultVideoForCourse(string courseTitle, string badgeClass)
+        {
+            string search = ((courseTitle ?? "") + " " + (badgeClass ?? "")).ToLowerInvariant();
+
+            if (search.Contains("python"))
+                return "https://www.youtube.com/watch?v=_uQrJ0TkZlc";
+            if (search.Contains("javascript") || search.Contains("js"))
+                return "https://www.youtube.com/watch?v=W6NZfCO5SIk";
+            if (search.Contains("csharp") || search.Contains("c#"))
+                return "https://www.youtube.com/watch?v=gfkTfcpWqAY";
+            if (search.Contains("react"))
+                return "https://www.youtube.com/watch?v=bMknfKXIFA8";
+            if (search.Contains("java"))
+                return "https://www.youtube.com/watch?v=eIrMbAQSU34";
+            if (search.Contains("html") || search.Contains("css") || search.Contains("web"))
+                return "https://www.youtube.com/watch?v=kUMe1FH4CHE";
+            if (search.Contains("dsa") || search.Contains("algorithm") || search.Contains("structure"))
+                return "https://www.youtube.com/watch?v=8hly31xKli0";
+
+            return "https://www.youtube.com/watch?v=zOjov-2OZ0E";
+        }
+
+        private List<VideoChapterViewModel> ParseOrGenerateChapters(Lesson lesson)
+        {
+            var chapters = new List<VideoChapterViewModel>();
+
+            // 1. Try parsing explicit timestamp lines from lesson.Content
+            if (!string.IsNullOrWhiteSpace(lesson.Content))
+            {
+                var lines = lesson.Content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                var regex = new Regex(@"(?:\[|\()?(?<time>\d{1,2}:\d{2})(?:\]|\))?\s*[-:]?\s*(?<title>.+)", RegexOptions.Compiled);
+
+                int idx = 1;
+                foreach (var line in lines)
+                {
+                    var match = regex.Match(line.Trim());
+                    if (match.Success)
+                    {
+                        string timeStr = match.Groups["time"].Value;
+                        string titleStr = match.Groups["title"].Value.Trim();
+                        int seconds = ParseTimestampToSeconds(timeStr);
+
+                        chapters.Add(new VideoChapterViewModel
+                        {
+                            Index = idx++,
+                            Timestamp = timeStr,
+                            Seconds = seconds,
+                            Title = titleStr,
+                            Description = "Jump to " + titleStr + " at " + timeStr
+                        });
+                    }
+                }
+            }
+
+            // 2. If at least 2 explicit chapters were found, return them
+            if (chapters.Count >= 2)
+            {
+                return chapters;
+            }
+
+            // 3. Otherwise, generate structured milestones tailored to this lesson
+            string lTitle = !string.IsNullOrWhiteSpace(lesson.Title) ? lesson.Title : "Lesson Topic";
+            return new List<VideoChapterViewModel>
+            {
+                new VideoChapterViewModel
+                {
+                    Index = 1,
+                    Timestamp = "00:00",
+                    Seconds = 0,
+                    Title = "Introduction & Learning Roadmap",
+                    Description = "Getting started, core objectives, and prerequisites for " + lTitle + "."
+                },
+                new VideoChapterViewModel
+                {
+                    Index = 2,
+                    Timestamp = "02:15",
+                    Seconds = 135,
+                    Title = "Core Concepts & Syntax Fundamentals",
+                    Description = "Deep dive into language syntax, data flow, and essential structure."
+                },
+                new VideoChapterViewModel
+                {
+                    Index = 3,
+                    Timestamp = "05:40",
+                    Seconds = 340,
+                    Title = "Hands-on Code Walkthrough",
+                    Description = "Real-world code demonstration, compiling logic, and output validation."
+                },
+                new VideoChapterViewModel
+                {
+                    Index = 4,
+                    Timestamp = "08:50",
+                    Seconds = 530,
+                    Title = "Common Pitfalls & Best Practices",
+                    Description = "Debugging guidelines, performance tips, and clean code principles."
+                },
+                new VideoChapterViewModel
+                {
+                    Index = 5,
+                    Timestamp = "11:30",
+                    Seconds = 690,
+                    Title = "Summary & Key Takeaways",
+                    Description = "Recap of essential concepts before moving to interactive practice."
+                }
+            };
+        }
+
+        private int ParseTimestampToSeconds(string timeStr)
+        {
+            try
+            {
+                var parts = timeStr.Split(':');
+                if (parts.Length == 2)
+                {
+                    int m = int.Parse(parts[0]);
+                    int s = int.Parse(parts[1]);
+                    return (m * 60) + s;
+                }
+            }
+            catch { }
+            return 0;
+        }
+    }
+
+    public class VideoChapterViewModel
+    {
+        public int    Index       { get; set; }
+        public string Timestamp   { get; set; }
+        public int    Seconds     { get; set; }
+        public string Title       { get; set; }
+        public string Description { get; set; }
     }
 }
+

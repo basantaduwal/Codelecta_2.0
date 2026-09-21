@@ -284,6 +284,13 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Leaderboard.aspx.cs">
+      <DependentUpon>Leaderboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Leaderboard.aspx.designer.cs">
+      <DependentUpon>Leaderboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Onboarding.aspx.cs">
       <DependentUpon>Onboarding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
