@@ -47,6 +47,9 @@
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Lesson Title</label>
                 <asp:TextBox ID="txtLessonTitle" runat="server" placeholder="e.g. Understanding Variables & Memory Allocation"
                     style="width: 100%; padding: 10px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
+                <asp:RequiredFieldValidator ID="rfvLessonTitle" runat="server" ControlToValidate="txtLessonTitle"
+                    ErrorMessage="Lesson title is required." Display="Dynamic" ValidationGroup="LessonForm"
+                    style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
             </div>
             <div>
                 <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Order Index</label>
@@ -68,9 +71,12 @@
             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Lesson Content & Code Samples</label>
             <asp:TextBox ID="txtLessonContent" runat="server" TextMode="MultiLine" Rows="8" placeholder="Write comprehensive markdown/text lesson content here..."
                 style="width: 100%; padding: 12px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box; line-height: 1.6;" />
+            <asp:RequiredFieldValidator ID="rfvLessonContent" runat="server" ControlToValidate="txtLessonContent"
+                ErrorMessage="Lesson content is required." Display="Dynamic" ValidationGroup="LessonForm"
+                style="color: #DC2626; font-size: 0.78rem; font-weight: 600; margin-top: 4px; display: block;" />
         </div>
 
-        <asp:Button ID="btnSaveLesson" runat="server" Text="Add Lesson" OnClick="btnSaveLesson_Click"
+        <asp:Button ID="btnSaveLesson" runat="server" Text="Add Lesson" OnClick="btnSaveLesson_Click" ValidationGroup="LessonForm"
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 
