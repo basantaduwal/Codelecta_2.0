@@ -70,6 +70,7 @@ namespace Codelecta_2._0
                 // ── Enrollment & Progress ─────────────────────────────────
                 if (userId != null)
                 {
+                    var currentUser = db.Users.Find(userId) as ApplicationUser;
                     IsEnrolled = db.UserCourses.Any(uc => uc.UserId == userId && uc.CourseId == courseId);
 
                     if (IsEnrolled)
@@ -110,7 +111,16 @@ namespace Codelecta_2._0
                     }
                     else
                     {
-                        pnlEnroll.Visible = true;
+                        if (currentUser != null && EnrollmentRules.CanEnroll(currentUser.ExperienceLevel, course.Level))
+                        {
+                            pnlEnroll.Visible = true;
+                        }
+                        else
+                        {
+                            lblMessage.Text = EnrollmentRules.GetRestrictionMessage(currentUser != null ? currentUser.ExperienceLevel : null, course.Level);
+                            lblMessage.Visible = true;
+                        }
+
                         rptLessons.DataSource = lessons.Select(l => new LessonRowViewModel
                         {
                             Id          = l.Id,
@@ -179,6 +189,16 @@ namespace Codelecta_2._0
 
             using (var db = new ApplicationDbContext())
             {
+                var course = db.Courses.Find(courseId);
+                var currentUser = db.Users.Find(userId) as ApplicationUser;
+
+                if (course == null || currentUser == null || !EnrollmentRules.CanEnroll(currentUser.ExperienceLevel, course.Level))
+                {
+                    lblMessage.Text = EnrollmentRules.GetRestrictionMessage(currentUser != null ? currentUser.ExperienceLevel : null, course != null ? course.Level : null);
+                    lblMessage.Visible = true;
+                    return;
+                }
+
                 bool alreadyEnrolled = db.UserCourses.Any(uc => uc.UserId == userId && uc.CourseId == courseId);
                 if (!alreadyEnrolled)
                 {
@@ -194,6 +214,7 @@ namespace Codelecta_2._0
 
             Response.Redirect("CourseDetail.aspx?id=" + courseId);
         }
+
     }
 
     // ─── Lesson Row View Model ────────────────────────────────────────────────
