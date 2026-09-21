@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -160,19 +160,100 @@ namespace Codelecta_2._0
                     pnlQuizHistory.Visible = false;
                 }
             }
+
+            // Load 30-day activity heatmap
+            LoadDayWiseProgress(userId);
+        }
+
+        // ─── Day-wise progress heatmap ────────────────────────────────────────
+        private void LoadDayWiseProgress(string userId)
+        {
+            var today = DateTime.Today;
+            var from  = today.AddDays(-29);
+
+            using (var db = new ApplicationDbContext())
+            {
+                var rawActivity = db.LessonProgresses
+                    .Where(lp => lp.UserId == userId
+                              && lp.IsCompleted
+                              && lp.CompletedDate.HasValue
+                              && lp.CompletedDate >= from)
+                    .Select(lp => new { lp.CompletedDate })
+                    .ToList();
+
+                var activityMap = rawActivity
+                    .GroupBy(x => x.CompletedDate.Value.Date)
+                    .ToDictionary(g => g.Key, g => g.Count());
+
+                var cells = new List<DayActivityCell>();
+                for (int i = 29; i >= 0; i--)
+                {
+                    var day   = today.AddDays(-i);
+                    int count = activityMap.ContainsKey(day) ? activityMap[day] : 0;
+                    cells.Add(new DayActivityCell
+                    {
+                        Date        = day,
+                        LessonCount = count,
+                        DayLabel    = day.ToString("MMM d"),
+                        IsToday     = (day == today)
+                    });
+                }
+
+                // Streak: consecutive days with lessons, counting back from today
+                int streak = 0;
+                for (int i = 0; i <= 29; i++)
+                {
+                    var day = today.AddDays(-i);
+                    if (activityMap.ContainsKey(day) && activityMap[day] > 0)
+                        streak++;
+                    else
+                        break;
+                }
+
+                lblCurrentStreak.Text     = streak.ToString();
+                lblActivityDaysCount.Text = activityMap.Count.ToString();
+
+                rptDayActivity.DataSource = cells;
+                rptDayActivity.DataBind();
+            }
         }
     }
 
     public class DashboardCourseViewModel
     {
-        public int CourseId { get; set; }
-        public string CourseTitle { get; set; }
+        public int    CourseId          { get; set; }
+        public string CourseTitle       { get; set; }
         public string CourseDescription { get; set; }
-        public DateTime EnrollmentDate { get; set; }
-        public string InstructorName { get; set; }
-        public int TotalLessons { get; set; }
-        public int CompletedLessons { get; set; }
-        public int ProgressPercent { get; set; }
-        public int NextLessonId { get; set; }
+        public DateTime EnrollmentDate  { get; set; }
+        public string InstructorName    { get; set; }
+        public int    TotalLessons      { get; set; }
+        public int    CompletedLessons  { get; set; }
+        public int    ProgressPercent   { get; set; }
+        public int    NextLessonId      { get; set; }
+    }
+
+    public class DayActivityCell
+    {
+        public DateTime Date        { get; set; }
+        public int      LessonCount { get; set; }
+        public string   DayLabel    { get; set; }
+        public bool     IsToday     { get; set; }
+
+        public string CellBg
+        {
+            get
+            {
+                if (LessonCount == 0) return "#EDE9FE";
+                if (LessonCount == 1) return "#A78BFA";
+                if (LessonCount == 2) return "#7C3AED";
+                return "#4C1D95";
+            }
+        }
+
+        public string CellOpacity => LessonCount == 0 ? "0.35" : "1";
+
+        public string Tooltip => LessonCount == 0
+            ? DayLabel + ": No lessons"
+            : DayLabel + ": " + LessonCount + " lesson" + (LessonCount > 1 ? "s" : "");
     }
 }
