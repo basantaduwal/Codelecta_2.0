@@ -48,7 +48,7 @@
     margin: 0 auto;
     padding: 0 32px;
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr; /* 43% text / 57% visual */
+    grid-template-columns: 1fr 1fr; /* 43% text / 57% visual */
     gap: 48px;
     align-items: center;
     position: relative;
@@ -189,7 +189,7 @@
     align-items: center;
     width: 100%;
     margin-left: 100px;
-}
+    }
 
 .isometric-scene-container {
     position: relative;
@@ -254,8 +254,8 @@
 }
 
 .tag-sql {
-    bottom: 175px;
-    left: 60px;
+    bottom: 50px;
+    left: 80px;
     font-size: 1.3rem;
     color: #4F46E5;
     background: rgba(255, 255, 255, 0.85);
@@ -376,8 +376,8 @@
 /* Floating Language Capsule Pill Bar (Bottom Right of Laptop) */
 .hero-lang-capsule {
     position: absolute;
-    right: 48px;
-    bottom: 165px;
+    right: 35px;
+    bottom: 45px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
