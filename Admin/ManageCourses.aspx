@@ -55,10 +55,10 @@
 
     <!-- ==================== CREATE / EDIT COURSE CARD ==================== -->
     <div class="admin-table-card" style="margin-bottom: 32px; border-left: 4px solid var(--primary);">
-        <div style="padding: 24px 28px; background: linear-gradient(180deg, #FAF9FF 0%, #FFFFFF 100%); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <div style="padding: 22px 28px; background: linear-gradient(180deg, #FAF9FF 0%, #FFFFFF 100%); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 14px;">
-                <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(108, 92, 231, 0.12); color: #6C5CE7; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
-                    ✨
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(108, 92, 231, 0.12); color: #6C5CE7; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </div>
                 <div>
                     <h3 style="font-size: 1.15rem; font-weight: 800; color: #1E1B4B; margin: 0 0 2px 0;">
@@ -92,9 +92,9 @@
                         Difficulty Level
                     </label>
                     <asp:DropDownList ID="ddlCourseLevel" runat="server" CssClass="admin-form-input" style="cursor: pointer;">
-                        <asp:ListItem Value="Beginner"     Text="🌱 Beginner" />
-                        <asp:ListItem Value="Intermediate" Text="⚡ Intermediate" />
-                        <asp:ListItem Value="Professional" Text="🚀 Professional" />
+                        <asp:ListItem Value="Beginner"     Text="Beginner" />
+                        <asp:ListItem Value="Intermediate" Text="Intermediate" />
+                        <asp:ListItem Value="Professional" Text="Professional" />
                     </asp:DropDownList>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                         Badge Tag Symbol
                     </label>
-                    <asp:TextBox ID="txtImageTag" runat="server" Text="C#" placeholder="e.g. C#, JS, Py, SQL, ⚛️"
+                    <asp:TextBox ID="txtImageTag" runat="server" Text="C#" placeholder="e.g. C#, JS, Py, SQL, DSA"
                         CssClass="admin-form-input" />
                 </div>
                 <div>
@@ -126,14 +126,14 @@
                         Badge Color Theme
                     </label>
                     <asp:DropDownList ID="ddlBadgeClass" runat="server" CssClass="admin-form-input" style="cursor: pointer;">
-                        <asp:ListItem Value="csharp-badge"     Text="🟣 Violet / C# Theme" />
-                        <asp:ListItem Value="python-badge"     Text="🔵 Amber / Python Theme" />
-                        <asp:ListItem Value="js-badge"         Text="🟡 Yellow / JavaScript Theme" />
-                        <asp:ListItem Value="react-badge"      Text="🟢 Sky / React Theme" />
-                        <asp:ListItem Value="html-badge"       Text="🟠 Orange / HTML & CSS Theme" />
-                        <asp:ListItem Value="java-badge"       Text="🔴 Rose / Java Theme" />
-                        <asp:ListItem Value="dsa-badge"        Text="🌿 Emerald / DSA Theme" />
-                        <asp:ListItem Value="sys-badge"        Text="⚪ Slate / Systems Theme" />
+                        <asp:ListItem Value="csharp-badge"     Text="Violet (C# Theme)" />
+                        <asp:ListItem Value="python-badge"     Text="Amber (Python Theme)" />
+                        <asp:ListItem Value="js-badge"         Text="Yellow (JavaScript Theme)" />
+                        <asp:ListItem Value="react-badge"      Text="Sky (React Theme)" />
+                        <asp:ListItem Value="html-badge"       Text="Orange (HTML & CSS Theme)" />
+                        <asp:ListItem Value="java-badge"       Text="Rose (Java Theme)" />
+                        <asp:ListItem Value="dsa-badge"        Text="Emerald (DSA Theme)" />
+                        <asp:ListItem Value="sys-badge"        Text="Slate (Systems Theme)" />
                     </asp:DropDownList>
                 </div>
             </div>
@@ -148,10 +148,10 @@
 
     <!-- ==================== EXISTING COURSES TABLE ==================== -->
     <div class="admin-table-card">
-        <div style="padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: #FFFFFF;">
+        <div style="padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: #FFFFFF;">
             <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 36px; height: 36px; border-radius: 10px; background: #F3F0FF; display: flex; align-items: center; justify-content: center; color: #6C5CE7; font-size: 1.1rem;">
-                    📚
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: #F3F0FF; display: flex; align-items: center; justify-content: center; color: #6C5CE7;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                 </div>
                 <div>
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: #1E1B4B; margin: 0;">

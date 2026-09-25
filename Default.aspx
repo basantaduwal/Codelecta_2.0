@@ -38,12 +38,8 @@
                     <div class="isometric-scene-container">
                         <!-- Floating Tech Tags Around Scene -->
                         <span class="floating-tag tag-php">PHP</span>
-                        <span class="floating-tag tag-xml">XML</span>
-                        <span class="floating-tag tag-css">CSS</span>
                         <span class="floating-tag tag-sql">SQL</span>
                         <span class="floating-tag tag-code-bracket">&lt;/&gt;</span>
-                        <span class="floating-tag tag-brackets">{ }</span>
-                        <span class="floating-tag tag-stars">*****</span>
 
                         <!-- Isometric 3D Laptop SVG Artwork (Light Theme Edition) -->
                         <svg class="isometric-art-svg" viewBox="0 0 600 480" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,72 +99,74 @@
                             </defs>
 
                             <!-- 1. Ambient Floor Glow -->
-                            <ellipse cx="370" cy="360" rx="190" ry="65" fill="url(#groundGlowLight)" />
+                            <ellipse cx="330" cy="370" rx="200" ry="60" fill="url(#groundGlowLight)" />
 
-                            <!-- 2. Laptop Base: 3D Extruded Silver-Slate Chassis -->
+                            <!-- 2. Laptop Base: 3D Extruded Silver-Slate Chassis (Aligned Isometric Perspective) -->
                             <!-- Base Top Deck -->
-                            <polygon points="190,285 435,160 565,225 320,350" fill="url(#deckGradLight)" stroke="#CBD5E1" stroke-width="1.5" />
+                            <polygon points="120,290 350,175 520,260 290,375" fill="url(#deckGradLight)" stroke="#CBD5E1" stroke-width="1.5" />
 
                             <!-- Base Front Left Edge -->
-                            <polygon points="190,285 320,350 320,362 190,297" fill="#94A3B8" />
+                            <polygon points="120,290 290,375 290,388 120,303" fill="#94A3B8" />
                             <!-- Base Front Right Edge -->
-                            <polygon points="320,350 565,225 565,237 320,362" fill="#64748B" />
+                            <polygon points="290,375 520,260 520,273 290,388" fill="#64748B" />
                             <!-- Front Rim Highlight Strip -->
-                            <line x1="320" y1="362" x2="565" y2="237" stroke="#A855F7" stroke-width="2" stroke-opacity="0.8" />
+                            <line x1="290" y1="388" x2="520" y2="273" stroke="#A855F7" stroke-width="2" stroke-opacity="0.8" />
 
                             <!-- Keyboard Well Depression -->
-                            <polygon points="250,260 425,170 515,215 340,305" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
+                            <polygon points="180,270 340,190 460,250 300,330" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
 
                             <!-- Keyboard Isometric Key Grid -->
                             <!-- Row 1 -->
-                            <polygon points="270,252 410,180 420,185 280,257" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
+                            <polygon points="200,260 330,195 340,200 210,265" fill="#1E293B" stroke="#334155" stroke-width="0.8" />
                             <!-- Row 2 -->
-                            <polygon points="282,260 422,188 432,193 292,265" fill="#334155" stroke="#475569" stroke-width="0.8" />
+                            <polygon points="215,268 345,203 355,208 225,273" fill="#334155" stroke="#475569" stroke-width="0.8" />
                             <!-- Row 3 -->
-                            <polygon points="295,268 435,196 445,201 305,273" fill="#334155" stroke="#475569" stroke-width="0.8" />
+                            <polygon points="230,276 360,211 370,216 240,281" fill="#334155" stroke="#475569" stroke-width="0.8" />
                             <!-- Row 4 -->
-                            <polygon points="307,276 447,204 457,209 317,281" fill="#334155" stroke="#475569" stroke-width="0.8" />
+                            <polygon points="245,284 375,219 385,224 255,289" fill="#334155" stroke="#475569" stroke-width="0.8" />
                             <!-- Spacebar row -->
-                            <polygon points="325,286 425,235 435,240 335,291" fill="#475569" stroke="#64748B" stroke-width="0.8" />
+                            <polygon points="265,294 365,244 375,249 275,299" fill="#475569" stroke="#64748B" stroke-width="0.8" />
 
-                            <!-- Trackpad -->
-                            <polygon points="320,308 375,280 405,295 350,323" fill="#E2E8F0" stroke="#818CF8" stroke-width="1.2" />
+                            <!-- Trackpad (Centered on front deck) -->
+                            <polygon points="275,335 330,307 360,322 305,350" fill="#E2E8F0" stroke="#818CF8" stroke-width="1.2" />
 
-                            <!-- 3. Laptop Screen: Upright Isometric Display -->
-                            <!-- Screen Back Aura / Border -->
-                            <polygon points="250,75 495,5 495,185 250,255" fill="url(#screenBackGradLight)" stroke="#818CF8" stroke-width="2.5" filter="url(#screenSoftGlow)" />
+                            <!-- Hinge Bar connecting screen to base -->
+                            <polygon points="200,250 350,175 365,182 215,257" fill="#475569" />
 
-                            <!-- Inner Display Frame -->
-                            <polygon points="256,82 489,12 489,178 256,248" fill="url(#screenUiGradLight)" stroke="#6366F1" stroke-width="1.5" />
+                            <!-- 3. Laptop Screen: Perfectly Aligned to Base Top-Left Hinge -->
+                            <!-- Screen Back Shell -->
+                            <polygon points="200,250 350,175 350,25 200,100" fill="url(#screenBackGradLight)" stroke="#818CF8" stroke-width="2.5" filter="url(#screenSoftGlow)" />
+
+                            <!-- Inner Display Bezel -->
+                            <polygon points="206,244 344,175 344,35 206,104" fill="url(#screenUiGradLight)" stroke="#6366F1" stroke-width="1.5" />
 
                             <!-- Display Top Header Bar -->
-                            <polygon points="256,82 489,12 489,28 256,98" fill="#0F172A" />
-                            <circle cx="270" cy="91" r="2.5" fill="#EF4444" />
-                            <circle cx="278" cy="89" r="2.5" fill="#F59E0B" />
-                            <circle cx="286" cy="87" r="2.5" fill="#10B981" />
+                            <polygon points="206,104 344,35 344,49 206,118" fill="#0F172A" />
+                            <circle cx="218" cy="112" r="2.2" fill="#EF4444" />
+                            <circle cx="225" cy="109" r="2.2" fill="#F59E0B" />
+                            <circle cx="232" cy="105" r="2.2" fill="#10B981" />
 
-                            <!-- 4. On-Screen Interactive Flowchart Diagram -->
-                            <polyline points="290,135 340,118 370,140 430,120" stroke="#38BDF8" stroke-width="2.2" stroke-dasharray="4 2" stroke-opacity="0.9" />
-                            <polyline points="370,140 370,175 410,162" stroke="#F472B6" stroke-width="2" stroke-opacity="0.9" />
+                            <!-- 4. On-Screen Interactive Flowchart Diagram (Mapped to Screen Plane) -->
+                            <polyline points="230,150 265,133 285,150 320,132" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="3 2" stroke-opacity="0.9" />
+                            <polyline points="285,150 285,175 305,165" stroke="#F472B6" stroke-width="1.6" stroke-opacity="0.9" />
 
                             <!-- Node 1: Cyan Step Box -->
-                            <polygon points="275,130 330,112 330,130 275,148" fill="url(#nodeCyan)" opacity="0.95" />
+                            <polygon points="220,146 250,131 250,144 220,159" fill="url(#nodeCyan)" opacity="0.95" />
 
                             <!-- Node 2: Central Flowchart Diamond Node with { / } -->
-                            <polygon points="360,115 390,128 360,148 330,135" fill="url(#nodeAmber)" filter="url(#cyanGlow)" />
-                            <text x="350" y="136" fill="#1E1B4B" font-family="'Fira Code', monospace" font-size="10" font-weight="900">{/}</text>
+                            <polygon points="280,138 298,147 280,161 262,152" fill="url(#nodeAmber)" filter="url(#cyanGlow)" />
+                            <text x="274" y="153" fill="#1E1B4B" font-family="'Fira Code', monospace" font-size="8" font-weight="900">{/}</text>
 
                             <!-- Node 3: Purple Step Box -->
-                            <polygon points="340,165 395,148 395,166 340,183" fill="url(#nodePurple)" opacity="0.95" />
+                            <polygon points="268,172 298,157 298,170 268,185" fill="url(#nodePurple)" opacity="0.95" />
 
                             <!-- Node 4: Cyan Step Box -->
-                            <polygon points="405,115 455,98 455,116 405,133" fill="url(#nodeCyan)" opacity="0.9" />
+                            <polygon points="305,130 335,115 335,128 305,143" fill="url(#nodeCyan)" opacity="0.9" />
 
                             <!-- 5. On-Screen Binary Matrix Stream -->
-                            <text x="430" y="70" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.9" letter-spacing="1">101010 1000</text>
-                            <text x="435" y="86" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.75" letter-spacing="1">10011 11010</text>
-                            <text x="440" y="102" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.6" letter-spacing="1">01 00 10</text>
-                            <text x="445" y="118" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700" opacity="0.7" letter-spacing="1">10 1100</text>
+                            <text x="300" y="80" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="7.5" font-weight="700" opacity="0.85" letter-spacing="0.5">101010 1000</text>
+                            <text x="303" y="92" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="7.5" font-weight="700" opacity="0.75" letter-spacing="0.5">10011 11010</text>
+                            <text x="306" y="104" fill="#38BDF8" font-family="'Fira Code', monospace" font-size="7.5" font-weight="700" opacity="0.6" letter-spacing="0.5">01 00 10</text>
                         </svg>
 
                         <!-- Floating Acrylic Code Snippet Card (Light Theme) -->
