@@ -6,8 +6,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP NAVIGATION / BREADCRUMB ==================== -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+    <!-- ==================== TOP NAVIGATION / BREADCRUMB & COURSE SELECTOR ==================== -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
         <div>
             <a href="ManageCourses.aspx" style="color: #6C5CE7; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
                 &larr; Back to Courses
@@ -17,8 +17,15 @@
             </h2>
             <p style="color: #64748B; font-size: 0.9rem; margin: 0;">Create, edit, reorder, and manage lesson curriculum and video walkthroughs.</p>
         </div>
-        <div style="background: #F3F0FF; padding: 6px 16px; border-radius: 20px; border: 1px solid #DDD6FE;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: #6C5CE7;"><asp:Label ID="lblLessonCountHeader" runat="server" Text="0" /> lessons</span>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 0.85rem; font-weight: 700; color: #475569;">Course:</span>
+                <asp:DropDownList ID="ddlSelectCourse" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSelectCourse_SelectedIndexChanged"
+                    style="padding: 8px 14px; border: 1.5px solid #EDE9FE; border-radius: 10px; font-size: 0.88rem; font-family: inherit; color: #1E1B4B; background: #FFFFFF; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.02);" />
+            </div>
+            <div style="background: #F3F0FF; padding: 6px 16px; border-radius: 20px; border: 1px solid #DDD6FE;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: #6C5CE7;"><asp:Label ID="lblLessonCountHeader" runat="server" Text="0" /> lessons</span>
+            </div>
         </div>
     </div>
 

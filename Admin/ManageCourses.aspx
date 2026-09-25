@@ -171,12 +171,12 @@
                     <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
                         <thead>
                             <tr style="background: #F8F7FF; border-bottom: 2px solid #EDE9FE;">
-                                <th style="padding: 13px 24px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Course</th>
-                                <th style="padding: 13px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Level</th>
-                                <th style="padding: 13px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Lessons</th>
-                                <th style="padding: 13px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Enrollments</th>
-                                <th style="padding: 13px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Created</th>
-                                <th style="padding: 13px 20px; text-align: center; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Actions</th>
+                                <th style="padding: 14px 24px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Course</th>
+                                <th style="padding: 14px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Difficulty</th>
+                                <th style="padding: 14px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Lessons</th>
+                                <th style="padding: 14px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Learners</th>
+                                <th style="padding: 14px 18px; text-align: left; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Created</th>
+                                <th style="padding: 14px 24px; text-align: right; font-weight: 700; color: #475569; font-size: 0.75rem; letter-spacing: 0.6px; text-transform: uppercase;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -184,56 +184,61 @@
                 <ItemTemplate>
                     <tr style='<%# Container.ItemIndex % 2 == 0 ? "background:#FFFFFF;" : "background:#FAFAFC;" %> border-bottom: 1px solid #F1F0FB; transition: background 0.15s ease;'>
                         
-                        <td style="padding: 15px 24px;">
-                            <div style="display: flex; align-items: center; gap: 14px;">
-                                <div style="width: 42px; height: 42px; border-radius: 10px; background: #F3F0FF; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #6C5CE7; font-size: 0.95rem; flex-shrink: 0; border: 1px solid #EDE9FE; box-shadow: 0 2px 6px rgba(108, 92, 231, 0.08);">
-                                    <%# Eval("ImageTag") %>
+                        <%-- Course Title, Description & Illustrated Thumb --%>
+                        <td style="padding: 16px 24px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <div style="width: 52px; height: 38px; border-radius: 8px; overflow: hidden; background: #F3F0FF; flex-shrink: 0; border: 1px solid #EDE9FE; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                                    <img src='<%# Eval("ThumbnailUrl") %>' alt='<%# Eval("Title") %>' style="width: 100%; height: 100%; object-fit: cover; display: block;" />
                                 </div>
                                 <div>
-                                    <div style="font-weight: 700; color: #1E1B4B; font-size: 0.94rem;"><%# Eval("Title") %></div>
-                                    <div style="font-size: 0.8rem; color: #64748B; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px;"><%# Eval("Description") %></div>
+                                    <div style="font-weight: 800; color: #1E1B4B; font-size: 0.94rem; line-height: 1.3;"><%# Eval("Title") %></div>
+                                    <div style="font-size: 0.78rem; color: #64748B; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px;"><%# Eval("Description") %></div>
                                 </div>
                             </div>
                         </td>
 
-                        <td style="padding: 15px 18px;">
-                            <span style='<%# Eval("Level").ToString() == "Beginner" ? "background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0;" : Eval("Level").ToString() == "Intermediate" ? "background:#F5F3FF; color:#5B21B6; border:1px solid #DDD6FE;" : "background:#FFFBEB; color:#92400E; border:1px solid #FDE68A;" %> padding: 4px 11px; border-radius: 999px; font-weight: 700; font-size: 0.74rem;'>
+                        <%-- Difficulty Level --%>
+                        <td style="padding: 16px 18px;">
+                            <span style='<%# Eval("Level").ToString() == "Beginner" ? "background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0;" : Eval("Level").ToString() == "Intermediate" ? "background:#F5F3FF; color:#5B21B6; border:1px solid #DDD6FE;" : "background:#FFFBEB; color:#92400E; border:1px solid #FDE68A;" %> padding: 4px 12px; border-radius: 999px; font-weight: 800; font-size: 0.74rem; display: inline-flex; align-items: center; gap: 4px;'>
                                 <%# Eval("Level") %>
                             </span>
                         </td>
 
-                        <td style="padding: 15px 18px; font-weight: 700; color: #1E1B4B;">
-                            <span style="display: inline-flex; align-items: center; gap: 6px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                                <%# Eval("LessonCount") %> lessons
-                            </span>
+                        <%-- Lessons Count --%>
+                        <td style="padding: 16px 18px;">
+                            <span style="font-weight: 800; color: #1E1B4B; font-size: 0.92rem;"><%# Eval("LessonCount") %></span>
+                            <span style="color: #64748B; font-size: 0.8rem; margin-left: 2px;">lessons</span>
                         </td>
 
-                        <td style="padding: 15px 18px; color: #475569; font-weight: 600;">
-                            <%# Eval("EnrollmentCount") %> students
+                        <%-- Enrollments --%>
+                        <td style="padding: 16px 18px;">
+                            <span style="font-weight: 800; color: #1E1B4B; font-size: 0.92rem;"><%# Eval("EnrollmentCount") %></span>
+                            <span style="color: #64748B; font-size: 0.8rem; margin-left: 2px;">enrolled</span>
                         </td>
 
-                        <td style="padding: 15px 18px; color: #94A3B8; font-size: 0.82rem;">
+                        <%-- Date --%>
+                        <td style="padding: 16px 18px; color: #64748B; font-size: 0.82rem; font-weight: 500;">
                             <%# Eval("CreatedDate", "{0:MMM dd, yyyy}") %>
                         </td>
 
-                        <td style="padding: 15px 20px; text-align: center;">
-                            <div style="display: inline-flex; gap: 8px; align-items: center;">
-                                <a href='ManageLessons.aspx?courseId=<%# Eval("Id") %>' class="admin-btn-action btn-action-primary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        <%-- Actions --%>
+                        <td style="padding: 16px 24px; text-align: right;">
+                            <div style="display: inline-flex; gap: 8px; align-items: center; justify-content: flex-end;">
+                                <a href='ManageLessons.aspx?courseId=<%# Eval("Id") %>' class="admin-btn-action btn-action-primary" title="Manage Lessons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                                     Lessons
                                 </a>
 
                                 <asp:LinkButton ID="lbtnEditCourse" runat="server" CommandName="EditCourse" CommandArgument='<%# Eval("Id") %>'
-                                    CssClass="admin-btn-action btn-action-secondary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                    CssClass="admin-btn-action btn-action-secondary" title="Edit Course Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                                     Edit
                                 </asp:LinkButton>
 
                                 <asp:LinkButton ID="lbtnDeleteCourse" runat="server" CommandName="DeleteCourse" CommandArgument='<%# Eval("Id") %>'
                                     OnClientClick="return confirm('Are you sure you want to delete this course and all associated lessons/quizzes?');"
-                                    CssClass="admin-btn-action btn-action-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                    CssClass="admin-btn-action btn-action-danger" title="Delete Course">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                                     Delete
                                 </asp:LinkButton>
                             </div>

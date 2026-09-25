@@ -55,7 +55,8 @@ namespace Codelecta_2._0.Admin
                         BadgeClass = c.BadgeClass ?? "csharp-badge",
                         CreatedDate = c.CreatedDate,
                         LessonCount = c.Lessons != null ? c.Lessons.Count : 0,
-                        EnrollmentCount = c.Enrollments != null ? c.Enrollments.Count : 0
+                        EnrollmentCount = c.Enrollments != null ? c.Enrollments.Count : 0,
+                        ThumbnailUrl = GetThumbnailUrl(c.BadgeClass)
                     })
                     .ToList();
 
@@ -234,6 +235,22 @@ namespace Codelecta_2._0.Admin
             pnlMessage.Style["background"] = isSuccess ? "#ECFDF5" : "#FEF2F2";
             pnlMessage.Style["color"] = isSuccess ? "#065F46" : "#991B1B";
             pnlMessage.Style["border"] = isSuccess ? "1px solid #6EE7B7" : "1px solid #FECACA";
+        }
+
+        private string GetThumbnailUrl(string badgeClass)
+        {
+            switch (badgeClass)
+            {
+                case "python-badge":  return ResolveUrl("~/Content/images/courses/python.svg");
+                case "js-badge":      return ResolveUrl("~/Content/images/courses/javascript.svg");
+                case "csharp-badge":  return ResolveUrl("~/Content/images/courses/csharp.svg");
+                case "react-badge":   return ResolveUrl("~/Content/images/courses/react.svg");
+                case "java-badge":    return ResolveUrl("~/Content/images/courses/java.svg");
+                case "dsa-badge":     return ResolveUrl("~/Content/images/courses/dsa.svg");
+                case "html-badge":    return ResolveUrl("~/Content/images/courses/html.svg");
+                case "sys-badge":     return ResolveUrl("~/Content/images/courses/sys.svg");
+                default:              return ResolveUrl("~/Content/images/courses/default.svg");
+            }
         }
     }
 }
