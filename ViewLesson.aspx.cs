@@ -43,7 +43,11 @@ namespace Codelecta_2._0
             int lessonId = GetLessonId();
             if (lessonId == 0)
             {
-                Response.Redirect("Courses.aspx");
+                pnlLessonMain.Visible = false;
+                pnlLessonError.Visible = true;
+                lblErrorMessage.Text = "No lesson ID was provided. Please choose a course from the catalog to begin learning.";
+                lnkErrorAction.HRef = "Courses.aspx";
+                lnkErrorAction.InnerText = "← Browse All Courses";
                 return;
             }
 
@@ -57,7 +61,11 @@ namespace Codelecta_2._0
 
                 if (lesson == null)
                 {
-                    Response.Redirect("Courses.aspx");
+                    pnlLessonMain.Visible = false;
+                    pnlLessonError.Visible = true;
+                    lblErrorMessage.Text = "The requested lesson could not be found. It may have been relocated or updated.";
+                    lnkErrorAction.HRef = "Courses.aspx";
+                    lnkErrorAction.InnerText = "← Browse All Courses";
                     return;
                 }
 
@@ -65,9 +73,17 @@ namespace Codelecta_2._0
                 bool isEnrolled = db.UserCourses.Any(uc => uc.UserId == userId && uc.CourseId == lesson.CourseId);
                 if (!isEnrolled)
                 {
-                    Response.Redirect("CourseDetail.aspx?id=" + lesson.CourseId);
+                    pnlLessonMain.Visible = false;
+                    pnlLessonError.Visible = true;
+                    string cTitle = lesson.Course != null ? Server.HtmlEncode(lesson.Course.Title) : "this course";
+                    lblErrorMessage.Text = "You are not enrolled in <strong>" + cTitle + "</strong> yet. Enroll to access this structured lesson, code playground, and self-assessments.";
+                    lnkErrorAction.HRef = "CourseDetail.aspx?id=" + lesson.CourseId;
+                    lnkErrorAction.InnerText = "View Course & Enroll →";
                     return;
                 }
+
+                pnlLessonMain.Visible = true;
+                pnlLessonError.Visible = false;
 
                 // Set back link
                 lnkBack.HRef = "CourseDetail.aspx?id=" + lesson.CourseId;
@@ -76,7 +92,7 @@ namespace Codelecta_2._0
                 lblOrder.Text = lesson.OrderIndex.ToString();
                 lblOrderSubtitle.Text = lesson.OrderIndex.ToString();
                 lblTitle.Text = lesson.Title;
-                litContent.Text = !string.IsNullOrEmpty(lesson.Content) ? lesson.Content.Replace("\n", "<br />") : "";
+                litContent.Text = FormatLessonContent(lesson.Content);
 
                 // Handle video URL and chapters
                 string videoUrl = lesson.VideoUrl;
@@ -291,6 +307,52 @@ namespace Codelecta_2._0
                 return "https://www.youtube.com/watch?v=8hly31xKli0";
 
             return "https://www.youtube.com/watch?v=zOjov-2OZ0E";
+        }
+
+        private string FormatLessonContent(string rawContent)
+        {
+            if (string.IsNullOrWhiteSpace(rawContent)) return "";
+
+            string formatted = rawContent;
+
+            // 1. Parse fenced code blocks ```csharp ... ``` or ``` ... ```
+            formatted = Regex.Replace(formatted, @"```(?<lang>[a-zA-Z0-9#+]*)\r?\n(?<code>[\s\S]*?)```", m =>
+            {
+                string lang = m.Groups["lang"].Value.Trim();
+                if (string.IsNullOrEmpty(lang)) lang = "Code";
+                string code = System.Web.HttpUtility.HtmlEncode(m.Groups["code"].Value.Trim());
+                return string.Format(
+                    "<div class=\"lesson-code-block\"><div class=\"lesson-code-header\"><span class=\"lesson-code-lang\">{0}</span><button type=\"button\" class=\"lesson-copy-btn\" onclick=\"copyCodeSnippet(this)\">📋 Copy</button></div><pre><code class=\"language-{1}\">{2}</code></pre></div>",
+                    lang.ToUpper(), lang.ToLower(), code);
+            });
+
+            // 2. Parse inline code `someCode`
+            formatted = Regex.Replace(formatted, @"`([^`\n\r]+)`", m =>
+            {
+                return "<code class=\"inline-code\">" + System.Web.HttpUtility.HtmlEncode(m.Groups[1].Value) + "</code>";
+            });
+
+            // 3. Parse headers: ### Subheading and ## Section
+            formatted = Regex.Replace(formatted, @"(?m)^###\s+(.+)$", "<h4 class=\"lesson-subheading\">$1</h4>");
+            formatted = Regex.Replace(formatted, @"(?m)^##\s+(.+)$", "<h3 class=\"lesson-heading\">$1</h3>");
+
+            // 4. Parse callouts / blockquotes: > Note: or > Important:
+            formatted = Regex.Replace(formatted, @"(?m)^>\s*(?:<strong>)?(Note|Tip|Important|Warning|Best Practice)?:?\s*(?:</strong>)?\s*(.+)$",
+                "<div class=\"lesson-callout\"><div class=\"callout-tag\">💡 $1</div><p class=\"callout-text\">$2</p></div>");
+
+            // 5. Parse bullet points: - item or * item
+            formatted = Regex.Replace(formatted, @"(?m)^[\-\*]\s+(.+)$", "<li class=\"lesson-bullet\">$1</li>");
+            formatted = Regex.Replace(formatted, @"(<li class=""lesson-bullet"">[\s\S]*?</li>)+", "<ul class=\"lesson-list\">$0</ul>");
+
+            // 6. Bold **text**
+            formatted = Regex.Replace(formatted, @"\*\*([^*]+)\*\*", "<strong>$1</strong>");
+
+            // 7. Line breaks outside of code blocks
+            formatted = formatted.Replace("\r\n", "\n").Replace("\n", "<br />");
+            formatted = Regex.Replace(formatted, @"(<br\s*/?>\s*)+(<(?:div|h3|h4|ul|pre|blockquote))", "$2");
+            formatted = Regex.Replace(formatted, @"(</(?:div|h3|h4|ul|pre|blockquote)>)(\s*<br\s*/?>)+", "$1");
+
+            return formatted;
         }
 
         private List<VideoChapterViewModel> ParseOrGenerateChapters(Lesson lesson)
