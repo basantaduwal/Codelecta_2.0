@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -188,6 +188,7 @@ namespace Codelecta_2._0.Admin
         {
             lblActionMessage.Text = text;
             pnlMessage.Visible    = true;
+            pnlMessage.CssClass   = "alert-slide-in";
             pnlMessage.Style["background"]    = success ? "#ECFDF5" : "#FEF2F2";
             pnlMessage.Style["color"]         = success ? "#065F46" : "#991B1B";
             pnlMessage.Style["border"]        = success ? "1px solid #6EE7B7" : "1px solid #FECACA";
