@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
@@ -31,7 +31,9 @@ namespace Codelecta_2._0
             int courseId = GetCourseId();
             if (courseId == 0)
             {
-                Response.Redirect("Courses");
+                pnlCourseNotFound.Visible = true;
+                pnlCourseMain.Visible = false;
+                Page.Title = "Course Not Found — Codelecta";
                 return;
             }
 
@@ -42,9 +44,14 @@ namespace Codelecta_2._0
                 var course = db.Courses.FirstOrDefault(c => c.Id == courseId);
                 if (course == null)
                 {
-                    Response.Redirect("Courses");
+                    pnlCourseNotFound.Visible = true;
+                    pnlCourseMain.Visible = false;
+                    Page.Title = "Course Not Found — Codelecta";
                     return;
                 }
+
+                pnlCourseNotFound.Visible = false;
+                pnlCourseMain.Visible = true;
 
                 // ── Populate header ───────────────────────────────────────
                 Page.Title = course.Title + " — Codelecta";

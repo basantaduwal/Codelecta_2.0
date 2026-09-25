@@ -1,7 +1,9 @@
-﻿namespace Codelecta_2._0
+namespace Codelecta_2._0
 {
     public partial class CourseDetail
     {
+        protected global::System.Web.UI.WebControls.Panel     pnlCourseNotFound;
+        protected global::System.Web.UI.WebControls.Panel     pnlCourseMain;
         protected global::System.Web.UI.WebControls.Literal   litBadgeClass;
         protected global::System.Web.UI.WebControls.Literal   litImageTag;
         protected global::System.Web.UI.WebControls.Label     lblLevel;

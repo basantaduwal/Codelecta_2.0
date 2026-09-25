@@ -56,6 +56,7 @@
                         <h2 style="font-size: 1.4rem; font-weight: 800; color: #1E1B4B; margin: 0 0 4px 0;">Top 10 Performers</h2>
                         <p style="font-size: 0.88rem; color: #64748B; margin: 0;">Ranked by average quiz score. Ties broken by quizzes completed.</p>
                     </div>
+                    <div class="touch-scroll-wrap">
                     <asp:Repeater ID="rptLeaderboard" runat="server">
                         <HeaderTemplate>
                             <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
@@ -113,6 +114,7 @@
                             </table>
                         </FooterTemplate>
                     </asp:Repeater>
+                    </div><%-- /touch-scroll-wrap --%>
                 </div>
             </asp:Panel>
 

@@ -4,6 +4,21 @@
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
         <div class="container" style="max-width: 820px; margin: 0 auto; padding: 0 20px;">
 
+            <!-- Error / Not Found Banner -->
+            <asp:Panel ID="pnlQuizError" runat="server" Visible="false"
+                style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 50px 30px; text-align: center; margin-bottom: 28px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.6rem; color: #DC2626;">
+                    ⚠️
+                </div>
+                <h2 style="font-size: 1.4rem; font-weight: 800; color: #1E1B4B; margin: 0 0 8px 0;">Assessment Unavailable</h2>
+                <p style="color: #64748B; font-size: 0.95rem; max-width: 480px; margin: 0 auto 22px auto; line-height: 1.6;">
+                    <asp:Label ID="lblQuizErrorMessage" runat="server"></asp:Label>
+                </p>
+                <a href="Courses.aspx" class="btn-primary" style="padding: 10px 24px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
+                    &larr; Browse Courses
+                </a>
+            </asp:Panel>
+
             <!-- Header Card -->
             <div class="feature-card" style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 36px; margin-bottom: 28px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
@@ -77,6 +92,7 @@
                 <!-- Submit Button -->
                 <div style="text-align: right; margin-top: 28px;">
                     <asp:Button ID="btnSubmitQuiz" runat="server" Text="Submit Assessment &rarr;" OnClick="btnSubmitQuiz_Click"
+                        OnClientClick="this.disabled=true; this.value='Grading Assessment...'; __doPostBack(this.name, ''); return false;"
                         style="padding: 14px 38px; background: linear-gradient(135deg, #6C5CE7 0%, #A855F7 100%); color: #FFFFFF; border: none; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 8px 24px rgba(108, 92, 231, 0.35); font-family: inherit;" />
                 </div>
             </asp:Panel>
