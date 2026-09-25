@@ -19,13 +19,16 @@
                             </h1>
                             <p style="color: rgba(255, 255, 255, 0.7); font-size: 1rem; margin: 0;">Track your learning milestones, manage enrolled courses, and continue your progress.</p>
                         </div>
-                        <div>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                             <a href="Courses" class="btn-primary" style="padding: 12px 24px; font-size: 0.92rem; font-weight: 700; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle>
                                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 </svg>
                                 Browse Courses
+                            </a>
+                            <a href="Leaderboard" style="padding: 12px 24px; font-size: 0.92rem; font-weight: 700; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25); transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                                🏆 Leaderboard
                             </a>
                         </div>
                     </div>
