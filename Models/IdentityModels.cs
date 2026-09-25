@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -26,7 +26,7 @@ namespace Codelecta_2._0.Models
 
         /// <summary>
         /// True once the user has completed (or skipped) the first-login onboarding flow.
-        /// False by default — triggers redirect to Onboarding.aspx.
+        /// False by default - triggers redirect to Onboarding.aspx.
         /// </summary>
         public bool OnboardingCompleted { get; set; }
 

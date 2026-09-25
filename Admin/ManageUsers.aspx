@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageUsers.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageUsers" %>
+<%@ Page Title="Manage Users" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageUsers.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageUsers" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Users
@@ -142,7 +142,7 @@
                                 </div>
                                 <div>
                                     <div style="font-weight:700; color:#1E1B4B; font-size:0.9rem; max-width:150px; overflow:hidden; text-overflow:ellipsis;">
-                                        <%# !string.IsNullOrWhiteSpace(Eval("FullName").ToString()) ? Server.HtmlEncode(Eval("FullName").ToString()) : "<span style='color:#94A3B8;'>—</span>" %>
+                                        <%# !string.IsNullOrWhiteSpace(Eval("FullName").ToString()) ? Server.HtmlEncode(Eval("FullName").ToString()) : "<span style='color:#94A3B8;'>-</span>" %>
                                     </div>
                                     <div style="font-size:0.72rem; color:#94A3B8; font-family:'Fira Code',monospace;">
                                         <%# Eval("UserId").ToString().Substring(0, 8) %>…
