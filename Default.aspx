@@ -70,13 +70,13 @@
                                 </linearGradient>
 
                                 <!-- Screen Outer Frame Gradient -->
-                                <linearGradient id="screenBackGradLight" x1="250" y1="75" x2="495" y2="185" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="screenBackGradLight" x1="120" y1="140" x2="350" y2="290" gradientUnits="userSpaceOnUse">
                                     <stop offset="0%" stop-color="#312E81" />
                                     <stop offset="100%" stop-color="#1E1B4B" />
                                 </linearGradient>
 
                                 <!-- Screen Display UI Gradient -->
-                                <linearGradient id="screenUiGradLight" x1="256" y1="82" x2="489" y2="178" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="screenUiGradLight" x1="130" y1="150" x2="340" y2="282" gradientUnits="userSpaceOnUse">
                                     <stop offset="0%" stop-color="#1E1B4B" />
                                     <stop offset="100%" stop-color="#0F172A" />
                                 </linearGradient>
@@ -131,20 +131,20 @@
                             <polygon points="275,335 330,307 360,322 305,350" fill="#E2E8F0" stroke="#818CF8" stroke-width="1.2" />
 
                             <!-- Hinge Bar connecting screen to base -->
-                            <polygon points="200,250 350,175 365,182 215,257" fill="#475569" />
+                            <polygon points="120,290 350,175 356,178 126,293" fill="#475569" />
 
                             <!-- 3. Laptop Screen: Perfectly Aligned to Base Top-Left Hinge -->
                             <!-- Screen Back Shell -->
-                            <polygon points="200,250 350,175 350,25 200,100" fill="url(#screenBackGradLight)" stroke="#818CF8" stroke-width="2.5" filter="url(#screenSoftGlow)" />
+                            <polygon points="120,290 350,175 350,25 120,140" fill="url(#screenBackGradLight)" stroke="#818CF8" stroke-width="2.5" filter="url(#screenSoftGlow)" />
 
                             <!-- Inner Display Bezel -->
-                            <polygon points="206,244 344,175 344,35 206,104" fill="url(#screenUiGradLight)" stroke="#6366F1" stroke-width="1.5" />
+                            <polygon points="132,282 342,175 342,37 132,144" fill="url(#screenUiGradLight)" stroke="#6366F1" stroke-width="1.5" />
 
                             <!-- Display Top Header Bar -->
-                            <polygon points="206,104 344,35 344,49 206,118" fill="#0F172A" />
-                            <circle cx="218" cy="112" r="2.2" fill="#EF4444" />
-                            <circle cx="225" cy="109" r="2.2" fill="#F59E0B" />
-                            <circle cx="232" cy="105" r="2.2" fill="#10B981" />
+                            <polygon points="132,144 342,37 342,52 132,159" fill="#0F172A" />
+                            <circle cx="145" cy="152" r="2.2" fill="#EF4444" />
+                            <circle cx="153" cy="148" r="2.2" fill="#F59E0B" />
+                            <circle cx="161" cy="144" r="2.2" fill="#10B981" />
 
                             <!-- 4. On-Screen Interactive Flowchart Diagram (Mapped to Screen Plane) -->
                             <polyline points="230,150 265,133 285,150 320,132" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="3 2" stroke-opacity="0.9" />
