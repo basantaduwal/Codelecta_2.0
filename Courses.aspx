@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="Codelecta_2._0.Courses" %>
+<%@ Page Title="Courses" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="Codelecta_2._0.Courses" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="catalog-page">
@@ -124,14 +124,14 @@
                         </div>
                         <!-- Footer -->
                         <div class="catalog-card-footer">
-                            <div class="catalog-card-meta">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                                <span><%# Eval("LessonCount") %> lessons</span>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="catalog-card-meta">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    <span><%# Eval("LessonCount") %> lessons</span>
+                                </div>
+                                <%# (bool)Eval("IsEnrolled") ? "<span style='padding: 2px 8px; background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; border-radius: 999px; font-size: 0.72rem; font-weight: 700;'>✓ Enrolled</span>" : "" %>
                             </div>
-                            <div class="catalog-card-meta" style="<%# (bool)Eval("IsEnrolled") ? "color: var(--success); font-weight: 700;" : "" %>">
-                                <%# (bool)Eval("IsEnrolled") ? "✓ Enrolled" : "" %>
-                            </div>
-                            <a href='CourseDetail.aspx?id=<%# Eval("Id") %>' class="btn-primary" style="padding: 9px 20px; font-size: 0.875rem;">
+                            <a href='CourseDetail.aspx?id=<%# Eval("Id") %>' class="btn-primary">
                                 <%# (bool)Eval("IsEnrolled") ? "Continue &rarr;" : "View Course" %>
                             </a>
                         </div>
