@@ -11,14 +11,34 @@ namespace Codelecta_2._0.Admin
 {
     public partial class ManageLessons : Page
     {
+        private int _courseId = 0;
         public int CourseId
         {
             get
             {
+                if (_courseId != 0) return _courseId;
+
                 int id;
                 if (int.TryParse(Request.QueryString["courseId"], out id))
-                    return id;
+                {
+                    _courseId = id;
+                    return _courseId;
+                }
+
+                if (ddlSelectCourse != null && !string.IsNullOrEmpty(ddlSelectCourse.SelectedValue))
+                {
+                    if (int.TryParse(ddlSelectCourse.SelectedValue, out id) && id > 0)
+                    {
+                        _courseId = id;
+                        return _courseId;
+                    }
+                }
+
                 return 0;
+            }
+            set
+            {
+                _courseId = value;
             }
         }
 
@@ -30,16 +50,63 @@ namespace Codelecta_2._0.Admin
                 return;
             }
 
-            if (CourseId == 0)
-            {
-                Response.Redirect("ManageCourses.aspx");
-                return;
-            }
-
             if (!IsPostBack)
             {
+                LoadCoursesDropdown();
+
+                // If no courseId in query string, pick first course from database
+                if (CourseId == 0)
+                {
+                    using (var db = new ApplicationDbContext())
+                    {
+                        var firstCourse = db.Courses.OrderBy(c => c.CreatedDate).FirstOrDefault();
+                        if (firstCourse != null)
+                        {
+                            CourseId = firstCourse.Id;
+                            if (ddlSelectCourse.Items.FindByValue(CourseId.ToString()) != null)
+                            {
+                                ddlSelectCourse.SelectedValue = CourseId.ToString();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (ddlSelectCourse.Items.FindByValue(CourseId.ToString()) != null)
+                    {
+                        ddlSelectCourse.SelectedValue = CourseId.ToString();
+                    }
+                }
+
+                if (CourseId == 0)
+                {
+                    Response.Redirect("ManageCourses.aspx");
+                    return;
+                }
+
                 LoadCourseInfo();
                 LoadLessons();
+            }
+        }
+
+        private void LoadCoursesDropdown()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var courses = db.Courses.OrderBy(c => c.Title).ToList();
+                ddlSelectCourse.DataSource = courses;
+                ddlSelectCourse.DataTextField = "Title";
+                ddlSelectCourse.DataValueField = "Id";
+                ddlSelectCourse.DataBind();
+            }
+        }
+
+        protected void ddlSelectCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedId;
+            if (int.TryParse(ddlSelectCourse.SelectedValue, out selectedId) && selectedId > 0)
+            {
+                Response.Redirect("ManageLessons.aspx?courseId=" + selectedId);
             }
         }
 
