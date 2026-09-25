@@ -111,55 +111,63 @@
                             <!-- Front Rim Highlight Strip -->
                             <line x1="290" y1="388" x2="520" y2="273" stroke="#A855F7" stroke-width="2" stroke-opacity="0.8" />
 
-                            <!-- Keyboard Well Depression -->
-                            <polygon points="180,270 340,190 460,250 300,330" fill="#0B1120" stroke="#1E293B" stroke-width="1" />
+                            <!-- Keyboard Well Depression (Centered and filling laptop base width proportionally) -->
+                            <polygon points="146,280 346,180 478,246 278,346" fill="#0B1120" stroke="#1E293B" stroke-width="1.2" />
 
-                            <!-- 5 Even Key Rows (each ~12px forward in isometric space) -->
-                            <!-- Row 1: Number / Fn row -->
-                            <polygon points="182,271 340,191 364,203 206,283" fill="#1A2740" stroke="#2D3F5A" stroke-width="0.7" />
-                            <line x1="209" y1="278" x2="219" y2="283" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="231" y1="267" x2="241" y2="272" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="253" y1="256" x2="263" y2="261" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="275" y1="245" x2="285" y2="250" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="297" y1="234" x2="307" y2="239" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="319" y1="223" x2="329" y2="228" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="341" y1="212" x2="351" y2="217" stroke="#2D3F5A" stroke-width="0.6" stroke-opacity="0.8"/>
+                            <!-- 5 Even Key Rows (Spanning from left margin to right margin evenly) -->
+                            <!-- Row 1: Function / Numbers row -->
+                            <polygon points="152,280 344,184 366,195 174,291" fill="#1E293B" stroke="#334155" stroke-width="0.7" />
+                            <line x1="176" y1="289" x2="184" y2="293" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="198" y1="278" x2="206" y2="282" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="220" y1="267" x2="228" y2="271" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="242" y1="256" x2="250" y2="260" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="264" y1="245" x2="272" y2="249" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="286" y1="234" x2="294" y2="238" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="308" y1="223" x2="316" y2="227" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="330" y1="212" x2="338" y2="216" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="352" y1="201" x2="360" y2="205" stroke="#334155" stroke-width="0.7" stroke-opacity="0.9"/>
 
                             <!-- Row 2: QWERTY row -->
-                            <polygon points="207,284 365,204 389,216 231,296" fill="#263448" stroke="#3D526E" stroke-width="0.7" />
-                            <line x1="234" y1="291" x2="244" y2="296" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="256" y1="280" x2="266" y2="285" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="278" y1="269" x2="288" y2="274" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="300" y1="258" x2="310" y2="263" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="322" y1="247" x2="332" y2="252" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="344" y1="236" x2="354" y2="241" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="366" y1="225" x2="376" y2="230" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
+                            <polygon points="176,292 368,196 390,207 198,303" fill="#243348" stroke="#3B4F6D" stroke-width="0.7" />
+                            <line x1="200" y1="301" x2="208" y2="305" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="222" y1="290" x2="230" y2="294" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="244" y1="279" x2="252" y2="283" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="266" y1="268" x2="274" y2="272" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="288" y1="257" x2="296" y2="261" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="310" y1="246" x2="318" y2="250" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="332" y1="235" x2="340" y2="239" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="354" y1="224" x2="362" y2="228" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="376" y1="213" x2="384" y2="217" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
 
                             <!-- Row 3: ASDF row -->
-                            <polygon points="232,297 390,217 414,229 256,309" fill="#2A3D58" stroke="#3D526E" stroke-width="0.7" />
-                            <line x1="259" y1="304" x2="269" y2="309" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="281" y1="293" x2="291" y2="298" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="303" y1="282" x2="313" y2="287" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="325" y1="271" x2="335" y2="276" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="347" y1="260" x2="357" y2="265" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="369" y1="249" x2="379" y2="254" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <!-- Enter key accent -->
-                            <polygon points="385,231 414,216 414,229 385,244" fill="#3B4F72" stroke="#5B7AB0" stroke-width="0.8" />
+                            <polygon points="200,304 392,208 414,219 222,315" fill="#283A52" stroke="#435A7C" stroke-width="0.7" />
+                            <line x1="224" y1="313" x2="232" y2="317" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="246" y1="302" x2="254" y2="306" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="268" y1="291" x2="276" y2="295" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="290" y1="280" x2="298" y2="284" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="312" y1="269" x2="320" y2="273" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="334" y1="258" x2="342" y2="262" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="356" y1="247" x2="364" y2="251" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="378" y1="236" x2="386" y2="240" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="400" y1="225" x2="408" y2="229" stroke="#435A7C" stroke-width="0.7" stroke-opacity="0.9"/>
 
                             <!-- Row 4: ZXCV row -->
-                            <polygon points="257,310 415,230 439,242 281,322" fill="#263448" stroke="#3D526E" stroke-width="0.7" />
-                            <line x1="284" y1="317" x2="294" y2="322" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="306" y1="306" x2="316" y2="311" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="328" y1="295" x2="338" y2="300" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="350" y1="284" x2="360" y2="289" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
-                            <line x1="372" y1="273" x2="382" y2="278" stroke="#3D526E" stroke-width="0.6" stroke-opacity="0.8"/>
+                            <polygon points="224,316 416,220 438,231 246,327" fill="#243348" stroke="#3B4F6D" stroke-width="0.7" />
+                            <line x1="248" y1="325" x2="256" y2="329" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="270" y1="314" x2="278" y2="318" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="292" y1="303" x2="300" y2="307" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="314" y1="292" x2="322" y2="296" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="336" y1="281" x2="344" y2="285" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="358" y1="270" x2="366" y2="274" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="380" y1="259" x2="388" y2="263" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
+                            <line x1="402" y1="248" x2="410" y2="252" stroke="#3B4F6D" stroke-width="0.7" stroke-opacity="0.9"/>
 
-                            <!-- Row 5: Spacebar (wider, lighter, centered) -->
-                            <polygon points="275,322 408,256 424,264 291,330" fill="#384F70" stroke="#5B7AB0" stroke-width="0.8" />
+                            <!-- Row 5: Spacebar Row (Clean centered bar) -->
+                            <polygon points="280,327 386,274 402,282 296,335" fill="#3D5270" stroke="#5C7AA6" stroke-width="0.8" />
 
-                            <!-- Trackpad: Geometrically centered on palm rest deck (between spacebar and front edge) -->
-                            <polygon points="265,348 335,313 365,328 295,363" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.2" />
-                            <polygon points="268,347 332,315 360,329 296,361" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="0.8" />
+                            <!-- Trackpad (Centered on palm rest in true isometric perspective) -->
+                            <polygon points="314,326 376,295 408,311 346,342" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.2" />
+                            <polygon points="317,325 373,297 403,312 347,340" fill="none" stroke="#C7D2FE" stroke-width="0.7" stroke-opacity="0.8" />
 
                             <!-- Hinge Bar connecting screen to base -->
                             <polygon points="120,290 350,175 356,178 126,293" fill="#475569" />
