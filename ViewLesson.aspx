@@ -537,6 +537,25 @@ Console ready. Click "Run Code" to execute.</div>
                         }
                     }
 
+                    function copyCodeSnippet(btn) {
+                        try {
+                            var block = btn.closest('.lesson-code-block');
+                            var codeElem = block ? block.querySelector('pre code') : null;
+                            if (codeElem) {
+                                navigator.clipboard.writeText(codeElem.innerText).then(function() {
+                                    var orig = btn.innerText;
+                                    btn.innerText = '✓ Copied!';
+                                    btn.style.background = '#059669';
+                                    btn.style.color = '#FFFFFF';
+                                    setTimeout(function() {
+                                        btn.innerText = orig;
+                                        btn.style.background = '#334155';
+                                    }, 2000);
+                                });
+                            }
+                        } catch (e) {}
+                    }
+
                     document.addEventListener('DOMContentLoaded', function() {
                         var txt = document.getElementById('txtPlaygroundCode');
                         if (txt && !txt.value) {
@@ -560,6 +579,7 @@ Console ready. Click "Run Code" to execute.</div>
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                         <asp:Button ID="btnMarkComplete" runat="server" Text="✓ Mark as Completed"
                             OnClick="btnMarkComplete_Click"
+                            OnClientClick="this.disabled=true; this.value='Updating Progress...'; __doPostBack(this.name, ''); return false;"
                             style="padding: 11px 26px; background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #FFFFFF; border: none; border-radius: 10px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25); font-family: inherit;" />
 
                         <asp:Button ID="btnMarkIncomplete" runat="server" Text="Mark as Incomplete" Visible="false"
