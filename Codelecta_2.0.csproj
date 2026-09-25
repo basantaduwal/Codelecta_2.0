@@ -324,11 +324,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\Backup\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\Backup\202608200315443_AddLmsTables.cs.bak" />
-    <Content Include="Migrations\Backup\202608200315443_AddLmsTables.Designer.cs.bak" />
-    <Content Include="Migrations\Backup\202608200315443_AddLmsTables.resx.bak" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

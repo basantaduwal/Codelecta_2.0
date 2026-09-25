@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact Us" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Codelecta_2._0.Contact" %>
+<%@ Page Title="Contact Us" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Codelecta_2._0.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main style="padding: 40px 0 80px 0; background: var(--bg-page);">
@@ -91,7 +91,7 @@
                         <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 28px 0;">We'll get back to you as soon as possible.</p>
 
                         <!-- Success Banner -->
-                        <asp:Panel ID="pnlSuccess" runat="server" Visible="false" 
+                        <asp:Panel ID="pnlSuccess" runat="server" Visible="false" CssClass="alert-slide-in"
                             style="background: #ECFDF5; border: 1px solid var(--success); color: #065F46; padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem;">
                             &#10003; Thank you! Your message has been received. We'll reply shortly.
                         </asp:Panel>
@@ -140,6 +140,7 @@
                         <div>
                             <asp:Button ID="btnSubmit" runat="server" Text="Send Message" CssClass="btn-primary"
                                 ValidationGroup="ContactGroup" OnClick="btnSubmit_Click"
+                                OnClientClick="if(Page_ClientValidate('ContactGroup')){ this.disabled=true; this.value='Sending Message...'; __doPostBack(this.name,''); } return false;"
                                 style="padding: 12px 28px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; cursor: pointer; width: 100%; text-align: center" />
                         </div>
                     </div>
