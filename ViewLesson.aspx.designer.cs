@@ -9,6 +9,10 @@ namespace Codelecta_2._0
     public partial class ViewLesson
     {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkBack;
+        protected global::System.Web.UI.WebControls.Panel pnlLessonError;
+        protected global::System.Web.UI.WebControls.Label lblErrorMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkErrorAction;
+        protected global::System.Web.UI.WebControls.Panel pnlLessonMain;
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divProgressFill;
         protected global::System.Web.UI.WebControls.Label lblCourseProgressPct;
         protected global::System.Web.UI.WebControls.Label lblOrder;
