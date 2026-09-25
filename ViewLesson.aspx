@@ -20,6 +20,22 @@
                 </div>
             </div>
 
+            <!-- Friendly Error / Notice Panel -->
+            <asp:Panel ID="pnlLessonError" runat="server" Visible="false"
+                style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 50px 30px; text-align: center; margin-bottom: 30px;">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px auto; font-size: 1.8rem; color: #DC2626;">
+                    ⚠️
+                </div>
+                <h2 style="font-size: 1.4rem; font-weight: 800; color: #1E1B4B; margin: 0 0 10px 0;">Lesson Notice</h2>
+                <p style="color: #64748B; font-size: 0.95rem; max-width: 520px; margin: 0 auto 24px auto; line-height: 1.6;">
+                    <asp:Label ID="lblErrorMessage" runat="server"></asp:Label>
+                </p>
+                <a id="lnkErrorAction" runat="server" class="btn-primary" style="padding: 11px 26px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 8px;">
+                    Continue &rarr;
+                </a>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlLessonMain" runat="server">
             <!-- Main Lesson Card -->
             <div class="feature-card" style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-md); padding: 40px; margin-bottom: 24px;">
                 
@@ -258,10 +274,129 @@
                     }
                 </script>
 
-                <!-- Lesson Body Text / Content -->
-                <div style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.85; margin-bottom: 40px;">
+                <!-- Lesson Body Text / Content with Rich Typography -->
+                <div class="lesson-rich-body">
                     <asp:Literal ID="litContent" runat="server"></asp:Literal>
                 </div>
+
+                <style>
+                    /* Rich Lesson Typography & Elements */
+                    .lesson-rich-body {
+                        color: #334155;
+                        font-size: 1.05rem;
+                        line-height: 1.85;
+                        margin-bottom: 40px;
+                        word-break: break-word;
+                    }
+                    .lesson-rich-body p {
+                        margin: 0 0 16px 0;
+                    }
+                    .lesson-heading {
+                        font-size: 1.35rem;
+                        font-weight: 800;
+                        color: #1E1B4B;
+                        margin: 28px 0 12px 0;
+                        letter-spacing: -0.01em;
+                        border-left: 4px solid #7C3AED;
+                        padding-left: 12px;
+                    }
+                    .lesson-subheading {
+                        font-size: 1.15rem;
+                        font-weight: 700;
+                        color: #334155;
+                        margin: 22px 0 10px 0;
+                    }
+                    .inline-code {
+                        background: #F3F0FF;
+                        color: #6C5CE7;
+                        border: 1px solid #DDD6FE;
+                        padding: 2px 7px;
+                        border-radius: 6px;
+                        font-family: 'Fira Code', 'Courier New', monospace;
+                        font-size: 0.88em;
+                        font-weight: 600;
+                    }
+                    .lesson-code-block {
+                        background: #0F172A;
+                        border: 1px solid #334155;
+                        border-radius: 12px;
+                        margin: 20px 0;
+                        overflow: hidden;
+                        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.15);
+                    }
+                    .lesson-code-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background: #1E293B;
+                        padding: 8px 16px;
+                        border-bottom: 1px solid #334155;
+                    }
+                    .lesson-code-lang {
+                        font-family: 'Fira Code', monospace;
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        color: #94A3B8;
+                    }
+                    .lesson-copy-btn {
+                        background: #334155;
+                        color: #E2E8F0;
+                        border: 1px solid #475569;
+                        border-radius: 6px;
+                        padding: 4px 10px;
+                        font-size: 0.74rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    }
+                    .lesson-copy-btn:hover {
+                        background: #475569;
+                        color: #FFFFFF;
+                    }
+                    .lesson-code-block pre {
+                        margin: 0;
+                        padding: 16px 18px;
+                        overflow-x: auto;
+                    }
+                    .lesson-code-block code {
+                        color: #38BDF8;
+                        font-family: 'Fira Code', 'Courier New', monospace;
+                        font-size: 0.9rem;
+                        line-height: 1.6;
+                    }
+                    .lesson-callout {
+                        background: #FAF5FF;
+                        border-left: 4px solid #A855F7;
+                        border-radius: 0 10px 10px 0;
+                        padding: 14px 18px;
+                        margin: 20px 0;
+                        box-shadow: 0 2px 8px rgba(168, 85, 247, 0.06);
+                    }
+                    .callout-tag {
+                        font-size: 0.8rem;
+                        font-weight: 800;
+                        color: #7E22CE;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 4px;
+                    }
+                    .callout-text {
+                        color: #4C1D95;
+                        font-size: 0.95rem;
+                        margin: 0 !important;
+                        line-height: 1.6;
+                    }
+                    .lesson-list {
+                        margin: 12px 0 18px 24px;
+                        padding: 0;
+                        list-style-type: disc;
+                    }
+                    .lesson-bullet {
+                        margin-bottom: 8px;
+                        line-height: 1.6;
+                    }
+                </style>
 
                 <!-- ==================== IN-LESSON INTERACTIVE CODE PLAYGROUND ==================== -->
                 <div class="code-playground-box" style="background: #0F172A; border-radius: 16px; padding: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25); border: 1px solid #334155;">
@@ -469,6 +604,7 @@ Console ready. Click "Run Code" to execute.</div>
                     </asp:Repeater>
                 </div>
             </div>
+            </asp:Panel>
 
         </div>
     </div>
