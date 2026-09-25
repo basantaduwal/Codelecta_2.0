@@ -48,7 +48,7 @@
     margin: 0 auto;
     padding: 0 32px;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr; /* 45% text / 55% visual balance */
+    grid-template-columns: 0.85fr 1.15fr; /* 43% text / 57% visual */
     gap: 48px;
     align-items: center;
     position: relative;
@@ -192,6 +192,8 @@
 
 .isometric-scene-container {
     position: relative;
+    transform: scale(0.95);
+    transform-origin: center center;
     width: 100%;
     max-width: 620px;
     height: 480px;
@@ -212,8 +214,8 @@
 }
 
 .tag-php {
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 145px;
     font-size: 1.5rem;
     color: #E11D48;
     background: rgba(255, 255, 255, 0.85);
@@ -251,8 +253,8 @@
 }
 
 .tag-sql {
-    bottom: 30px;
-    left: 10px;
+    bottom: 175px;
+    left: 60px;
     font-size: 1.3rem;
     color: #4F46E5;
     background: rgba(255, 255, 255, 0.85);
@@ -264,8 +266,8 @@
 }
 
 .tag-code-bracket {
-    top: 50px;
-    left: 120px;
+    top: 135px;
+    left: 68px;
     font-size: 1.4rem;
     color: #9333EA;
     background: rgba(255, 255, 255, 0.85);
@@ -319,8 +321,8 @@
 /* Floating Acrylic Code Snippet Card (Light Theme Frosted Glass) */
 .hero-code-card-floating {
     position: absolute;
-    left: -4%;
-    top: 8%;
+    left: -3%;
+    top: 14%;
     width: 200px;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(16px);
@@ -373,8 +375,8 @@
 /* Floating Language Capsule Pill Bar (Bottom Right of Laptop) */
 .hero-lang-capsule {
     position: absolute;
-    right: 2%;
-    bottom: 6%;
+    right: 48px;
+    bottom: 165px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
