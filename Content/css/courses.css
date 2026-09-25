@@ -463,9 +463,8 @@
 .catalog-card {
     background: #FFFFFF;
     border-radius: 20px;
-    border: 1px solid rgba(237, 233, 254, 0.85);
+    border: 1px solid rgba(237, 233, 254, 0.9);
     box-shadow: 0 4px 20px -2px rgba(108, 92, 231, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
-    padding: 26px 26px 22px;
     display: flex;
     flex-direction: column;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -473,55 +472,83 @@
     overflow: hidden;
 }
 
-.catalog-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
 .catalog-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 36px -6px rgba(108, 92, 231, 0.16), 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 18px 40px -8px rgba(108, 92, 231, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04);
     border-color: rgba(167, 139, 250, 0.6);
 }
 
-.catalog-card:hover::before {
-    opacity: 1;
+/* Card Thumbnail with Course Artwork */
+.catalog-card-thumb {
+    position: relative;
+    width: 100%;
+    height: 155px;
+    background: linear-gradient(135deg, #F8F7FF 0%, #EDE9FE 100%);
+    overflow: hidden;
+    display: block;
 }
 
-.catalog-card-top {
+.catalog-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.catalog-card:hover .catalog-card-thumb img {
+    transform: scale(1.06);
+}
+
+/* Level pill badge overlaid on thumbnail */
+.catalog-level-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.level-beginner     { background: rgba(236, 253, 245, 0.95); color: #065F46; border: 1px solid #A7F3D0; }
+.level-intermediate { background: rgba(245, 243, 255, 0.95); color: #5B21B6; border: 1px solid #DDD6FE; }
+.level-professional { background: rgba(255, 251, 235, 0.95); color: #92400E; border: 1px solid #FDE68A; }
+
+/* Card Body */
+.catalog-card-body {
+    padding: 20px 22px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-card-title-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
 .catalog-badge {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     flex-shrink: 0;
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 4px 12px rgba(0, 0, 0, 0.06);
-    transition: transform 0.25s ease;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
-.catalog-card:hover .catalog-badge {
-    transform: scale(1.08) rotate(-2deg);
-}
-
-/* Badge colour variants - Modern soft pastel gradients with crisp borders */
+/* Badge colour variants */
 .python-badge   { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); color: #B45309; border: 1px solid #FCD34D; }
 .html-badge     { background: linear-gradient(135deg, #FFE4D6 0%, #FED7AA 100%); color: #C2410C; border: 1px solid #FDBA74; }
 .js-badge       { background: linear-gradient(135deg, #FEF9C3 0%, #FEF08A 100%); color: #A16207; border: 1px solid #FDE047; }
@@ -532,59 +559,44 @@
 .sys-badge      { background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%); color: #334155; border: 1px solid #CBD5E1; }
 .default-badge  { background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%); color: var(--primary); border: 1px solid #C4B5FD; }
 
-/* Level tags - Refined pill styling */
-.catalog-level-tag {
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding: 5px 12px;
-    border-radius: 9999px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.level-beginner     { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
-.level-intermediate { background: #F5F3FF; color: #5B21B6; border: 1px solid #DDD6FE; }
-.level-professional { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
-
-.catalog-card-body {
-    flex: 1;
-    margin-bottom: 22px;
-}
-
 .catalog-card-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #1E1B4B;
-    margin: 0 0 8px 0;
+    margin: 0;
     line-height: 1.35;
     letter-spacing: -0.015em;
+    flex: 1;
+}
+
+.catalog-card-title a {
+    color: inherit;
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.catalog-card:hover .catalog-card-title {
+.catalog-card:hover .catalog-card-title a {
     color: var(--primary);
 }
 
 .catalog-card-desc {
-    font-size: 0.88rem;
+    font-size: 0.875rem;
     color: #64748B;
     line-height: 1.6;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
+/* Card Footer */
 .catalog-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding-top: 18px;
+    padding: 14px 22px 18px;
     border-top: 1px solid #F1F0FB;
 }
 
@@ -603,13 +615,14 @@
 }
 
 .catalog-card-footer .btn-primary {
-    padding: 9px 20px;
-    font-size: 0.875rem;
+    padding: 8px 18px;
+    font-size: 0.85rem;
     font-weight: 700;
-    border-radius: 10px;
+    border-radius: 9999px;
     box-shadow: 0 3px 10px rgba(108, 92, 231, 0.22);
     transition: all 0.2s ease;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .catalog-card-footer .btn-primary:hover {

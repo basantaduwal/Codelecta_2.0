@@ -33,7 +33,7 @@ namespace Codelecta_2._0
             {
                 pnlCourseNotFound.Visible = true;
                 pnlCourseMain.Visible = false;
-                Page.Title = "Course Not Found — Codelecta";
+                Page.Title = "Course Not Found - Codelecta";
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace Codelecta_2._0
                 {
                     pnlCourseNotFound.Visible = true;
                     pnlCourseMain.Visible = false;
-                    Page.Title = "Course Not Found — Codelecta";
+                    Page.Title = "Course Not Found - Codelecta";
                     return;
                 }
 
@@ -54,7 +54,7 @@ namespace Codelecta_2._0
                 pnlCourseMain.Visible = true;
 
                 // ── Populate header ───────────────────────────────────────
-                Page.Title = course.Title + " — Codelecta";
+                Page.Title = course.Title + " - Codelecta";
                 lblTitle.Text       = course.Title;
                 lblDescription.Text = course.Description;
                 litBadgeClass.Text  = course.BadgeClass ?? "default-badge";

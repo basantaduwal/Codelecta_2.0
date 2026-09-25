@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -22,7 +22,7 @@ namespace Codelecta_2._0
         {
             string level = hfSelectedLevel.Value.Trim();
 
-            // Validate – must be one of the three known values
+            // Validate - must be one of the three known values
             if (level != "Beginner" && level != "Intermediate" && level != "Professional")
             {
                 lblError.Text    = "Please select an experience level before continuing.";
@@ -36,7 +36,7 @@ namespace Codelecta_2._0
 
         protected void lnkSkip_Click(object sender, EventArgs e)
         {
-            // Skip: do NOT mark OnboardingCompleted — the prompt will appear again next login.
+            // Skip: do NOT mark OnboardingCompleted - the prompt will appear again next login.
             // We also deliberately do NOT save an ExperienceLevel.
             Response.Redirect("~/");
         }

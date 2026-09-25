@@ -41,7 +41,7 @@ namespace Codelecta_2._0
                     return;
                 }
 
-                // Build leaderboard rows — group by user, rank by avg score desc, then passes desc
+                // Build leaderboard rows - group by user, rank by avg score desc, then passes desc
                 var grouped = db.QuizAttempts
                     .GroupBy(a => a.UserId)
                     .Select(g => new

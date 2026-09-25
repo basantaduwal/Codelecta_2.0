@@ -14,7 +14,7 @@
                             <span class="catalog-title-accent">Learning Paths</span>
                         </h1>
                         <p class="catalog-subtitle">
-                            From absolute beginner to professional developer — find the course that matches your level and goals.
+                            From absolute beginner to professional developer - find the course that matches your level and goals.
                         </p>
                     </div>
                     <div class="catalog-hero-stats">
@@ -112,19 +112,26 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <div class="catalog-card">
-                        <!-- Badge -->
-                        <div class="catalog-card-top">
-                            <div class="catalog-badge <%# Eval("BadgeClass") %>"><%# Eval("ImageTag") %></div>
-                            <span class="catalog-level-tag level-<%# Eval("Level").ToString().ToLower() %>"><%# Eval("Level") %></span>
-                        </div>
+                        <!-- Thumbnail with Image and Level Pill -->
+                        <a href='CourseDetail.aspx?id=<%# Eval("Id") %>' class="catalog-card-thumb">
+                            <img src='<%# Eval("ThumbnailUrl") %>' alt='<%# Eval("Title") %>' loading="lazy" />
+                            <span class="catalog-level-badge level-<%# Eval("Level").ToString().ToLower() %>"><%# Eval("Level") %></span>
+                        </a>
+
                         <!-- Body -->
                         <div class="catalog-card-body">
-                            <h3 class="catalog-card-title"><%# Eval("Title") %></h3>
+                            <div class="catalog-card-title-row">
+                                <div class="catalog-badge <%# Eval("BadgeClass") %>"><%# Eval("ImageTag") %></div>
+                                <h3 class="catalog-card-title">
+                                    <a href='CourseDetail.aspx?id=<%# Eval("Id") %>'><%# Eval("Title") %></a>
+                                </h3>
+                            </div>
                             <p class="catalog-card-desc"><%# Eval("Description") %></p>
                         </div>
+
                         <!-- Footer -->
                         <div class="catalog-card-footer">
-                            <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
                                 <div class="catalog-card-meta">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                                     <span><%# Eval("LessonCount") %> lessons</span>

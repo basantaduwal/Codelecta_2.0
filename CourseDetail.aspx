@@ -70,7 +70,7 @@
                         </asp:Panel>
 
                         <asp:Panel ID="pnlEnroll" runat="server" Visible="false">
-                            <asp:Button ID="btnEnroll" runat="server" Text="Enroll Now — It's Free"
+                            <asp:Button ID="btnEnroll" runat="server" Text="Enroll Now - It's Free"
                                 CssClass="btn-primary detail-enroll-btn" OnClick="btnEnroll_Click" />
                             <p class="detail-enroll-note">Free access &middot; Self-paced &middot; No deadline</p>
                         </asp:Panel>

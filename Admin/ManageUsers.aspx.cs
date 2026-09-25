@@ -229,7 +229,7 @@ namespace Codelecta_2._0.Admin
                 case "professional":
                     return "<span style='padding:3px 10px; background:#EFF6FF; color:#1E40AF; border:1px solid #BFDBFE; border-radius:20px; font-size:0.75rem; font-weight:700;'>Professional</span>";
                 default:
-                    return "<span style='padding:3px 10px; background:#F8F7FF; color:#94A3B8; border:1px solid #EDE9FE; border-radius:20px; font-size:0.75rem; font-weight:600;'>—</span>";
+                    return "<span style='padding:3px 10px; background:#F8F7FF; color:#94A3B8; border:1px solid #EDE9FE; border-radius:20px; font-size:0.75rem; font-weight:600;'>-</span>";
             }
         }
 

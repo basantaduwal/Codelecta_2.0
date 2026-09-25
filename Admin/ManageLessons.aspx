@@ -59,7 +59,7 @@
         </div>
 
         <div style="margin-bottom: 18px;">
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Video Tutorial URL (YouTube or direct embed URL — optional)</label>
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Video Tutorial URL (YouTube or direct embed URL - optional)</label>
             <asp:TextBox ID="txtVideoUrl" runat="server" placeholder="e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 style="width: 100%; padding: 10px 14px; border: 1.5px solid #EDE9FE; border-radius: 8px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box;" />
             <span style="display: block; font-size: 0.76rem; color: #6C5CE7; margin-top: 4px; font-weight: 600;">
@@ -127,7 +127,7 @@
                         <td style="padding: 14px 16px;">
                             <%# !string.IsNullOrWhiteSpace(Convert.ToString(Eval("VideoUrl"))) 
                                 ? "<span style='padding: 3px 10px; background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; border-radius: 20px; font-size: 0.75rem; font-weight: 700;'>🎬 Video Attached</span>"
-                                : "<span style='color: #94A3B8; font-size: 0.78rem;'>—</span>" %>
+                                : "<span style='color: #94A3B8; font-size: 0.78rem;'>-</span>" %>
                         </td>
 
                         <!-- Content Preview -->

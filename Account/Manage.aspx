@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Profile & Settings" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="Codelecta_2._0.Account.Manage" %>
+<%@ Page Title="Profile & Settings" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="Codelecta_2._0.Account.Manage" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
@@ -62,9 +62,9 @@
                         <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px;">Programming Experience Level</label>
                         <asp:DropDownList ID="ddlExperienceLevel" runat="server"
                             style="width: 100%; padding: 11px 14px; border: 1.5px solid #EDE9FE; border-radius: 10px; font-size: 0.9rem; font-family: inherit; color: #1E1B4B; background: #FAFAFA; box-sizing: border-box; cursor: pointer;">
-                            <asp:ListItem Value="Beginner"     Text="Beginner — New to coding" />
-                            <asp:ListItem Value="Intermediate" Text="Intermediate — Basic coding knowledge" />
-                            <asp:ListItem Value="Professional" Text="Professional — Experienced developer" />
+                            <asp:ListItem Value="Beginner"     Text="Beginner - New to coding" />
+                            <asp:ListItem Value="Intermediate" Text="Intermediate - Basic coding knowledge" />
+                            <asp:ListItem Value="Professional" Text="Professional - Experienced developer" />
                         </asp:DropDownList>
                     </div>
 
