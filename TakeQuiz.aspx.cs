@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -30,16 +30,24 @@ namespace Codelecta_2._0
                 return;
             }
 
-            if (QuizId == 0)
-            {
-                Response.Redirect("Courses.aspx");
-                return;
-            }
-
             if (!IsPostBack)
             {
+                if (QuizId == 0)
+                {
+                    ShowQuizError("No assessment ID was specified. Please navigate to a course curriculum to select a quiz.");
+                    return;
+                }
+
                 LoadQuizData();
             }
+        }
+
+        private void ShowQuizError(string message)
+        {
+            pnlQuizError.Visible = true;
+            lblQuizErrorMessage.Text = message;
+            pnlQuizForm.Visible = false;
+            pnlResult.Visible = false;
         }
 
         private void LoadQuizData()
@@ -53,10 +61,12 @@ namespace Codelecta_2._0
 
                 if (quiz == null)
                 {
-                    Response.Redirect("Courses.aspx");
+                    ShowQuizError("The assessment you requested could not be found. It may have been updated or removed.");
                     return;
                 }
 
+                pnlQuizError.Visible = false;
+                pnlQuizForm.Visible = true;
                 lblCourseName.Text = quiz.Course != null ? quiz.Course.Title : "Course Assessment";
                 lnkBackCourse.HRef = "CourseDetail.aspx?id=" + quiz.CourseId;
                 lblQuizTitle.Text = quiz.Title;

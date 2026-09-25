@@ -105,6 +105,7 @@
         </div>
 
         <asp:Button ID="btnCreateQuiz" runat="server" Text="Create Quiz" OnClick="btnCreateQuiz_Click" ValidationGroup="QuizForm"
+            OnClientClick="if (typeof(Page_ClientValidate) === 'function' && !Page_ClientValidate('QuizForm')) return false; this.disabled=true; this.value='Creating Quiz...'; __doPostBack(this.name, ''); return false;"
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 

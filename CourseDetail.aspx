@@ -1,8 +1,25 @@
-﻿<%@ Page Title="Course Detail" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CourseDetail.aspx.cs" Inherits="Codelecta_2._0.CourseDetail" %>
+<%@ Page Title="Course Detail" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CourseDetail.aspx.cs" Inherits="Codelecta_2._0.CourseDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="detail-page">
 
+        <!-- ==================== COURSE NOT FOUND NOTICE ==================== -->
+        <asp:Panel ID="pnlCourseNotFound" runat="server" Visible="false" style="padding: 60px 20px;">
+            <div class="container" style="max-width: 600px; text-align: center; background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 50px 30px;">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px auto; font-size: 1.8rem; color: #DC2626;">
+                    🔍
+                </div>
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: #1E1B4B; margin: 0 0 10px 0;">Course Not Found</h2>
+                <p style="color: #64748B; font-size: 0.95rem; margin: 0 auto 24px auto; line-height: 1.6;">
+                    The course you are looking for does not exist or may have been updated. Explore our full catalog of programming tracks.
+                </p>
+                <a href="Courses.aspx" class="btn-primary" style="padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 8px;">
+                    &larr; Browse Course Catalog
+                </a>
+            </div>
+        </asp:Panel>
+
+        <asp:Panel ID="pnlCourseMain" runat="server">
         <!-- ==================== BREADCRUMB ==================== -->
         <div class="detail-breadcrumb">
             <div class="container">
@@ -143,6 +160,7 @@
                 </div>
             </asp:Panel>
         </div>
+        </asp:Panel>
 
     </div>
 </asp:Content>

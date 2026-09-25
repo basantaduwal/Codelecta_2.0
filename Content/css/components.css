@@ -133,3 +133,49 @@
     transition: all 0.3s ease;
     padding: 20px;
 }
+
+/* Accessibility & Focus-Visible Styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.chapter-card:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Button Disabled & Loading Micro-Interactions */
+.btn-primary:disabled,
+.btn-secondary:disabled,
+input[type="submit"]:disabled,
+button:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+    filter: grayscale(20%) !important;
+}
+
+/* Smooth Alert Banner Slide-Down */
+.alert-slide-in {
+    animation: alertSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes alertSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Touch-optimized horizontal scrolling */
+.touch-scroll-wrap {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
