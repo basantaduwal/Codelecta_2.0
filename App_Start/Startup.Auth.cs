@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -63,15 +63,15 @@ namespace Codelecta_2._0
             // Google OAuth
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = System.Configuration.ConfigurationManager.AppSettings["GoogleClientId"] ?? "685168048826-7b8p8cmg3nblitavshmiduph75si5sf4.apps.googleusercontent.com",
-                ClientSecret = System.Configuration.ConfigurationManager.AppSettings["GoogleClientSecret"] ?? "Something"
+                ClientId = System.Configuration.ConfigurationManager.AppSettings["GoogleClientId"],
+                ClientSecret = System.Configuration.ConfigurationManager.AppSettings["GoogleClientSecret"]
             });
 
             // GitHub OAuth
             app.UseGitHubAuthentication(new GitHubAuthenticationOptions()
             {
-                ClientId = System.Configuration.ConfigurationManager.AppSettings["GitHubClientId"] ?? "Ov23liYszndVcyDwaTDl",
-                ClientSecret = System.Configuration.ConfigurationManager.AppSettings["GitHubClientSecret"] ?? "YOUR_GITHUB_CLIENT_SECRET"
+                ClientId = System.Configuration.ConfigurationManager.AppSettings["GitHubClientId"],
+                ClientSecret = System.Configuration.ConfigurationManager.AppSettings["GitHubClientSecret"]
             });
         }
     }

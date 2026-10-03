@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Codelecta_2._0.Account
                     return;
                 }
                 // Request a redirect to the external login provider
-                string redirectUrl = ResolveUrl(String.Format(CultureInfo.InvariantCulture, "~/Account/RegisterExternalLogin?{0}={1}&returnUrl={2}", IdentityHelper.ProviderNameKey, provider, ReturnUrl));
+                string redirectUrl = new Uri(Request.Url, ResolveUrl(String.Format(CultureInfo.InvariantCulture, "~/Account/RegisterExternalLogin?{0}={1}&returnUrl={2}", IdentityHelper.ProviderNameKey, provider, ReturnUrl))).AbsoluteUri;
                 var properties = new AuthenticationProperties() { RedirectUri = redirectUrl };
                 // Add xsrf verification when linking accounts
                 if (Context.User.Identity.IsAuthenticated)
