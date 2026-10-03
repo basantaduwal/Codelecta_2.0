@@ -19,8 +19,15 @@ namespace Codelecta_2._0.Account
                 {
                     return;
                 }
+
+                // Log registered providers for debugging
+                var registeredProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
+                System.Diagnostics.Debug.WriteLine("[OAuth] Registered providers: " + string.Join(", ", registeredProviders.Select(p => p.AuthenticationType)));
+                System.Diagnostics.Debug.WriteLine("[OAuth] Challenging provider: " + provider);
+
                 // Request a redirect to the external login provider
                 string redirectUrl = new Uri(Request.Url, ResolveUrl(String.Format(CultureInfo.InvariantCulture, "~/Account/RegisterExternalLogin?{0}={1}&returnUrl={2}", IdentityHelper.ProviderNameKey, provider, ReturnUrl))).AbsoluteUri;
+                System.Diagnostics.Debug.WriteLine("[OAuth] RedirectUrl: " + redirectUrl);
                 var properties = new AuthenticationProperties() { RedirectUri = redirectUrl };
                 // Add xsrf verification when linking accounts
                 if (Context.User.Identity.IsAuthenticated)
