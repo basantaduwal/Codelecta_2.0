@@ -1,8 +1,6 @@
-/* ============================================================
    COURSES, CATALOG, LESSONS & PROGRESS
    (Home Page Top Courses, Learning Journey & Audience Grids)
    + CATALOG PAGE (Courses.aspx) & COURSE DETAIL (CourseDetail.aspx)
-   ============================================================ */
 
 /* ── Home Page Top Courses Grid ──────────────────────────── */
 .courses-section {
@@ -240,9 +238,7 @@
     margin: 0;
 }
 
-/* ============================================================
    COURSE CATALOG PAGE (Courses.aspx) & COURSE DETAIL (CourseDetail.aspx)
-   ============================================================ */
 
 /* ── Page ─────────────────────────────────────────────────── */
 .catalog-page {
@@ -641,9 +637,7 @@
     font-size: 1.05rem;
 }
 
-/* ============================================================
    COURSE DETAIL PAGE (CourseDetail.aspx)
-   ============================================================ */
 
 .detail-page {
     background: var(--bg-page);

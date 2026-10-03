@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="detail-page">
 
-        <!-- ==================== COURSE NOT FOUND NOTICE ==================== -->
+        <!-- COURSE NOT FOUND NOTICE -->
         <asp:Panel ID="pnlCourseNotFound" runat="server" Visible="false" style="padding: 60px 20px;">
             <div class="container" style="max-width: 600px; text-align: center; background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 50px 30px;">
                 <div style="width: 64px; height: 64px; border-radius: 50%; background: #FEE2E2; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px auto; font-size: 1.8rem; color: #DC2626;">
@@ -20,14 +20,14 @@
         </asp:Panel>
 
         <asp:Panel ID="pnlCourseMain" runat="server">
-        <!-- ==================== BREADCRUMB ==================== -->
+        <!-- BREADCRUMB -->
         <div class="detail-breadcrumb">
             <div class="container">
                 <a href="Courses" class="breadcrumb-link">&larr; Back to Courses</a>
             </div>
         </div>
 
-        <!-- ==================== COURSE HERO ==================== -->
+        <!-- COURSE HERO -->
         <div class="detail-hero">
             <div class="container">
                 <div class="detail-hero-inner">
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <!-- ==================== LESSON LIST ==================== -->
+        <!-- LESSON LIST -->
         <div class="container" style="padding-bottom: 80px;">
             <div class="detail-lessons-section">
                 <h2 class="detail-lessons-heading">Course Content</h2>
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- ==================== COURSE QUIZZES & ASSESSMENTS ==================== -->
+            <!-- COURSE QUIZZES & ASSESSMENTS -->
             <asp:Panel ID="pnlQuizzesSection" runat="server" Visible="false" style="margin-top: 40px;" CssClass="detail-lessons-section">
                 <h2 class="detail-lessons-heading">Knowledge Assessments & Quizzes</h2>
                 <p class="detail-lessons-sub">Test what you've learned and validate your programming proficiency.</p>

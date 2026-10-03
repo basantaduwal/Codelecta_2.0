@@ -1,6 +1,4 @@
-/* ============================================================
    BUTTONS, CARDS, BADGES & SHARED COMPONENTS
-   ============================================================ */
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -179,7 +177,7 @@ button:disabled {
     overflow-x: auto;
 }
 
-/* ==================== LEADERBOARD TEASER SECTION ==================== */
+/* LEADERBOARD TEASER SECTION */
 .leaderboard-teaser-section {
     padding: 80px 0;
     background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);

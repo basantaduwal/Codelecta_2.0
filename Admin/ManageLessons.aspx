@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP NAVIGATION / BREADCRUMB & COURSE SELECTOR ==================== -->
+    <!-- TOP NAVIGATION / BREADCRUMB & COURSE SELECTOR -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
         <div>
             <a href="ManageCourses.aspx" style="color: #6C5CE7; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
@@ -29,12 +29,12 @@
         </div>
     </div>
 
-    <!-- ==================== STATUS FEEDBACK ==================== -->
+    <!-- STATUS FEEDBACK -->
     <asp:Panel ID="pnlMessage" runat="server" Visible="false" style="margin-bottom: 24px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 0.9rem;">
         <asp:Label ID="lblActionMessage" runat="server" />
     </asp:Panel>
 
-    <!-- ==================== ADD / EDIT LESSON FORM ==================== -->
+    <!-- ADD / EDIT LESSON FORM -->
     <div class="admin-table-card" style="margin-bottom: 32px; padding: 32px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div>
@@ -88,7 +88,7 @@
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 
-    <!-- ==================== LESSONS LIST ==================== -->
+    <!-- LESSONS LIST -->
     <div class="admin-table-card">
         <div style="padding: 20px 24px 0; display: flex; align-items: center; justify-content: space-between;">
             <h3 style="font-size: 1.05rem; font-weight: 700; color: #1E1B4B; margin: 0;">

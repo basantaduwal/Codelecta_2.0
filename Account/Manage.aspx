@@ -4,7 +4,7 @@
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
         <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
 
-            <!-- ==================== HEADER BANNER ==================== -->
+            <!-- HEADER BANNER -->
             <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 36px; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
                 <div style="display: flex; align-items: center; gap: 20px;">
                     <!-- User Avatar -->
@@ -39,12 +39,12 @@
                 </div>
             </div>
 
-            <!-- ==================== STATUS FEEDBACK ==================== -->
+            <!-- STATUS FEEDBACK -->
             <asp:Panel ID="pnlStatusMessage" runat="server" Visible="false" style="margin-bottom: 24px; padding: 14px 20px; border-radius: 12px; font-weight: 600; font-size: 0.92rem;">
                 <asp:Label ID="lblStatusMessage" runat="server"></asp:Label>
             </asp:Panel>
 
-            <!-- ==================== PROFILE & SETTINGS FORMS ==================== -->
+            <!-- PROFILE & SETTINGS FORMS -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
 
                 <!-- 1. Edit Personal Details -->

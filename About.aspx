@@ -1,10 +1,10 @@
-﻿<%@ Page Title="About Us" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Codelecta_2._0.About" %>
+<%@ Page Title="About Us" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Codelecta_2._0.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main style="padding: 40px 0 80px 0; background: var(--bg-page);">
         <div class="container" style="max-width: 1060px; margin: 0 auto; padding: 0 24px;">
 
-            <!-- ==================== 1. HERO SECTION ==================== -->
+            <!-- 1. HERO SECTION -->
             <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; margin-bottom: 50px;">
                 <!-- Left Text -->
                 <div>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <!-- ==================== 2. WHAT IS CODELECTA CARD ==================== -->
+            <!-- 2. WHAT IS CODELECTA CARD -->
             <div style="background: #FFFFFF; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 10px 32px rgba(108, 92, 231, 0.06); padding: 44px 40px; margin-bottom: 44px;">
                 <div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center;">
                     <!-- Left: Description -->
@@ -185,7 +185,7 @@
                 </div>
             </div>
 
-            <!-- ==================== 3. MISSION CALLOUT BANNER ==================== -->
+            <!-- 3. MISSION CALLOUT BANNER -->
             <div style="background: linear-gradient(135deg, #F6F3FF 0%, #ECE7FF 100%); border-radius: 24px; border: 1px solid #DDD6FE; padding: 44px 36px; text-align: center; margin-bottom: 50px; box-shadow: var(--shadow-sm);">
                 <!-- Flag Icon -->
                 <div style="width: 46px; height: 46px; border-radius: 50%; background: #6C5CE7; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; box-shadow: 0 6px 18px rgba(108, 92, 231, 0.35);">
@@ -201,7 +201,7 @@
                 </p>
             </div>
 
-            <!-- ==================== 4. WHAT CODELECTA OFFERS ==================== -->
+            <!-- 4. WHAT CODELECTA OFFERS -->
             <div style="text-align: center; margin-bottom: 50px;">
                 <h2 style="font-size: 2.1rem; font-weight: 800; color: var(--text-primary); margin: 0 0 8px 0; letter-spacing: -0.02em;">What Codelecta Offers</h2>
                 <p style="color: var(--text-secondary); font-size: 0.98rem; margin: 0 0 34px 0;">Core features designed for effective, self-paced learning.</p>
@@ -263,7 +263,7 @@
                 </div>
             </div>
 
-            <!-- ==================== 5. LEARN AT YOUR OWN PACE (STEPPER) ==================== -->
+            <!-- 5. LEARN AT YOUR OWN PACE (STEPPER) -->
             <div style="background: #FFFFFF; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 44px 36px; margin-bottom: 50px; text-align: center;">
                 <h2 style="font-size: 1.95rem; font-weight: 800; color: var(--text-primary); margin: 0 0 36px 0; letter-spacing: -0.02em;">Learn at Your Own Pace</h2>
 
@@ -298,7 +298,7 @@
                 </div>
             </div>
 
-            <!-- ==================== 6. BOTTOM CTA ==================== -->
+            <!-- 6. BOTTOM CTA -->
             <div style="text-align: center; padding: 20px 0;">
                 <h2 style="font-size: 2.1rem; font-weight: 800; color: var(--text-primary); margin: 0 0 20px 0; letter-spacing: -0.02em;">Ready to Start Learning?</h2>
                 <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">

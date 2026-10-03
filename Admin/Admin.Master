@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="Codelecta_2._0.AdminMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="Codelecta_2._0.AdminMaster" %>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -18,13 +18,13 @@
     <form id="adminForm" runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
 
-        <!-- ==================== ADMIN LAYOUT WRAPPER ==================== -->
+        <!-- ADMIN LAYOUT WRAPPER -->
         <div class="admin-wrapper">
 
             <!-- Mobile Overlay -->
             <div class="admin-sidebar-overlay" id="sidebarOverlay" onclick="toggleAdminSidebar(false)"></div>
 
-            <!-- ==================== SIDEBAR ==================== -->
+            <!-- SIDEBAR -->
             <aside class="admin-sidebar" id="adminSidebar">
                 <div class="admin-sidebar-header">
                     <a runat="server" href="~/Admin/Dashboard" class="admin-brand">
@@ -151,7 +151,7 @@
                 </div>
             </aside>
 
-            <!-- ==================== MAIN CONTENT AREA ==================== -->
+            <!-- MAIN CONTENT AREA -->
             <div class="admin-main-area">
 
                 <!-- Top Header -->

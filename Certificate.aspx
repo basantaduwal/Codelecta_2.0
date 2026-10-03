@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Course Certificate" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Certificate.aspx.cs" Inherits="Codelecta_2._0.Certificate" %>
+<%@ Page Title="Course Certificate" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Certificate.aspx.cs" Inherits="Codelecta_2._0.Certificate" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
@@ -15,7 +15,7 @@
                 </button>
             </div>
 
-            <!-- ==================== CERTIFICATE CANVAS / CARD ==================== -->
+            <!-- CERTIFICATE CANVAS / CARD -->
             <div class="certificate-container" id="certificateNode" style="background: #FFFFFF; border-radius: 24px; padding: 60px 50px; border: 8px solid #F3F0FF; box-shadow: 0 20px 60px rgba(108, 92, 231, 0.15); text-align: center; position: relative; overflow: hidden;">
                 
                 <!-- Decorative Outer Gold & Purple Border -->

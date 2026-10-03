@@ -2,7 +2,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <main>
-        <!-- ==================== HERO SECTION (3D ISOMETRIC MODERN LIGHT THEME) ==================== -->
+        <!-- HERO SECTION (3D ISOMETRIC MODERN LIGHT THEME) -->
         <section class="hero-section" aria-labelledby="heroTitle">
             <div class="hero-container">
                 <!-- Left: Hero Content -->
@@ -240,7 +240,7 @@
             </div>
         </section>
 
-        <!-- ==================== FEATURES BAR SECTION ==================== -->
+        <!-- FEATURES BAR SECTION -->
         <section class="features-bar-section">
             <div class="container">
                 <div class="features-bar-card reveal">
@@ -303,7 +303,7 @@
             </div>
         </section>
 
-        <!-- ==================== TOP COURSES SECTION ==================== -->
+        <!-- TOP COURSES SECTION -->
         <section class="courses-section" aria-labelledby="coursesTitle">
             <div class="container">
                 <div class="section-header flex-header reveal">
@@ -384,7 +384,7 @@
             </div>
         </section>
 
-        <!-- ==================== LEARNING JOURNEY ==================== -->
+        <!-- LEARNING JOURNEY -->
         <section class="journey-section" aria-labelledby="journeyTitle">
             <div class="container">
                 <div class="section-header reveal">
@@ -411,7 +411,7 @@
             </div>
         </section>
 
-        <!-- ==================== TARGET AUDIENCE ==================== -->
+        <!-- TARGET AUDIENCE -->
         <section class="audience-section" aria-labelledby="audienceTitle">
             <div class="container">
                 <div class="section-header reveal">
@@ -444,7 +444,7 @@
             </div>
         </section>
 
-        <!-- ==================== CTA SECTION ==================== -->
+        <!-- CTA SECTION -->
         <section class="cta-section" aria-labelledby="ctaTitle">
             <div class="cta-content reveal">
                 <h2 id="ctaTitle">Ready to Start Coding?</h2>

@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP STATS ROW ==================== -->
+    <!-- TOP STATS ROW -->
     <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:28px;">
 
         <div class="admin-stat-card">
@@ -64,13 +64,13 @@
 
     </div>
 
-    <!-- ==================== STATUS MESSAGE ==================== -->
+    <!-- STATUS MESSAGE -->
     <asp:Panel ID="pnlMessage" runat="server" Visible="false"
         style="margin-bottom:18px; padding:13px 20px; border-radius:10px; font-weight:600; font-size:0.9rem;">
         <asp:Label ID="lblActionMessage" runat="server" />
     </asp:Panel>
 
-    <!-- ==================== FILTER BAR ==================== -->
+    <!-- FILTER BAR -->
     <div class="admin-table-card" style="margin-bottom:20px; padding:16px 22px;">
         <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
 
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <!-- ==================== USERS TABLE ==================== -->
+    <!-- USERS TABLE -->
     <div class="admin-table-card">
 
         <div style="padding:18px 22px 0; display:flex; align-items:center; justify-content:space-between;">

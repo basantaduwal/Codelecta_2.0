@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP METRICS ==================== -->
+    <!-- TOP METRICS -->
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px;">
         <div class="admin-stat-card">
             <div class="stat-icon-wrap" style="background: rgba(108, 92, 231, 0.12); color: #6C5CE7;">
@@ -48,12 +48,12 @@
         </div>
     </div>
 
-    <!-- ==================== STATUS FEEDBACK ==================== -->
+    <!-- STATUS FEEDBACK -->
     <asp:Panel ID="pnlMessage" runat="server" Visible="false" style="margin-bottom: 24px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 0.9rem;">
         <asp:Label ID="lblActionMessage" runat="server" />
     </asp:Panel>
 
-    <!-- ==================== CREATE / EDIT COURSE CARD ==================== -->
+    <!-- CREATE / EDIT COURSE CARD -->
     <div class="admin-table-card" style="margin-bottom: 32px; border-left: 4px solid var(--primary);">
         <div style="padding: 22px 28px; background: linear-gradient(180deg, #FAF9FF 0%, #FFFFFF 100%); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 14px;">
@@ -146,7 +146,7 @@
         </div>
     </div>
 
-    <!-- ==================== EXISTING COURSES TABLE ==================== -->
+    <!-- EXISTING COURSES TABLE -->
     <div class="admin-table-card">
         <div style="padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: #FFFFFF;">
             <div style="display: flex; align-items: center; gap: 12px;">

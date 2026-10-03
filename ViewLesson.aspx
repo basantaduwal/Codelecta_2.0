@@ -398,7 +398,7 @@
                     }
                 </style>
 
-                <!-- ==================== IN-LESSON INTERACTIVE CODE PLAYGROUND ==================== -->
+                <!-- IN-LESSON INTERACTIVE CODE PLAYGROUND -->
                 <div class="code-playground-box" style="background: #0F172A; border-radius: 16px; padding: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25); border: 1px solid #334155;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #1E293B; padding-bottom: 14px;">
                         <div style="display: flex; align-items: center; gap: 12px;">

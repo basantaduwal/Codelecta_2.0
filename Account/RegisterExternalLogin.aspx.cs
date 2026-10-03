@@ -30,14 +30,12 @@ namespace Codelecta_2._0.Account
 
         protected void Page_Load()
         {
-            // If the provider returned an error (e.g. user canceled: error=access_denied), redirect back cleanly
             if (!String.IsNullOrEmpty(Request.QueryString["error"]))
             {
                 RedirectOnFail();
                 return;
             }
 
-            // Process the result from an auth provider in the request
             ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
             if (String.IsNullOrEmpty(ProviderName))
             {
@@ -69,7 +67,6 @@ namespace Codelecta_2._0.Account
                 }
                 else if (User.Identity.IsAuthenticated)
                 {
-                    // Apply Xsrf check when linking
                     var verifiedloginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo(IdentityHelper.XsrfKey, User.Identity.GetUserId());
                     if (verifiedloginInfo == null)
                     {
@@ -91,15 +88,14 @@ namespace Codelecta_2._0.Account
                 else
                 {
                     email.Text = loginInfo.Email;
-                    // Attempt to pre-fill FullName from external claims if available
                     if (!String.IsNullOrEmpty(loginInfo.DefaultUserName))
                     {
                         fullName.Text = loginInfo.DefaultUserName;
                     }
                 }
             }
-        }        
-        
+        }
+
         protected void LogIn_Click(object sender, EventArgs e)
         {
             CreateAndLoginUser();
@@ -114,7 +110,6 @@ namespace Codelecta_2._0.Account
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-            // Check if user already exists with this email/username
             var existingUser = manager.FindByEmail(email.Text.Trim()) ?? manager.FindByName(email.Text.Trim());
             var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
             if (loginInfo == null)
@@ -125,7 +120,6 @@ namespace Codelecta_2._0.Account
 
             if (existingUser != null)
             {
-                // Link external login to the existing user account
                 var addLoginResult = manager.AddLogin(existingUser.Id, loginInfo.Login);
                 if (addLoginResult.Succeeded || existingUser.Logins.Any(l => l.LoginProvider == loginInfo.Login.LoginProvider && l.ProviderKey == loginInfo.Login.ProviderKey))
                 {
@@ -147,9 +141,9 @@ namespace Codelecta_2._0.Account
                 }
             }
 
-            var user = new ApplicationUser() 
-            { 
-                UserName = email.Text.Trim(), 
+            var user = new ApplicationUser()
+            {
+                UserName = email.Text.Trim(),
                 Email = email.Text.Trim(),
                 FullName = fullName.Text.Trim()
             };
@@ -168,9 +162,9 @@ namespace Codelecta_2._0.Account
             AddErrors(result);
         }
 
-        private void AddErrors(IdentityResult result) 
+        private void AddErrors(IdentityResult result)
         {
-            foreach (var error in result.Errors) 
+            foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error);
             }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Admin.Dashboard" %>
+<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Codelecta_2._0.Admin.Dashboard" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Dashboard
@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContentHolder" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== DASHBOARD WELCOME ==================== -->
+    <!-- DASHBOARD WELCOME -->
     <div class="admin-welcome-banner">
         <div>
             <h2 class="welcome-title">
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <!-- ==================== 4 STATISTICS CARDS ==================== -->
+    <!-- 4 STATISTICS CARDS -->
     <div class="admin-stats-grid">
         <!-- 1. Total Users -->
         <div class="admin-stat-card">
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <!-- ==================== ANALYTICS SECTION ==================== -->
+    <!-- ANALYTICS SECTION -->
     <div class="admin-analytics-grid">
         <!-- 1. Enrollment Overview Chart / Activity -->
         <div class="admin-card">
@@ -163,7 +163,7 @@
         </div>
     </div>
 
-    <!-- ==================== BOTTOM GRID: RECENT ACTIVITY & QUICK ACTIONS ==================== -->
+    <!-- BOTTOM GRID: RECENT ACTIVITY & QUICK ACTIONS -->
     <div class="admin-bottom-grid">
         <!-- Recent Activity -->
         <div class="admin-card">
@@ -267,7 +267,7 @@
         </div>
     </div>
 
-    <!-- ==================== RECENT ENROLLMENTS ==================== -->
+    <!-- RECENT ENROLLMENTS -->
     <div class="admin-card" style="margin-bottom: 28px;">
         <div class="card-header-row">
             <div>
@@ -332,7 +332,7 @@
         </asp:Panel>
     </div>
 
-    <!-- ==================== COURSE OVERVIEW TABLE ==================== -->
+    <!-- COURSE OVERVIEW TABLE -->
     <div class="admin-card">
         <div class="card-header-row">
             <div>

@@ -13,8 +13,6 @@ namespace Codelecta_2._0.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
-            // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
@@ -41,20 +39,15 @@ namespace Codelecta_2._0.Account
         {
             if (IsValid)
             {
-                // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
 
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        // Check if the user has completed the first-login onboarding experience
-                        var manager2 = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                        var loggedInUser = manager2.FindByName(Email.Text) as ApplicationUser;
+                        var loggedInUser = manager.FindByName(Email.Text) as ApplicationUser;
                         if (loggedInUser != null && !loggedInUser.OnboardingCompleted)
                         {
                             Response.Redirect("~/Onboarding");
@@ -68,7 +61,7 @@ namespace Codelecta_2._0.Account
                         Response.Redirect("/Account/Lockout");
                         break;
                     case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
+                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
                                                         Request.QueryString["ReturnUrl"],
                                                         RememberMe.Checked),
                                           true);

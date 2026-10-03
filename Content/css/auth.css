@@ -1,6 +1,4 @@
-/* ============================================================
    AUTH PAGES (Register / Login) & FORMS
-   ============================================================ */
 .auth-page-container {
     min-height: calc(100vh - 76px);
     display: flex;

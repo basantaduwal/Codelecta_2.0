@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="catalog-page">
 
-        <!-- ==================== PAGE HERO ==================== -->
+        <!-- PAGE HERO -->
         <div class="catalog-hero">
             <div class="container">
                 <div class="catalog-hero-inner">
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <!-- ==================== SEARCH & FILTER BAR ==================== -->
+        <!-- SEARCH & FILTER BAR -->
         <div class="catalog-filter-bar" style="background: #FFFFFF; border-bottom: 1px solid var(--border); padding: 18px 0;">
             <div class="container">
                 <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <!-- ==================== COURSES GRID ==================== -->
+        <!-- COURSES GRID -->
         <div class="container" style="padding-bottom: 80px; padding-top: 30px;">
 
             <!-- Personalised recommendation banner (only shown when logged in and level is set) -->

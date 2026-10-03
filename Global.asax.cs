@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,26 +16,19 @@ namespace Codelecta_2._0
     {
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         void Application_PostAuthenticateRequest(object sender, EventArgs e)
         {
-            // Only run the guard for authenticated users
             var context = HttpContext.Current;
             if (context == null || !context.Request.IsAuthenticated)
                 return;
 
-            // Normalize the path for comparison
             string path = context.Request.AppRelativeCurrentExecutionFilePath
                               ?.ToLowerInvariant() ?? string.Empty;
 
-            // Paths exempt from the onboarding guard:
-            //  - The onboarding page itself            (avoid redirect loop)
-            //  - Account pages (Login, Register, etc.) (avoid auth loop)
-            //  - Static/handler resources
             var exemptPrefixes = new[]
             {
                 "~/onboarding",
@@ -51,7 +44,6 @@ namespace Codelecta_2._0
             bool isExempt = exemptPrefixes.Any(prefix => path.StartsWith(prefix));
             if (isExempt) return;
 
-            // Look up the user's OnboardingCompleted flag
             try
             {
                 string userId = context.User.Identity.GetUserId();
@@ -68,11 +60,7 @@ namespace Codelecta_2._0
                     context.ApplicationInstance.CompleteRequest();
                 }
             }
-            catch
-            {
-                // Swallow any Identity/OWIN startup errors so the app doesn't crash
-                // before Startup.Auth has fully initialised
-            }
+            catch { }
         }
     }
-}
+}

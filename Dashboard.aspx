@@ -4,7 +4,7 @@
     <main style="padding: 40px 0 80px 0; background: var(--bg-page);">
         <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
 
-            <!-- ==================== WELCOME & STATS BANNER ==================== -->
+            <!-- WELCOME & STATS BANNER -->
             <div style="background: linear-gradient(135deg, #21094E 0%, #170638 50%, #0D0226 100%); border-radius: 24px; padding: 40px 44px; color: #FFFFFF; margin-bottom: 44px; box-shadow: 0 16px 40px rgba(33, 9, 78, 0.25); position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
                 <!-- Glow Blobs -->
                 <div style="position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%); pointer-events: none;"></div>
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <!-- ==================== 30-DAY ACTIVITY HEATMAP ==================== -->
+            <!-- 30-DAY ACTIVITY HEATMAP -->
             <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 28px 32px; margin-bottom: 36px;">
                 <!-- Header row -->
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 22px;">
@@ -117,7 +117,7 @@
                 </div>
             </div>
 
-            <!-- ==================== ENROLLED COURSES SECTION ==================== -->
+            <!-- ENROLLED COURSES SECTION -->
             <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
                 <div>
                     <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-primary); margin: 0 0 4px 0; letter-spacing: -0.02em;">My Enrolled Courses</h2>
@@ -190,7 +190,7 @@
                 </asp:Repeater>
             </div>
 
-            <!-- ==================== QUIZ & ASSESSMENT HISTORY ==================== -->
+            <!-- QUIZ & ASSESSMENT HISTORY -->
             <asp:Panel ID="pnlQuizHistory" runat="server" Visible="false" style="margin-top: 48px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <div>

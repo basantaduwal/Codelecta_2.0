@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Enrollments" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageEnrollments.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageEnrollments" %>
+<%@ Page Title="Manage Enrollments" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageEnrollments.aspx.cs" Inherits="Codelecta_2._0.Admin.ManageEnrollments" %>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Manage Enrollments
@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP STATS ROW ==================== -->
+    <!-- TOP STATS ROW -->
     <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 28px;">
         <div class="admin-stat-card">
             <div class="stat-icon-wrap" style="background: rgba(108, 92, 231, 0.12); color: #6C5CE7;">
@@ -61,12 +61,12 @@
         </div>
     </div>
 
-    <!-- ==================== STATUS MESSAGE ==================== -->
+    <!-- STATUS MESSAGE -->
     <asp:Panel ID="pnlMessage" runat="server" Visible="false" style="margin-bottom: 20px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 0.9rem;">
         <asp:Label ID="lblActionMessage" runat="server" />
     </asp:Panel>
 
-    <!-- ==================== MANUAL ENROLLMENT CARD ==================== -->
+    <!-- MANUAL ENROLLMENT CARD -->
     <div class="admin-table-card" style="margin-bottom: 28px; padding: 26px;">
         <h3 style="font-size: 1.05rem; font-weight: 800; color: #1E1B4B; margin: 0 0 18px 0;">Manually Enroll Student</h3>
         
@@ -88,7 +88,7 @@
         </div>
     </div>
 
-    <!-- ==================== SEARCH & FILTER ==================== -->
+    <!-- SEARCH & FILTER -->
     <div class="admin-table-card" style="margin-bottom: 20px; padding: 16px 22px;">
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 220px; position: relative;">
@@ -114,7 +114,7 @@
         </div>
     </div>
 
-    <!-- ==================== ENROLLMENTS TABLE ==================== -->
+    <!-- ENROLLMENTS TABLE -->
     <div class="admin-table-card">
         <div style="padding: 18px 22px 0; display: flex; align-items: center; justify-content: space-between;">
             <h3 style="font-size: 1rem; font-weight: 700; color: #1E1B4B; margin: 0;">

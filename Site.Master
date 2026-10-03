@@ -19,7 +19,7 @@
         <asp:ScriptManager runat="server">
         </asp:ScriptManager>
 
-        <!-- ==================== CODELECTA NAVIGATION ==================== -->
+        <!-- CODELECTA NAVIGATION -->
         <header class="codelecta-nav" id="mainNav">
             <div class="nav-container">
                 <a class="nav-brand" runat="server" href="~/">
@@ -145,13 +145,13 @@
             });
         </script>
 
-        <!-- ==================== MAIN CONTENT PLACEHOLDER ==================== -->
+        <!-- MAIN CONTENT PLACEHOLDER -->
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
-        <!-- ==================== CODELECTA FOOTER ==================== -->
+        <!-- CODELECTA FOOTER -->
         <footer class="codelecta-footer">
             <div class="footer-container">
                 <div class="footer-top">

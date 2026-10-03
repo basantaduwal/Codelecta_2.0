@@ -4,7 +4,7 @@
     <main style="padding: 40px 0 80px 0; background: var(--bg-page);">
         <div class="container" style="max-width: 1060px; margin: 0 auto; padding: 0 24px;">
             
-            <!-- ==================== TOP HERO SECTION ==================== -->
+            <!-- TOP HERO SECTION -->
             <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; margin-bottom: 48px;">
                 <!-- Left Text -->
                 <div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <!-- ==================== MAIN FORM & SUPPORT CARD ==================== -->
+            <!-- MAIN FORM & SUPPORT CARD -->
             <div style="background: #FFFFFF; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 12px 36px rgba(108, 92, 231, 0.07); padding: 44px 40px; margin-bottom: 70px;">
                 <div style="display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 44px; align-items: start;">
                     
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <!-- ==================== FAQ SECTION ==================== -->
+            <!-- FAQ SECTION -->
             <div style="max-width: 760px; margin: 0 auto; text-align: center;">
                 <h2 style="font-size: 2.1rem; font-weight: 800; color: var(--text-primary); margin: 0 0 8px 0; letter-spacing: -0.02em;">Frequently Asked Questions</h2>
                 <p style="color: var(--text-secondary); font-size: 0.98rem; margin: 0 0 36px 0;">Quick answers to common questions about Codelecta.</p>

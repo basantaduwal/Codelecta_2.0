@@ -4,7 +4,7 @@
     <div style="background: var(--bg-page); min-height: calc(100vh - 76px); padding: 40px 0 80px 0;">
         <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 24px;">
 
-            <!-- ==================== PAGE HEADER ==================== -->
+            <!-- PAGE HEADER -->
             <div style="background: linear-gradient(135deg, #21094E 0%, #170638 50%, #0D0226 100%); border-radius: 24px; padding: 44px 48px; color: #FFFFFF; margin-bottom: 44px; box-shadow: 0 16px 40px rgba(33,9,78,0.25); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
                 <div style="position: absolute; top: -50px; right: -50px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); pointer-events: none;"></div>
                 <div style="position: absolute; bottom: -40px; left: -40px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%); pointer-events: none;"></div>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <!-- ==================== YOUR RANK BANNER (logged in only) ==================== -->
+            <!-- YOUR RANK BANNER (logged in only) -->
             <asp:Panel ID="pnlYourRank" runat="server" Visible="false">
                 <div style="background: #FFFFFF; border: 2px solid #DDD6FE; border-radius: 16px; padding: 20px 28px; margin-bottom: 28px; display: flex; align-items: center; gap: 20px; box-shadow: 0 4px 16px rgba(108,92,231,0.08); flex-wrap: wrap;">
                     <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #6C5CE7, #A855F7); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
@@ -49,7 +49,7 @@
                 </div>
             </asp:Panel>
 
-            <!-- ==================== LEADERBOARD TABLE ==================== -->
+            <!-- LEADERBOARD TABLE -->
             <asp:Panel ID="pnlLeaderboard" runat="server">
                 <div style="background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden;">
                     <div style="padding: 24px 28px 16px; border-bottom: 1px solid #F1F0FB;">

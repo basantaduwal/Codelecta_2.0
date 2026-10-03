@@ -6,7 +6,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ==================== TOP STATS ROW ==================== -->
+    <!-- TOP STATS ROW -->
     <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 28px;">
         <div class="admin-stat-card">
             <div class="stat-icon-wrap" style="background: rgba(108, 92, 231, 0.12); color: #6C5CE7;">
@@ -62,12 +62,12 @@
         </div>
     </div>
 
-    <!-- ==================== STATUS FEEDBACK ==================== -->
+    <!-- STATUS FEEDBACK -->
     <asp:Panel ID="pnlMessage" runat="server" Visible="false" style="margin-bottom: 20px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 0.9rem;">
         <asp:Label ID="lblActionMessage" runat="server" />
     </asp:Panel>
 
-    <!-- ==================== CREATE / EDIT QUIZ FORM ==================== -->
+    <!-- CREATE / EDIT QUIZ FORM -->
     <div class="admin-table-card" style="margin-bottom: 28px; padding: 28px;">
         <h3 style="font-size: 1.1rem; font-weight: 800; color: #1E1B4B; margin: 0 0 20px 0;">Create New Quiz</h3>
         
@@ -109,7 +109,7 @@
             style="padding: 11px 28px; background: linear-gradient(135deg, #6C5CE7, #A855F7); color: #FFFFFF; border: none; border-radius: 8px; font-weight: 700; font-size: 0.92rem; cursor: pointer; box-shadow: 0 4px 14px rgba(108, 92, 231, 0.25);" />
     </div>
 
-    <!-- ==================== EXISTING QUIZZES LIST ==================== -->
+    <!-- EXISTING QUIZZES LIST -->
     <div class="admin-table-card">
         <div style="padding: 20px 24px 0; display: flex; align-items: center; justify-content: space-between;">
             <h3 style="font-size: 1.05rem; font-weight: 700; color: #1E1B4B; margin: 0;">
