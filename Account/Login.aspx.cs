@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
@@ -20,6 +20,20 @@ namespace Codelecta_2._0.Account
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+            }
+
+            if (!IsPostBack && !String.IsNullOrEmpty(Request.QueryString["error"]))
+            {
+                string error = Request.QueryString["error"];
+                if (error.Equals("access_denied", StringComparison.OrdinalIgnoreCase))
+                {
+                    FailureText.Text = "External login was canceled or access was denied.";
+                }
+                else
+                {
+                    FailureText.Text = "An error occurred during external login: " + Server.HtmlEncode(error);
+                }
+                ErrorMessage.Visible = true;
             }
         }
 
